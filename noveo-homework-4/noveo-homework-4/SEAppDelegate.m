@@ -28,7 +28,7 @@
     NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
     NSString *serializedObject = [SEContainerSerializer serialize:myDictionary error:&error];
     if (serializedObject && &error) {
-        NSLog(@"Object has been serialized: \n%@",[NSString tabulatedStringFromString:serializedObject withSpaces:@"  "]);
+        NSLog(@"Object has been serialized: \n%@",[NSString tabulatedStringFromString:serializedObject withSpaces:@"    "]);
     }
     else {
         NSLog(@"Serialize error has been occured!\nError code:%d\nError Domain:%@\n",[error code], [error domain]);

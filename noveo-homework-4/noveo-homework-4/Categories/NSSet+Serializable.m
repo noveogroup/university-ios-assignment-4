@@ -16,9 +16,11 @@
     // Enumerate with fast enumeration
     NSString *tempString = nil;
     for (id currentObject in self) {
+        // Every iteration check for nil
         if ((tempString = [currentObject serialize:anError])) {
             [jsonString appendString:tempString];
         }
+        // Return nil
         else {
             jsonString = nil;
             return jsonString;
