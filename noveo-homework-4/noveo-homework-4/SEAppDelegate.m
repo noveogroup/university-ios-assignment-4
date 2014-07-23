@@ -23,10 +23,12 @@
     
     NSError *__autoreleasing error = nil;
     NSValue *myValue = [NSValue valueWithCGRect:CGRectMake(2.5, 2.5, 5.0, 7.0)];
-    // NSValue *myValue = [NSValue valueWithCGPoint:CGPointMake(2.0, 5.7)];
-    NSString *serializedObject = [SEContainerSerializer serialize:myValue error:&error];
+    NSArray *myArray = [NSArray arrayWithObjects:@(3), @(2), @(1), myValue, nil];
+    NSArray *myKeysArray = [NSArray arrayWithObjects:@"Key 3", @"Key 2", @"Key 1", @"Key myValue", nil];
+    NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
+    NSString *serializedObject = [SEContainerSerializer serialize:myDictionary error:&error];
     if (serializedObject && &error) {
-        NSLog(@"Object has been serialized: \n%@",serializedObject);
+        NSLog(@"Object has been serialized: \n%@",[NSString tabulatedStringFromString:serializedObject withSpaces:@"  "]);
     }
     else {
         NSLog(@"Serialize error has been occured!\nError code:%d\nError Domain:%@\n",[error code], [error domain]);

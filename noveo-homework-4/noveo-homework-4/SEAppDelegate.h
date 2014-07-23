@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SEContainerSerializer.h"
+#import "NSString+Tabulateble.h"
 
 @interface SEAppDelegate : UIResponder <UIApplicationDelegate>
 

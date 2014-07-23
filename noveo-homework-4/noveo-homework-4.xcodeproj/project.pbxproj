@@ -28,6 +28,7 @@
 		CEE11E18197FE0E3003D0CD6 /* NSSet+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E17197FE0E3003D0CD6 /* NSSet+Serializable.m */; };
 		CEE11E1B197FE100003D0CD6 /* NSNumber+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E1A197FE100003D0CD6 /* NSNumber+Serializable.m */; };
 		CEE11E1E197FE123003D0CD6 /* NSValue+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E1D197FE123003D0CD6 /* NSValue+Serializable.m */; };
+		CEE11E2119802D25003D0CD6 /* NSString+Tabulateble.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E2019802D25003D0CD6 /* NSString+Tabulateble.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		CEE11E1A197FE100003D0CD6 /* NSNumber+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+Serializable.m"; path = "Categories/NSNumber+Serializable.m"; sourceTree = "<group>"; };
 		CEE11E1C197FE123003D0CD6 /* NSValue+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Serializable.h"; path = "Categories/NSValue+Serializable.h"; sourceTree = "<group>"; };
 		CEE11E1D197FE123003D0CD6 /* NSValue+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Serializable.m"; path = "Categories/NSValue+Serializable.m"; sourceTree = "<group>"; };
+		CEE11E1F19802D25003D0CD6 /* NSString+Tabulateble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Tabulateble.h"; path = "Categories/NSString+Tabulateble.h"; sourceTree = "<group>"; };
+		CEE11E2019802D25003D0CD6 /* NSString+Tabulateble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tabulateble.m"; path = "Categories/NSString+Tabulateble.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 		CEE11E0F197FD223003D0CD6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CEE11E1F19802D25003D0CD6 /* NSString+Tabulateble.h */,
+				CEE11E2019802D25003D0CD6 /* NSString+Tabulateble.m */,
 				CEE11E10197FD2D2003D0CD6 /* NSDictionary+Serializable.h */,
 				CEE11E11197FD2D2003D0CD6 /* NSDictionary+Serializable.m */,
 				CEE11E13197FE0C1003D0CD6 /* NSArray+Serializable.h */,
@@ -301,6 +306,7 @@
 				CEE11E12197FD2D2003D0CD6 /* NSDictionary+Serializable.m in Sources */,
 				CEE11DE5197FCA65003D0CD6 /* main.m in Sources */,
 				CEE11DEC197FCA65003D0CD6 /* noveo_homework_4.xcdatamodeld in Sources */,
+				CEE11E2119802D25003D0CD6 /* NSString+Tabulateble.m in Sources */,
 				CEE11E0E197FCC83003D0CD6 /* SEContainerSerializer.m in Sources */,
 				CEE11E1E197FE123003D0CD6 /* NSValue+Serializable.m in Sources */,
 				CEE11E1B197FE100003D0CD6 /* NSNumber+Serializable.m in Sources */,

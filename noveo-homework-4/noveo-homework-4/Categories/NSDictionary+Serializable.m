@@ -11,7 +11,25 @@
 @implementation NSDictionary (Serializable)
 
 - (NSString *)serialize:(NSError *__autoreleasing*)anError {
-    return @"NSDictionary serialized";
+    // String for serialized NSDictionary
+    NSMutableString *jsonString = [NSMutableString stringWithString:@"<NSDictionary>\n"];
+    // Get enumerating array with keys
+    NSArray *selfKeys = [self allKeys];
+    // Enumerate with fast enumeration
+    NSString *tempString = nil;
+    for (NSString *currentKey in selfKeys) {
+        if ((tempString = [[self objectForKey:currentKey]serialize:anError])) {
+            [jsonString appendString:[NSString stringWithFormat:@"Key: \"%@\"\n",currentKey]];
+            [jsonString appendString:tempString];
+        }
+        else {
+            jsonString = nil;
+            return jsonString;
+        }
+    }
+    // Check for serialize error
+    [jsonString appendString:@"</NSDictionary>"];
+    return jsonString;
 }
 
 @end
