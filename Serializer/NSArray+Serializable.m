@@ -17,6 +17,8 @@
 		}
 	}
 
+	[result appendString:@"]\n"];
+
 	return result;
 }
 
