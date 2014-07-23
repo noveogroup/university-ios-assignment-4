@@ -192,10 +192,10 @@
 				CEE11E14197FE0C1003D0CD6 /* NSArray+Serializable.m */,
 				CEE11E16197FE0E3003D0CD6 /* NSSet+Serializable.h */,
 				CEE11E17197FE0E3003D0CD6 /* NSSet+Serializable.m */,
-				CEE11E19197FE100003D0CD6 /* NSNumber+Serializable.h */,
-				CEE11E1A197FE100003D0CD6 /* NSNumber+Serializable.m */,
 				CEE11E1C197FE123003D0CD6 /* NSValue+Serializable.h */,
 				CEE11E1D197FE123003D0CD6 /* NSValue+Serializable.m */,
+				CEE11E19197FE100003D0CD6 /* NSNumber+Serializable.h */,
+				CEE11E1A197FE100003D0CD6 /* NSNumber+Serializable.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";

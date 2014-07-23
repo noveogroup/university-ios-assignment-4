@@ -10,4 +10,9 @@
 
 @implementation NSSet (Serializable)
 
+- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+    return @"NSSet serialized";
+}
+
+
 @end

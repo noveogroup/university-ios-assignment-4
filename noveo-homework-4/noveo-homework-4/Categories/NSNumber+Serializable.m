@@ -10,4 +10,10 @@
 
 @implementation NSNumber (Serializable)
 
+- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+    // Just return correct value
+    return [NSString stringWithFormat:@"<NSNumber>\n%@\n</NSNumber>\n",[self description]];
+}
+
+
 @end

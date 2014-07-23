@@ -22,7 +22,9 @@
     [self.window makeKeyAndVisible];
     
     NSError *__autoreleasing error = nil;
-    NSString *serializedObject = [SEContainerSerializer serialize:[NSDictionary dictionary] error:&error];
+    NSValue *myValue = [NSValue valueWithCGRect:CGRectMake(2.5, 2.5, 5.0, 7.0)];
+    // NSValue *myValue = [NSValue valueWithCGPoint:CGPointMake(2.0, 5.7)];
+    NSString *serializedObject = [SEContainerSerializer serialize:myValue error:&error];
     if (serializedObject && &error) {
         NSLog(@"Object has been serialized: \n%@",serializedObject);
     }

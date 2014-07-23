@@ -13,13 +13,15 @@
 @implementation SEContainerSerializer
 
 + (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) anError {
+    NSString *jsonString = nil;
     if ([sourceObject respondsToSelector:@selector(serialize:)]) {
-        return [sourceObject serialize:anError];
+        jsonString = [sourceObject serialize:anError];
     }
     else {
         *anError = [NSError errorWithDomain:@"com.se.containerSerializer" code:1 userInfo:[NSDictionary dictionary]];
         return nil;
     }
+    return jsonString;
 }
 
 

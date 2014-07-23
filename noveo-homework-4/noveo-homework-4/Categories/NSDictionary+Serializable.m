@@ -11,7 +11,7 @@
 @implementation NSDictionary (Serializable)
 
 - (NSString *)serialize:(NSError *__autoreleasing*)anError {
-    return @"Dictionary serialized";
+    return @"NSDictionary serialized";
 }
 
 @end

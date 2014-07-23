@@ -10,4 +10,9 @@
 
 @implementation NSArray (Serializable)
 
+- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+    return @"NSArray serialized";
+}
+
+
 @end
