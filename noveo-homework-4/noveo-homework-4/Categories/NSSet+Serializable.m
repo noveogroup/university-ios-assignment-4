@@ -29,7 +29,9 @@
         }
         // Return error if we have none-serialized object
         else {
-            *anError = [NSError errorWithDomain:@"com.se.NSSet+Serializable" code:serializeErrorCodeObjectCantBeSerialized userInfo:[NSDictionary dictionary]];
+            *anError = [NSError errorWithDomain:@"com.se.NSSet+Serializable"
+                                           code:serializeErrorCodeObjectCantBeSerialized
+                                       userInfo:[NSDictionary dictionary]];
             return nil;
         }
     }

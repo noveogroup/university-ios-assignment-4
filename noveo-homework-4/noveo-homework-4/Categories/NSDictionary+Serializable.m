@@ -31,13 +31,15 @@
             }
         }
         else {
-            *anError = [NSError errorWithDomain:@"com.se.NSDictionaty+Serializable" code:serializeErrorCodeObjectCantBeSerialized userInfo:[NSDictionary dictionary]];
+            *anError = [NSError errorWithDomain:@"com.se.NSDictionaty+Serializable"
+                                           code:serializeErrorCodeObjectCantBeSerialized
+                                       userInfo:[NSDictionary dictionary]];
             return nil;
         }
         
     }
     // Check for serialize error
-    [jsonString appendString:@"</NSDictionary>"];
+    [jsonString appendString:@"</NSDictionary> "];
     return jsonString;
 }
 

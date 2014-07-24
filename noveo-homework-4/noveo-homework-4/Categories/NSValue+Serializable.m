@@ -17,10 +17,13 @@
     NSRange testRange = [testString rangeOfString:@"NSRect:"];
     if (testRange.location == NSNotFound) {
         // Do serialize object error
-         *anError = [NSError errorWithDomain:@"com.se.NSValue+Serializable" code:serializeErrorCodeObjectCantBeSerialized userInfo:[NSDictionary dictionary]];
+         *anError = [NSError errorWithDomain:@"com.se.NSValue+Serializable"
+                                        code:serializeErrorCodeObjectCantBeSerialized
+                                    userInfo:[NSDictionary dictionary]];
         return nil;
     }
-    return [NSString stringWithFormat:@"<NSValue>\n<NSRect>\n%@\n</NSRect>\n</NSValue>\n",[testString substringFromIndex:[@"NSRect: " length]]];
+    return [NSString stringWithFormat:@"<NSValue>\n<NSRect>\n%@\n</NSRect>\n</NSValue>\n",
+            [testString substringFromIndex:[@"NSRect: " length]]];
 }
 
 

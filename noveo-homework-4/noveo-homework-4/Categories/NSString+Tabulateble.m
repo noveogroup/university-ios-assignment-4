@@ -19,7 +19,9 @@
     // Count for space_tabs in __block init by 0
     NSInteger __block spacesCount = 0;
     // Start enumerating via sourceString by Lines
-    [sourceString enumerateSubstringsInRange:NSMakeRange(0, [sourceString length]-1) options:NSStringEnumerationByLines usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+    [sourceString enumerateSubstringsInRange:NSMakeRange(0, [sourceString length]-1)
+                                     options:NSStringEnumerationByLines
+                                  usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         [destinationString appendString:[NSString stringWithFormat:@"%@\n",substring]];
         // Check for special symbols
         NSRange openTag = [substring rangeOfString:@">"];
@@ -32,11 +34,13 @@
         // Handle tag close
         if (closeTag.location!=NSNotFound) {
             spacesCount--;
-            [destinationString deleteCharactersInRange:NSMakeRange([destinationString length]-[substring length]-[spaces length]-1, [spaces length])];
+            [destinationString deleteCharactersInRange:NSMakeRange([destinationString length]-[substring length]-
+                                                                   [spaces length]-1, [spaces length])];
         }
         // Handle quotes
-        if (quotesTag.location!=NSNotFound) {
-            [destinationString insertString:@"\n" atIndex:[destinationString length]-[substring length]-[spaces length]*spacesCount-1];
+        if (quotesTag.location!=NSNotFound ) {
+            [destinationString insertString:@"\n" atIndex:[destinationString length]-[substring length]-
+             [spaces length]*spacesCount-1];
         }
         // Can we use blocks into blocks? Leave this question bis morning.
         for (NSInteger i = 0; i<spacesCount; i++) {
