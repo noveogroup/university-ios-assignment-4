@@ -16,6 +16,7 @@
 		58603A6DAC4FC645A9B6F593 /* NSSet+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603446927A8E3484B7F33D /* NSSet+Serializable.m */; };
 		58603AB61FC409E69E523853 /* NSArray+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 586038DF2AC05ED18A116E50 /* NSArray+Serializable.m */; };
 		58603CD9840AB2CA8345D553 /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603F6ED832D13FC88561EC /* Serializer.m */; };
+		58603D720A38E7023EE9625D /* CheckingSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 586035782EAA090FB25F592A /* CheckingSerializer.m */; };
 		58603DA0653DACDF166C09B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 586035911C9D6C00ABFBA11F /* InfoPlist.strings */; };
 		58603DA74FF1B00135C5F357 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603326E47F5A60A6089E6D /* main.m */; };
 		58603F1B3BD099C064B44F73 /* NSNull+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603941338380811E57FB96 /* NSNull+Serializable.m */; };
@@ -41,11 +42,13 @@
 
 /* Begin PBXFileReference section */
 		586030B7441B1142936377EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		586031114C81AF8377975533 /* CheckingSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckingSerializer.h; sourceTree = "<group>"; };
 		5860315D7E34428776607017 /* NSArray+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serializable.h"; sourceTree = "<group>"; };
 		58603178BCB2E72FF7032FEC /* NSNumber+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serializable.m"; sourceTree = "<group>"; };
 		58603326E47F5A60A6089E6D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58603446927A8E3484B7F33D /* NSSet+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serializable.m"; sourceTree = "<group>"; };
 		58603519FB68C5A962F69A8F /* Serializeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializeable.h; sourceTree = "<group>"; };
+		586035782EAA090FB25F592A /* CheckingSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckingSerializer.m; sourceTree = "<group>"; };
 		58603625EC761A31E46CB9B2 /* Serializer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Serializer-Info.plist"; sourceTree = "<group>"; };
 		5860379C487C2F71393BD56C /* NSDictionary+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serializable.h"; sourceTree = "<group>"; };
 		5860381A1CF405135C6D0FE5 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				58603BFD4C70699A15666931 /* Constants.m */,
 				58603C3A45BBEBD0B484133E /* Constants.h */,
 				586034C9CB7A7461195C90C8 /* Serializeables */,
+				586035782EAA090FB25F592A /* CheckingSerializer.m */,
+				586031114C81AF8377975533 /* CheckingSerializer.h */,
 			);
 			path = Serializer;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				5860330FD93C320EDD2284B7 /* NSNumber+Serializable.m in Sources */,
 				58603A6DAC4FC645A9B6F593 /* NSSet+Serializable.m in Sources */,
 				5860332745DD24C82D097467 /* NSValue+Serializable.m in Sources */,
+				58603D720A38E7023EE9625D /* CheckingSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
