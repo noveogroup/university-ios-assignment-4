@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58603087FCD5C0C333A5BB8F /* NSString+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603BCC8D2D1D96BF2CB056 /* NSString+Serializable.m */; };
 		5860330FD93C320EDD2284B7 /* NSNumber+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603178BCB2E72FF7032FEC /* NSNumber+Serializable.m */; };
 		5860332745DD24C82D097467 /* NSValue+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603E484B3DCD69554C1DAD /* NSValue+Serializable.m */; };
 		5860347AB16E8C46097F89A9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603BFD4C70699A15666931 /* Constants.m */; };
@@ -47,6 +48,7 @@
 		58603178BCB2E72FF7032FEC /* NSNumber+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serializable.m"; sourceTree = "<group>"; };
 		58603326E47F5A60A6089E6D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58603446927A8E3484B7F33D /* NSSet+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serializable.m"; sourceTree = "<group>"; };
+		5860346FC272460FDE4ACFC4 /* NSString+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Serializable.h"; sourceTree = "<group>"; };
 		58603519FB68C5A962F69A8F /* Serializeable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializeable.h; sourceTree = "<group>"; };
 		586035782EAA090FB25F592A /* CheckingSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckingSerializer.m; sourceTree = "<group>"; };
 		58603625EC761A31E46CB9B2 /* Serializer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "Serializer-Info.plist"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		58603A5BCFEDFD92B122C825 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		58603A80D269F1C5C24C3BBD /* NSNull+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serializable.h"; sourceTree = "<group>"; };
 		58603AC87E44FAB6A505781F /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
+		58603BCC8D2D1D96BF2CB056 /* NSString+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Serializable.m"; sourceTree = "<group>"; };
 		58603BFD4C70699A15666931 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		58603C3A45BBEBD0B484133E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		58603CF24905258A963F0DAD /* NSDictionary+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serializable.m"; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				58603E484B3DCD69554C1DAD /* NSValue+Serializable.m */,
 				586038818DDB9C208E84823E /* NSValue+Serializable.h */,
 				58603519FB68C5A962F69A8F /* Serializeable.h */,
+				58603BCC8D2D1D96BF2CB056 /* NSString+Serializable.m */,
+				5860346FC272460FDE4ACFC4 /* NSString+Serializable.h */,
 			);
 			path = Serializeables;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				58603A6DAC4FC645A9B6F593 /* NSSet+Serializable.m in Sources */,
 				5860332745DD24C82D097467 /* NSValue+Serializable.m in Sources */,
 				58603D720A38E7023EE9625D /* CheckingSerializer.m in Sources */,
+				58603087FCD5C0C333A5BB8F /* NSString+Serializable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
