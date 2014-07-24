@@ -7,7 +7,7 @@
 //
 
 #import "NSArray+Serializable.h"
-
+#import "SEContainerSerializer.h"
 
 @implementation NSArray (Serializable)
 

@@ -7,6 +7,8 @@
 //
 
 #import "SEAppDelegate.h"
+#import "SEContainerSerializer.h"
+#import "NSString+Tabulateble.h"
 
 @implementation SEAppDelegate
 
@@ -23,8 +25,8 @@
     
     NSError *__autoreleasing error = nil;
     NSValue *myValue = [NSValue valueWithCGRect:CGRectMake(2.5, 2.5, 5.0, 7.0)];
-    NSArray *myArray = [NSArray arrayWithObjects:@(3), @(2), @(1), myValue, [NSNull null], nil];
-    NSArray *myKeysArray = [NSArray arrayWithObjects:@"Key 3", @"Key 2", @"Key 1", @"Key myValue", @"Key NullValue", nil];
+    NSArray *myArray = @[@(3), @(2), @(1), myValue, [NSNull null]];
+    NSArray *myKeysArray = @[@"Key 3", @"Key 2", @"Key 1", @"Key myValue", @"Key NullValue"];
     NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
     NSString *serializedObject = [SEContainerSerializer serialize:myDictionary error:&error];
     if (serializedObject && !error) {
@@ -33,7 +35,6 @@
     else {
         NSLog(@"Serialize error has been occured:\n%@",[error description]);
     }
-    
     return YES;
 }
 

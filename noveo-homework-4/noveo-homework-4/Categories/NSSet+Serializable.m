@@ -7,6 +7,7 @@
 //
 
 #import "NSSet+Serializable.h"
+#import "SEContainerSerializer.h"
 
 @implementation NSSet (Serializable)
 

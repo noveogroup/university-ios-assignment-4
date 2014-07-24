@@ -7,6 +7,7 @@
 //
 
 #import "NSValue+Serializable.h"
+#import "SEContainerSerializer.h"
 
 @implementation NSValue (Serializable)
 

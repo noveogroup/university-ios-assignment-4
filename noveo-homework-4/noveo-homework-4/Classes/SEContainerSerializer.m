@@ -7,8 +7,10 @@
 //
 
 #import "SEContainerSerializer.h"
+#import "NSDictionary+Serializable.h"
 
 @implementation SEContainerSerializer
+
 
 + (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) error {
     NSString *xmlString = nil;

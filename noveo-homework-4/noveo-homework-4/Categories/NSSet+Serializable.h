@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SEContainerSerializer.h"
 
 @interface NSSet (Serializable)
 

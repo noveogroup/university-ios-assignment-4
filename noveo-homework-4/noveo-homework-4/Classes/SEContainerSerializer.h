@@ -13,7 +13,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "NSDictionary+Serializable.h"
 
 typedef enum {
     serializeErrorCodeNoError = 0,
