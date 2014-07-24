@@ -1,20 +1,33 @@
 #import "NSArray+Serializable.h"
+#import "Serializer.h"
 
 
 @implementation NSArray (Serializable)
 
-- (NSString *)serialize
+- (NSString *)serializeWithError:(NSError **)error
 {
 	NSMutableString *result = [[NSMutableString alloc] init];
+	Serializer *serializer = [[Serializer alloc] init];
 
 	[result appendString:@"["];
 
-	for (id key in self)
+	for (id element in self)
 	{
-		if ([key respondsToSelector:@selector(serialize)])
+		NSString *serializedElement = [serializer serialize:element WithError:error];
+
+		if (serializedElement != nil)
 		{
-			[result appendFormat:@"%@,", [key serialize]];
+			[result appendFormat:@"%@,", serializedElement];
 		}
+		else
+		{
+			return nil;
+		}
+	}
+
+	if (self.count != 0)
+	{
+		[result replaceCharactersInRange:NSMakeRange([result length] - 1, 1) withString:@""];
 	}
 
 	[result appendString:@"]\n"];

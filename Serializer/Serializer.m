@@ -10,7 +10,7 @@
 {
 	if ([object conformsToProtocol:@protocol(Serializeable)])
 	{
-		return [object serialize];
+		return [object serializeWithError:NULL];
 	}
 	else
 	{

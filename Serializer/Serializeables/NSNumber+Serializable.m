@@ -3,7 +3,7 @@
 
 @implementation NSNumber (Serializable)
 
-- (NSString *)serialize
+- (NSString *)serializeWithError:(NSError **)error
 {
 	return self.description;
 }

@@ -1,8 +1,9 @@
 #import "NSValue+Serializable.h"
+#import "Serializer.h"
 
 @implementation NSValue(Serializable)
 
-- (NSString *)serialize
+- (NSString *)serializeWithError:(NSError **)error
 {
 	NSString *description = [self description];
 
