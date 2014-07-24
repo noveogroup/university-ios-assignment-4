@@ -14,6 +14,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    serializeErrorCodeNoError = 0,
+    serializeErrorCodeRootIsNotDictionary = 1,
+    serializeErrorCodeObjectCantBeSerialized = 2
+} SerializeErrorCode;
+
 @interface SEContainerSerializer : NSObject
 
 + (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) anError;

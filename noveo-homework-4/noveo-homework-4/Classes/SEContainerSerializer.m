@@ -14,11 +14,11 @@
 
 + (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) anError {
     NSString *jsonString = nil;
-    if ([sourceObject respondsToSelector:@selector(serialize:)]) {
+    if ([sourceObject isKindOfClass:[NSDictionary class]]) {
         jsonString = [sourceObject serialize:anError];
     }
     else {
-        *anError = [NSError errorWithDomain:@"com.se.containerSerializer" code:1 userInfo:[NSDictionary dictionary]];
+        *anError = [NSError errorWithDomain:@"com.se.containerSerializer" code:serializeErrorCodeRootIsNotDictionary userInfo:[NSDictionary dictionary]];
         return nil;
     }
     return jsonString;

@@ -8,6 +8,7 @@
 
 #import "NSArray+Serializable.h"
 
+
 @implementation NSArray (Serializable)
 
 - (NSString *)serialize:(NSError *__autoreleasing*)anError {
@@ -16,14 +17,21 @@
     // Enumerate with fast enumeration
     NSString *tempString = nil;
     for (id currentObject in self) {
-        // Every iteration check for nil
-        if ((tempString = [currentObject serialize:anError])) {
-            [jsonString appendString:tempString];
+        if ([currentObject respondsToSelector:@selector(serialize:)]) {
+            // Every iteration check for nil
+            if ((tempString = [currentObject serialize:anError])) {
+                [jsonString appendString:tempString];
+            }
+            // Return nil
+            else {
+                jsonString = nil;
+                return jsonString;
+            }
         }
-        // Return nil
+        // Return error if we have none-serialized object
         else {
-            jsonString = nil;
-            return jsonString;
+            *anError = [NSError errorWithDomain:@"com.se.NSArray+Serializable" code:serializeErrorCodeObjectCantBeSerialized userInfo:[NSDictionary dictionary]];
+            return nil;
         }
     }
     // Check for serialize error
