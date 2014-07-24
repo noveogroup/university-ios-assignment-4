@@ -6,7 +6,7 @@
 {
 	NSString *description = [self description];
 
-	if ([description rangeOfString:@"NSRect"].location == NSNotFound)
+	if ([description rangeOfString:@"NSRect"].location != NSNotFound)
 	{
 		CGRect rect = self.CGRectValue;
 
