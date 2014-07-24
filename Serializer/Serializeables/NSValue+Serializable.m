@@ -2,7 +2,7 @@
 
 @implementation NSValue(Serializable)
 
-- (NSString *)serializable
+- (NSString *)serialize
 {
 	NSString *description = [self description];
 
