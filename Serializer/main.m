@@ -3,12 +3,7 @@
 
 int main(int argc, char * argv[])
 {
-   /* @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    }*/
-
 	NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-
 
 	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary WithError:nil]);
 
