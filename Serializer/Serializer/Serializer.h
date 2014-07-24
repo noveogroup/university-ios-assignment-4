@@ -10,4 +10,6 @@
 
 @interface Serializer : NSObject
 
+- (NSString *)serialize:(id)object;
+
 @end

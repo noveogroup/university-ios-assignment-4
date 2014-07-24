@@ -18,7 +18,7 @@
     self.window.rootViewController = [[UITableViewController alloc]init];
     [self.window makeKeyAndVisible];
     
-    NSLog(@"ololo");
+    NSLog(@"Serializer test:\n");
     
     return YES;
 }

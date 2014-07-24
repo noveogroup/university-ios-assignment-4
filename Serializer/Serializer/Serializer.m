@@ -10,4 +10,10 @@
 
 @implementation Serializer
 
+- (NSString *)serialize:(id)object {
+    
+    
+    return nil;
+}
+
 @end
