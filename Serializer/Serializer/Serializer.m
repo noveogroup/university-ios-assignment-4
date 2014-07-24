@@ -7,29 +7,13 @@
 //
 
 #import "Serializer.h"
-
-@interface Serializer ()
--(NSString*)stringWithObject:(id)object error:(NSError*__autoreleasing *)error;
-@end
+#import "NSDictionary+serializable.h"
 
 @implementation Serializer
--(NSString*)stringWithDictionary:(id)dictionary error:(NSError *__autoreleasing *)error{
+-(NSString*)serializeDictionary:(id)dictionary error:(NSError *__autoreleasing *)error{
     if([dictionary isKindOfClass:[NSDictionary class]])
-        return [self stringWithObject:dictionary error:error];
+        return [dictionary serializeWithError:error];
     //error
-    return nil;
-}
--(NSString*)stringWithObject:(id)object error:(NSError *__autoreleasing *)error{
-    NSMutableString* res = [[NSMutableString alloc]init];
-    for(id cur in object){
-        if([cur isKindOfClass:[NSDictionary class]]){
-            
-        } else if([cur isKindOfClass:[NSArray class]]){
-            
-        } else if([cur isKindOfClass:[NSSet class]]){
-            
-        }
-    }
     return nil;
 }
 @end

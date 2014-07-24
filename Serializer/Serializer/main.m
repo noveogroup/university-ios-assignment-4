@@ -9,12 +9,39 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "NSNumber+serializable.h"
+#import "NSNull+serializable.h"
+#import "NSSet+serializable.h"
+#import "NSArray+serializable.h"
+#import "NSDictionary+serializable.h"
+#import "Serializer.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        NSMutableString* str = [@"das" mutableCopy];
-        NSLog(@"%d", NSNotFound);
+        
+        NSError* error = nil;
+        NSNull* nul = [[NSNull alloc]init];
+        NSNumber* num = [NSNumber numberWithInt:5];
+        NSMutableSet* set = [[NSSet setWithObjects:nul, num, nil] mutableCopy];
+        NSMutableArray* array = [[NSArray arrayWithObjects:set, nil] mutableCopy];
+        [array addObject:[NSNumber numberWithInt:7]];
+        [array addObject:[NSNumber numberWithInt:9]];
+        [array addObject:[NSNumber numberWithInt:8]];
+        [array addObject:[NSNumber numberWithInt:123]];
+        NSMutableDictionary* dict = [[NSMutableDictionary alloc]init];
+        [dict setObject:array forKey:@"das"];
+        NSMutableDictionary* dict2 = [[NSMutableDictionary alloc]init];
+        [dict2 setObject:dict forKey:@"ololo"];
+        [dict2 setObject:array forKey:@"trololo"];
+
+        
+        
+        Serializer* serializer = [[Serializer alloc]init];
+        NSLog(@"\n%@", [serializer serializeDictionary:dict2 error:&error]);
+        NSLog(@"serializerErrorCode %ld", (long)error.code);
+        
+        
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

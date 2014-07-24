@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum{
+    serializeErrorInputObjectIsNotDictionary,
+    serializeErrorObjectIsNotSerializable,
+    serializeErrorWrongTypeOfKey
+} SerializerError;
+
 @interface Serializer : NSObject
--(NSString*)stringWithDictionary:(id)dictionary error:(NSError*__autoreleasing *)error;
+-(NSString*)serializeDictionary:(id)dictionary error:(NSError*__autoreleasing *)error;
 @end

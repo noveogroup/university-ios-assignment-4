@@ -7,6 +7,7 @@
 //
 
 #import "NSSet+serializable.h"
+#import "Serializer.h"
 
 @implementation NSSet(serializable)
 -(NSMutableString*)serializeWithError:(NSError* __autoreleasing *)error{
@@ -15,21 +16,31 @@
     for(id obj in self){
         if([obj respondsToSelector:@selector(serializeWithError:)]){
             if((append = [obj serializeWithError:error]) == nil){
-                //error
                 return nil;
             }
-            [res appendFormat:append,@"\n"];
+            [res appendString:append];
+            [res appendString:@"\n"];
         } else {
-            //error
+            if (!!error) {
+                NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                          [obj class],
+                                          @"Object of class is not serializable", nil];
+                (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
+                                               code:serializeErrorObjectIsNotSerializable
+                                           userInfo:userInfo];
+            }
             return nil;
         }
     }
     res = [[res substringToIndex:[res length] - 1] mutableCopy];
-    NSRange range = NSMakeRange(0, 0);
-    do{
-        [res insertString:[NSString stringWithFormat:@"%@/",[NSSet description]] atIndex:range.location];
-        range = [res rangeOfString:@"\n"];
-    }while (range.location != NSNotFound);
+    NSRange range = NSMakeRange(-1, 0);
+    int location = 0;
+    while (range.location != NSNotFound){
+        NSString *insert = [NSString stringWithFormat:@"%@/",[NSSet description]];
+        [res insertString:insert atIndex:location+range.location+1];
+        location += range.location+[insert length];
+        range = [[res substringFromIndex:location] rangeOfString:@"\n"];
+    };
     return res;
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+serializable.h"
+#import "Serializer.h"
 
 @implementation NSArray(serializable)
 -(NSMutableString*)serializeWithError:(NSError* __autoreleasing *)error{
@@ -15,17 +16,27 @@
     for(id obj in self){
         if([obj respondsToSelector:@selector(serializeWithError:)]){
             if((append = [obj serializeWithError:error]) == nil){
-                //error
                 return nil;
             }
-            NSRange range = NSMakeRange(0, 0);
-            do{
-                [append insertString:[NSString stringWithFormat:@"%d/",[self indexOfObject:obj]] atIndex:range.location];
-                range = [append rangeOfString:@"\n"];
-            }while (range.location != NSNotFound);
-            [res appendFormat:append,@"\n"];
+            NSRange range = NSMakeRange(-1, 0);
+            int location = 0;
+            while (range.location != NSNotFound){
+                NSString *insert = [NSString stringWithFormat:@"NSArray[%d]/",[self indexOfObject:obj]];
+                [append insertString:insert atIndex:location+range.location+1];
+                location += range.location+[insert length];
+                range = [[append substringFromIndex:location] rangeOfString:@"\n"];
+            };
+            [res appendString:append];
+            [res appendString:@"\n"];
         } else {
-            //error
+            if (!!error) {
+                NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                          [obj class],
+                                          @"Object of class is not serializable", nil];
+                (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
+                                               code:serializeErrorObjectIsNotSerializable
+                                           userInfo:userInfo];
+            }
             return nil;
         }
     }
