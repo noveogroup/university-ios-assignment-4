@@ -10,7 +10,7 @@
 
 @implementation NSNumber (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+- (NSString *)serialize:(NSError *__autoreleasing*)error {
     // Just return correct value
     return [NSString stringWithFormat:@"<NSNumber>\n%@\n</NSNumber>\n",[self description]];
 }

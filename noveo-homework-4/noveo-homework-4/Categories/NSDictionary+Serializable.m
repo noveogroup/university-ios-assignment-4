@@ -10,37 +10,37 @@
 
 @implementation NSDictionary (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+- (NSString *)serialize:(NSError *__autoreleasing*)error {
     // String for serialized NSDictionary
-    NSMutableString *jsonString = [NSMutableString stringWithString:@"<NSDictionary>\n"];
-    // Get enumerating array with keys
-    NSArray *selfKeys = [self allKeys];
+    NSMutableString *xmlString = [NSMutableString stringWithString:@"<NSDictionary>\n"];
     // Enumerate with fast enumeration
     NSString *tempString = nil;
-    for (NSString *currentKey in selfKeys) {
+    for (id currentKey in self) {
         if ([[self objectForKey:currentKey] respondsToSelector:@selector(serialize:)]) {
             // Every iteration check for nil
-            if ((tempString = [[self objectForKey:currentKey]serialize:anError])) {
-                [jsonString appendString:[NSString stringWithFormat:@"Key: \"%@\"\n",currentKey]];
-                [jsonString appendString:tempString];
+            if ((tempString = [[self objectForKey:currentKey]serialize:error])) {
+                [xmlString appendString:[NSString stringWithFormat:@"Key: \"%@\"\n",currentKey]];
+                [xmlString appendString:tempString];
             }
             // Return nil
             else {
-                jsonString = nil;
-                return jsonString;
+                xmlString = nil;
+                return xmlString;
             }
         }
         else {
-            *anError = [NSError errorWithDomain:@"com.se.NSDictionaty+Serializable"
-                                           code:serializeErrorCodeObjectCantBeSerialized
-                                       userInfo:[NSDictionary dictionary]];
+            if (error) {
+                *error = [NSError errorWithDomain:@"com.se.NSDictionaty+Serializable"
+                                             code:serializeErrorCodeObjectCantBeSerialized
+                                         userInfo:nil];
+            }
             return nil;
         }
         
     }
     // Check for serialize error
-    [jsonString appendString:@"</NSDictionary> "];
-    return jsonString;
+    [xmlString appendString:@"</NSDictionary>"];
+    return xmlString;
 }
 
 @end

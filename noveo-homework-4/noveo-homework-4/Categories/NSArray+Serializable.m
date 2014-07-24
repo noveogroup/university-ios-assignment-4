@@ -11,34 +11,36 @@
 
 @implementation NSArray (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+- (NSString *)serialize:(NSError *__autoreleasing*)error {
     // String for serialized NSArray
-    NSMutableString *jsonString = [NSMutableString stringWithString:@"<NSArray>\n"];
+    NSMutableString *xmlString = [NSMutableString stringWithString:@"<NSArray>\n"];
     // Enumerate with fast enumeration
     NSString *tempString = nil;
-    for (id currentObject in self) {
-        if ([currentObject respondsToSelector:@selector(serialize:)]) {
+    for (id object in self) {
+        if ([object respondsToSelector:@selector(serialize:)]) {
             // Every iteration check for nil
-            if ((tempString = [currentObject serialize:anError])) {
-                [jsonString appendString:tempString];
+            if ((tempString = [object serialize:error])) {
+                [xmlString appendString:tempString];
             }
             // Return nil
             else {
-                jsonString = nil;
-                return jsonString;
+                xmlString = nil;
+                return xmlString;
             }
         }
         // Return error if we have none-serialized object
         else {
-            *anError = [NSError errorWithDomain:@"com.se.NSArray+Serializable"
-                                           code:serializeErrorCodeObjectCantBeSerialized
-                                       userInfo:[NSDictionary dictionary]];
+            if (error) {
+                *error = [NSError errorWithDomain:@"com.se.NSArray+Serializable"
+                                             code:serializeErrorCodeObjectCantBeSerialized
+                                         userInfo:nil];
+            }
             return nil;
         }
     }
     // Check for serialize error
-    [jsonString appendString:@"</NSArray>"];
-    return jsonString;
+    [xmlString appendString:@"</NSArray>"];
+    return xmlString;
 }
 
 

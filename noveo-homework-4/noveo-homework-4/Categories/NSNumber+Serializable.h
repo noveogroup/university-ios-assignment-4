@@ -10,6 +10,6 @@
 
 @interface NSNumber (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError;
+- (NSString *)serialize:(NSError *__autoreleasing*)error;
 
 @end

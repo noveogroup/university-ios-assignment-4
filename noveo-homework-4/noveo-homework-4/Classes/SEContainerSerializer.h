@@ -13,6 +13,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+Serializable.h"
 
 typedef enum {
     serializeErrorCodeNoError = 0,
@@ -22,6 +23,6 @@ typedef enum {
 
 @interface SEContainerSerializer : NSObject
 
-+ (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) anError;
++ (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) error;
 
 @end

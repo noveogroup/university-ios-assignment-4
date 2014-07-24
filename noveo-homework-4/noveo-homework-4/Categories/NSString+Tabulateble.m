@@ -19,7 +19,7 @@
     // Count for space_tabs in __block init by 0
     NSInteger __block spacesCount = 0;
     // Start enumerating via sourceString by Lines
-    [sourceString enumerateSubstringsInRange:NSMakeRange(0, [sourceString length]-1)
+    [sourceString enumerateSubstringsInRange:NSMakeRange(0, [sourceString length])
                                      options:NSStringEnumerationByLines
                                   usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         [destinationString appendString:[NSString stringWithFormat:@"%@\n",substring]];
@@ -28,7 +28,7 @@
         NSRange closeTag = [substring rangeOfString:@"</"];
         NSRange quotesTag = [substring rangeOfString:@"\""];
         // Handle tag open
-        if (openTag.location!=NSNotFound && closeTag.location==NSNotFound) {
+        if ((openTag.location!=NSNotFound) && (closeTag.location==NSNotFound)) {
             spacesCount++;
         }
         // Handle tag close

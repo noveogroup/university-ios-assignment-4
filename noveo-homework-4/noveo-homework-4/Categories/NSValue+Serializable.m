@@ -10,16 +10,18 @@
 
 @implementation NSValue (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+- (NSString *)serialize:(NSError *__autoreleasing*)error {
     // Get string description to local var
     NSString *testString = [self description];
     // Check string for "NSRect:" substring
     NSRange testRange = [testString rangeOfString:@"NSRect:"];
     if (testRange.location == NSNotFound) {
         // Do serialize object error
-         *anError = [NSError errorWithDomain:@"com.se.NSValue+Serializable"
-                                        code:serializeErrorCodeObjectCantBeSerialized
-                                    userInfo:[NSDictionary dictionary]];
+        if (error) {
+            *error = [NSError errorWithDomain:@"com.se.NSValue+Serializable"
+                                         code:serializeErrorCodeObjectCantBeSerialized
+                                     userInfo:nil];
+        }
         return nil;
     }
     return [NSString stringWithFormat:@"<NSValue>\n<NSRect>\n%@\n</NSRect>\n</NSValue>\n",

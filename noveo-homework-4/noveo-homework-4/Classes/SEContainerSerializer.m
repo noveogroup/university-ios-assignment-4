@@ -7,21 +7,24 @@
 //
 
 #import "SEContainerSerializer.h"
-#import "NSDictionary+Serializable.h"
-
 
 @implementation SEContainerSerializer
 
-+ (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) anError {
-    NSString *jsonString = nil;
++ (NSString *)serialize:(id)sourceObject error:(NSError *__autoreleasing *) error {
+    NSString *xmlString = nil;
     if ([sourceObject isKindOfClass:[NSDictionary class]]) {
-        jsonString = [sourceObject serialize:anError];
+        xmlString = [sourceObject serialize:error];
     }
     else {
-        *anError = [NSError errorWithDomain:@"com.se.containerSerializer" code:serializeErrorCodeRootIsNotDictionary userInfo:[NSDictionary dictionary]];
+        if (error) {
+            *error = [NSError errorWithDomain:@"com.se.containerSerializer"
+                                         code:serializeErrorCodeRootIsNotDictionary
+                                     userInfo:nil];
+        }
+
         return nil;
     }
-    return jsonString;
+    return xmlString;
 }
 
 

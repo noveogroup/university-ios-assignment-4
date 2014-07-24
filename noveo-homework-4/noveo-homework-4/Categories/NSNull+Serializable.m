@@ -10,7 +10,7 @@
 
 @implementation NSNull (Serializable)
 
-- (NSString *)serialize:(NSError *__autoreleasing*)anError {
+- (NSString *)serialize:(NSError *__autoreleasing*)error {
     // Just return "null" value
     return @"<NSNull>\nnull\n</NSNull>\n";
 }
