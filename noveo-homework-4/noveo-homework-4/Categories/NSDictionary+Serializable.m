@@ -17,6 +17,14 @@
     // Enumerate with fast enumeration
     NSString *tempString = nil;
     for (id currentKey in self) {
+        if (!([currentKey isKindOfClass:[NSString class]] || [currentKey isKindOfClass:[NSNumber class]])) {
+            if (error) {
+                *error = [NSError errorWithDomain:@"com.se.NSDictionaty+Serializable"
+                                             code:SerializeErrorCodeIncompotibleTypeForKey
+                                         userInfo:nil];
+            }
+            return nil;
+        }
         if ([[self objectForKey:currentKey] respondsToSelector:@selector(serialize:)]) {
             // Every iteration check for nil
             if ((tempString = [[self objectForKey:currentKey]serialize:error])) {

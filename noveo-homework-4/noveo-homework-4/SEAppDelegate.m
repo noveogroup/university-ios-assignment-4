@@ -38,6 +38,11 @@
     // Serialize test with incorrect data in nested container
     [mySimpleDataArray addObject:[NSObject new]];
     [SESerializeTest test:myDictionary];
+    
+    // Serialize test by NSDictionary with incorrect key
+    NSArray *myIncorrectKeysArray = @[@(YES), @(0.25), @(500), myArray];
+    NSDictionary *incorrectKeyDictionary = [NSDictionary dictionaryWithObjects:mySimpleDataArray forKeys:myIncorrectKeysArray];
+    [SESerializeTest test:incorrectKeyDictionary];
 
     return YES;
 }

@@ -17,7 +17,8 @@
 typedef enum {
     serializeErrorCodeNoError = 0,
     serializeErrorCodeRootIsNotDictionary = 1,
-    serializeErrorCodeObjectCantBeSerialized = 2
+    serializeErrorCodeObjectCantBeSerialized = 2,
+    SerializeErrorCodeIncompotibleTypeForKey = 3
 } SerializeErrorCode;
 
 @interface SEContainerSerializer : NSObject
