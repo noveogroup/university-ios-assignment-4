@@ -1,18 +1,19 @@
 #import "NSValue+Serializable.h"
 #import "Serializer.h"
+#import "CheckingSerializer.h"
 #import "NSDictionary+Serializable.h"
 
 
 int main(int argc, char * argv[])
 {
 	NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary withError:nil]);
+	NSLog(@"%@", [Serializer serialize:dictionary withError:nil]);
 
 	[dictionary setValue:@"one" forKey:@"1"];
 
 	NSLog(@"%@", dictionary);
 
-	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary withError:nil]);
+	NSLog(@"%@", [CheckingSerializer serialize:dictionary withError:nil]);
 
 	NSError *__autoreleasing error = nil;
 
@@ -26,7 +27,7 @@ int main(int argc, char * argv[])
 
 	NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
 
-	NSString *serializedObject = [[[Serializer alloc] init] serialize:myDictionary withError:&error];
+	NSString *serializedObject = [Serializer serialize:myDictionary withError:&error];
 
 	if (serializedObject && &error)
 	{

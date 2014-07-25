@@ -6,20 +6,17 @@
 
 - (NSString *)serializeWithError:(NSError **)error
 {
-	NSMutableString *result = [[NSMutableString alloc] init];
-	Serializer *serializer = [[Serializer alloc] init];
-
-	[result appendString:@"dictionary: {"];
+	NSMutableString *result = [[NSMutableString alloc] initWithFormat:@"dictionary: {"];
 
 	for (id<Serializable> key in self)
 	{
 		if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
 		{
-			NSString *serializedKey = [serializer serialize:key withError:error];
+			NSString *serializedKey = [Serializer serialize:key withError:error];
 
 			if (serializedKey != nil)
 			{
-				NSString *serializedValue = [serializer serialize:self[key] withError:error];
+				NSString *serializedValue = [Serializer serialize:self[key] withError:error];
 
 				if (serializedValue != nil)
 				{

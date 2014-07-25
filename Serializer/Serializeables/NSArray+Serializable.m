@@ -6,14 +6,11 @@
 
 - (NSString *)serializeWithError:(NSError **)error
 {
-	NSMutableString *result = [[NSMutableString alloc] init];
-	Serializer *serializer = [[Serializer alloc] init];
-
-	[result appendString:@"["];
+	NSMutableString *result = [[NSMutableString alloc] initWithFormat:@"["];
 
 	for (id<Serializable> element in self)
 	{
-		NSString *serializedElement = [serializer serialize:element withError:error];
+		NSString *serializedElement = [Serializer serialize:element withError:error];
 
 		if (serializedElement != nil)
 		{

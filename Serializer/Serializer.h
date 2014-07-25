@@ -3,5 +3,5 @@
 
 
 @interface Serializer : NSObject
-- (NSString *)serialize:(id<Serializable>)object withError:(NSError **)error;
++ (NSString *)serialize:(id<Serializable>)object withError:(NSError **)error;
 @end

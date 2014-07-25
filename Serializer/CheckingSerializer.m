@@ -4,11 +4,11 @@
 
 @implementation CheckingSerializer
 
-- (NSString *)serialize:(id <Serializable>)object withError: (NSError **)error
++ (NSString *)serialize:(id <Serializable>)object withError: (NSError **)error
 {
 	if ([object isKindOfClass:[NSDictionary class]])
 	{
-		return [super serialize:object withError:error];
+		return [Serializer serialize:object withError:error];
 	}
 	else
 	{
