@@ -12,7 +12,11 @@
 	}
 	else
 	{
-		*error = [[NSError alloc] initWithDomain:myOwnDomain code:unsupportedParameterType userInfo:nil];
+		if (error != NULL)
+		{
+			*error = [[NSError alloc] initWithDomain:myOwnDomain code:unsupportedParameterType userInfo:nil];
+		}
+
 		return nil;
 	}
 }
