@@ -13,7 +13,14 @@
 -(NSString*)serializeDictionary:(id)dictionary error:(NSError *__autoreleasing *)error{
     if([dictionary isKindOfClass:[NSDictionary class]])
         return [dictionary serializeWithError:error];
-    //error
+    if (!!error) {
+        NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  @"Input Object is not dictionary",
+                                  [dictionary class], nil];
+        (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
+                                       code:serializeErrorInputObjectIsNotDictionary
+                                   userInfo:userInfo];
+    }
     return nil;
 }
 @end

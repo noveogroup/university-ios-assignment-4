@@ -25,6 +25,7 @@
 		8479748B197FD3B4002D3BEC /* NSSet+serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479748A197FD3B4002D3BEC /* NSSet+serializable.m */; };
 		8479748E197FD3D6002D3BEC /* NSNumber+serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479748D197FD3D6002D3BEC /* NSNumber+serializable.m */; };
 		84797491197FD523002D3BEC /* NSNull+serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84797490197FD523002D3BEC /* NSNull+serializable.m */; };
+		84BC3038198215C000223001 /* NSValue+serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC3037198215C000223001 /* NSValue+serializable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		8479748D197FD3D6002D3BEC /* NSNumber+serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+serializable.m"; sourceTree = "<group>"; };
 		8479748F197FD523002D3BEC /* NSNull+serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+serializable.h"; sourceTree = "<group>"; };
 		84797490197FD523002D3BEC /* NSNull+serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+serializable.m"; sourceTree = "<group>"; };
+		84BC3036198215C000223001 /* NSValue+serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+serializable.h"; sourceTree = "<group>"; };
+		84BC3037198215C000223001 /* NSValue+serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+serializable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				8479748D197FD3D6002D3BEC /* NSNumber+serializable.m */,
 				8479748F197FD523002D3BEC /* NSNull+serializable.h */,
 				84797490197FD523002D3BEC /* NSNull+serializable.m */,
+				84BC3036198215C000223001 /* NSValue+serializable.h */,
+				84BC3037198215C000223001 /* NSValue+serializable.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8479748B197FD3B4002D3BEC /* NSSet+serializable.m in Sources */,
+				84BC3038198215C000223001 /* NSValue+serializable.m in Sources */,
 				84797482197FBE40002D3BEC /* Serializer.m in Sources */,
 				84797462197FBD93002D3BEC /* AppDelegate.m in Sources */,
 				8479745E197FBD93002D3BEC /* main.m in Sources */,
@@ -475,6 +481,7 @@
 				8479747C197FBD93002D3BEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8479747D197FBD93002D3BEC /* Build configuration list for PBXNativeTarget "SerializerTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +490,7 @@
 				8479747F197FBD93002D3BEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
