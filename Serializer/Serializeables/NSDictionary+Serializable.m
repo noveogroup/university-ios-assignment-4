@@ -15,11 +15,20 @@
 	{
 		if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
 		{
-			NSString *serializedValue = [serializer serialize:self[key] WithError:error];
+			NSString *serializedKey = [serializer serialize:key withError:error];
 
-			if (serializedValue != nil)
+			if (serializedKey != nil)
 			{
-				[result appendFormat:@"%@: %@,\n", key, serializedValue];
+				NSString *serializedValue = [serializer serialize:self[key] withError:error];
+
+				if (serializedValue != nil)
+				{
+					[result appendFormat:@"%@: %@,\n", serializedKey, serializedValue];
+				}
+				else
+				{
+					return nil;
+				}
 			}
 			else
 			{
