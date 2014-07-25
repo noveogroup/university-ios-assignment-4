@@ -11,7 +11,6 @@
 
 	[result appendString:@"set: ("];
 
-	// CR: define element as id<Serializable>.
 	for (id<Serializable> element in self)
 	{
 		NSString *serializedElement = [serializer serialize:element withError:error];
