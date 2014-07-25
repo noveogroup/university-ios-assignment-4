@@ -40,7 +40,7 @@
         
     }
     // Check for serialize error
-    [xmlString appendString:@"</NSDictionary>"];
+    [xmlString appendString:@"</NSDictionary>\n"];
     return xmlString;
 }
 

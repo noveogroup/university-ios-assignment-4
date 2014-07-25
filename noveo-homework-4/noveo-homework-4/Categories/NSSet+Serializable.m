@@ -39,7 +39,7 @@
         }
     }
     // Check for serialize error
-        [xmlString appendString:@"</NSSet>"];
+        [xmlString appendString:@"</NSSet>\n"];
         return xmlString;
 }
 

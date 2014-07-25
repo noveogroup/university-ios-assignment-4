@@ -30,6 +30,7 @@
 		CEE11E1E197FE123003D0CD6 /* NSValue+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E1D197FE123003D0CD6 /* NSValue+Serializable.m */; };
 		CEE11E2119802D25003D0CD6 /* NSString+Tabulateble.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E2019802D25003D0CD6 /* NSString+Tabulateble.m */; };
 		CEE11E241980EE87003D0CD6 /* NSNull+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E231980EE87003D0CD6 /* NSNull+Serializable.m */; };
+		CEE11E2719821B09003D0CD6 /* SESerializeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE11E2619821B09003D0CD6 /* SESerializeTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		CEE11E2019802D25003D0CD6 /* NSString+Tabulateble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Tabulateble.m"; path = "Categories/NSString+Tabulateble.m"; sourceTree = "<group>"; };
 		CEE11E221980EE87003D0CD6 /* NSNull+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNull+Serializable.h"; path = "Categories/NSNull+Serializable.h"; sourceTree = "<group>"; };
 		CEE11E231980EE87003D0CD6 /* NSNull+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNull+Serializable.m"; path = "Categories/NSNull+Serializable.m"; sourceTree = "<group>"; };
+		CEE11E2519821B09003D0CD6 /* SESerializeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SESerializeTest.h; path = "noveo-homework-4/Classes/SESerializeTest.h"; sourceTree = "<group>"; };
+		CEE11E2619821B09003D0CD6 /* SESerializeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SESerializeTest.m; path = "noveo-homework-4/Classes/SESerializeTest.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 		CEE11E0B197FCC35003D0CD6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CEE11E2519821B09003D0CD6 /* SESerializeTest.h */,
+				CEE11E2619821B09003D0CD6 /* SESerializeTest.m */,
 				CEE11E0C197FCC83003D0CD6 /* SEContainerSerializer.h */,
 				CEE11E0D197FCC83003D0CD6 /* SEContainerSerializer.m */,
 			);
@@ -306,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE11E2719821B09003D0CD6 /* SESerializeTest.m in Sources */,
 				CEE11DE9197FCA65003D0CD6 /* SEAppDelegate.m in Sources */,
 				CEE11E18197FE0E3003D0CD6 /* NSSet+Serializable.m in Sources */,
 				CEE11E12197FD2D2003D0CD6 /* NSDictionary+Serializable.m in Sources */,

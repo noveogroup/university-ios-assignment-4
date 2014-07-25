@@ -7,8 +7,7 @@
 //
 
 #import "SEAppDelegate.h"
-#import "SEContainerSerializer.h"
-#import "NSString+Tabulateble.h"
+#import "SESerializeTest.h"
 
 @implementation SEAppDelegate
 
@@ -23,18 +22,23 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    NSError *__autoreleasing error = nil;
     NSValue *myValue = [NSValue valueWithCGRect:CGRectMake(2.5, 2.5, 5.0, 7.0)];
-    NSArray *myArray = @[@(3), @(2), @(1), myValue, [NSNull null]];
-    NSArray *myKeysArray = @[@"Key 3", @"Key 2", @"Key 1", @"Key myValue", @"Key NullValue"];
+    NSMutableArray *mySimpleDataArray = [@[@(YES), @(0.25), @(500)] mutableCopy];
+    NSArray *myArray = @[@(3), @(2), @(1), myValue, [NSNull null],mySimpleDataArray];
+    NSArray *myKeysArray = @[@"Key 3", @"Key 2", @"Key 1", @"Key myValue", @"Key NullValue", @"Key Array"];
     NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
-    NSString *serializedObject = [SEContainerSerializer serialize:myDictionary error:&error];
-    if (serializedObject && !error) {
-        NSLog(@"Object has been serialized: \n%@",[NSString tabulatedStringFromString:serializedObject withSpaces:@"   "]);
-    }
-    else {
-        NSLog(@"Serialize error has been occured:\n%@",[error description]);
-    }
+    
+    // TEST CODE
+    // Serialize test with correct data
+    [SESerializeTest test:myDictionary];
+    
+    // Serialize test with incorrect root container
+    [SESerializeTest test:myArray];
+    
+    // Serialize test with incorrect data in nested container
+    [mySimpleDataArray addObject:[NSObject new]];
+    [SESerializeTest test:myDictionary];
+
     return YES;
 }
 

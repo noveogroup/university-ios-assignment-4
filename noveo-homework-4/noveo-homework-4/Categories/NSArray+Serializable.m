@@ -39,7 +39,7 @@
         }
     }
     // Check for serialize error
-    [xmlString appendString:@"</NSArray>"];
+    [xmlString appendString:@"</NSArray>\n"];
     return xmlString;
 }
 
