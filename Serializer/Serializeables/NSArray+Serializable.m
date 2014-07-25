@@ -13,7 +13,7 @@
 
 	for (id element in self)
 	{
-		NSString *serializedElement = [serializer serialize:element WithError:error];
+		NSString *serializedElement = [serializer serialize:element withError:error];
 
 		if (serializedElement != nil)
 		{
