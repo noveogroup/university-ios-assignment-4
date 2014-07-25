@@ -11,7 +11,7 @@
 
 	[result appendString:@"dictionary: {"];
 
-	for (id key in self)
+	for (id<Serializable> key in self)
 	{
 		if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
 		{

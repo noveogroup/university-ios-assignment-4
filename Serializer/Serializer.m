@@ -8,19 +8,7 @@
 
 - (NSString *)serialize:(id<Serializable>)object withError:(NSError **)error
 {
-	if ([object conformsToProtocol:@protocol(Serializable)])
-	{
-		return [object serializeWithError:error];
-	}
-	else
-	{
-		if (*error != NULL)
-		{
-			*error = [[NSError alloc] initWithDomain:myOwnDomain code:serializationNotSupported userInfo:nil];
-		}
-
-		return nil;
-	}
+	return [object serializeWithError:error];
 }
 
 @end

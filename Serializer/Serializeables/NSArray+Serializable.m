@@ -11,7 +11,7 @@
 
 	[result appendString:@"["];
 
-	for (id element in self)
+	for (id<Serializable> element in self)
 	{
 		NSString *serializedElement = [serializer serialize:element withError:error];
 
