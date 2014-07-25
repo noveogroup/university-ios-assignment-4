@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#import "Serializeable.h"
+#import "Serializable.h"
 
-@interface NSValue(Serializable)<Serializeable>
+@interface NSValue(Serializable)<Serializable>
 @end

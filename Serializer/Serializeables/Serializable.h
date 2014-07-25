@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
 
-@protocol Serializeable <NSObject>
+@protocol Serializable <NSObject>
 - (NSString *)serializeWithError:(NSError **)error;
 @end

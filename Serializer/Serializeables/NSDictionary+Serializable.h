@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#import "Serializeable.h"
+#import "Serializable.h"
 
-@interface NSDictionary (Serializable)<Serializeable>
+@interface NSDictionary (Serializable)<Serializable>
 @end

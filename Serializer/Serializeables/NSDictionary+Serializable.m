@@ -39,7 +39,7 @@
 		{
 			if (error != nil)
 			{
-				*error = [[NSError alloc] initWithDomain:MyOwnDomain code:UnsupportedKeyType userInfo:nil];
+				*error = [[NSError alloc] initWithDomain:myOwnDomain code:unsupportedKeyType userInfo:nil];
 			}
 
 			return nil;

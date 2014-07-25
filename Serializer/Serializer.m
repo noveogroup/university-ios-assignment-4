@@ -1,14 +1,14 @@
 #import "Serializer.h"
 
 #import "Constants.h"
-#import "Serializeable.h"
+#import "Serializable.h"
 
 
 @implementation Serializer
 
-- (NSString *)serialize:(id)object WithError:(NSError **)error
+- (NSString *)serialize:(id<Serializable>)object withError:(NSError **)error
 {
-	if ([object conformsToProtocol:@protocol(Serializeable)])
+	if ([object conformsToProtocol:@protocol(Serializable)])
 	{
 		return [object serializeWithError:error];
 	}
@@ -16,7 +16,7 @@
 	{
 		if (*error != NULL)
 		{
-			*error = [[NSError alloc] initWithDomain:MyOwnDomain code:SerializationNotSupported userInfo:nil];
+			*error = [[NSError alloc] initWithDomain:myOwnDomain code:serializationNotSupported userInfo:nil];
 		}
 
 		return nil;

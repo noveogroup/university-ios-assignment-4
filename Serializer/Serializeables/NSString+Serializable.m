@@ -4,6 +4,7 @@
 @implementation NSString (Serializable)
 - (NSString *)serializeWithError:(NSError **)error
 {
-	return self;
+	// CR: JSON string should be in quotes.
+	return [NSString stringWithFormat:@"\"%@\"", self];
 }
 @end

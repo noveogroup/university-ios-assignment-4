@@ -1,21 +1,24 @@
 #import "NSValue+Serializable.h"
 #import "Serializer.h"
+#import "NSDictionary+Serializable.h"
+
 
 int main(int argc, char * argv[])
 {
 	NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-
-	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary WithError:nil]);
+	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary withError:nil]);
 
 	[dictionary setValue:@"one" forKey:@"1"];
 
 	NSLog(@"%@", dictionary);
 
-	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary WithError:nil]);
+	NSLog(@"%@", [[[Serializer alloc] init] serialize:dictionary withError:nil]);
 
 	NSError *__autoreleasing error = nil;
 
 	NSValue *myValue = [NSValue valueWithCGRect:CGRectMake(2.5, 2.5, 5.0, 7.0)];
+
+	NSLog(@"cgrect %s", [myValue objCType]);
 
 	NSArray *myArray = [NSArray arrayWithObjects:@(3), @(2), @(1), myValue, [NSNull null], nil];
 
@@ -23,7 +26,7 @@ int main(int argc, char * argv[])
 
 	NSDictionary *myDictionary = [NSDictionary dictionaryWithObjects:myArray forKeys:myKeysArray];
 
-	NSString *serializedObject = [[[Serializer alloc] init] serialize:myDictionary WithError:&error];
+	NSString *serializedObject = [[[Serializer alloc] init] serialize:myDictionary withError:&error];
 
 	if (serializedObject && &error)
 	{

@@ -4,15 +4,15 @@
 
 @implementation CheckingSerializer
 
-- (NSString *)serialize:(id)object WithError: (NSError **)error
+- (NSString *)serialize:(id <Serializable>)object withError: (NSError **)error
 {
 	if ([object isKindOfClass:[NSDictionary class]])
 	{
-		return [super serialize:object WithError:error];
+		return [super serialize:object withError:error];
 	}
 	else
 	{
-		*error = [[NSError alloc] initWithDomain:MyOwnDomain code:UnsupportedParameterType userInfo:nil];
+		*error = [[NSError alloc] initWithDomain:myOwnDomain code:unsupportedParameterType userInfo:nil];
 		return nil;
 	}
 }

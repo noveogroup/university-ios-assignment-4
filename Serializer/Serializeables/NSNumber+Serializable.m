@@ -5,6 +5,7 @@
 
 - (NSString *)serializeWithError:(NSError **)error
 {
+	// CR: think about using self.stringValue.
 	return self.description;
 }
 
