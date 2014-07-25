@@ -2,8 +2,8 @@
 
 
 @implementation Constants
-NSString *const MyOwnDomain = @"ru.NoveoSummerStudy.Serializer.ErrorDomain";
-int const UnsupportedParameterType = 117;
-int const UnsupportedKeyType = 118;
-int const SerializationNotSupported = 119;
+NSString *const myOwnDomain = @"ru.NoveoSummerStudy.Serializer.ErrorDomain";
+int const unsupportedParameterType = 117;
+int const unsupportedKeyType = 118;
+int const serializationNotSupported = 119;
 @end
