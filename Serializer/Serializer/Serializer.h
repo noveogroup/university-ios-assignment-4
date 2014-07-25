@@ -10,6 +10,7 @@
 
 @interface Serializer : NSObject
 
-- (NSString *)serialize:(id)object;
+- (NSString *)serialize:(id)dictionary
+                  error:(NSError *__autoreleasing *)error;
 
 @end
