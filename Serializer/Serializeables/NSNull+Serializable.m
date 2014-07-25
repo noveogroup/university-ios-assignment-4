@@ -1,12 +1,12 @@
 #import "NSNull+Serializable.h"
+#import "Constants.h"
 
 
 @implementation NSNull (Serializable)
 
 - (NSString *)serializeWithError:(NSError **)error
 {
-	// CR: you should not use "description" for anything but debug purposes.
-	return self.description;
+	return nullRepresentationString;
 }
 
 @end

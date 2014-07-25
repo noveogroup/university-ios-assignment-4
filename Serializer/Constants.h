@@ -6,4 +6,5 @@ extern NSString *const myOwnDomain;
 extern int const unsupportedParameterType;
 extern int const unsupportedKeyType;
 extern int const serializationNotSupported;
+extern NSString *const nullRepresentationString;
 @end
