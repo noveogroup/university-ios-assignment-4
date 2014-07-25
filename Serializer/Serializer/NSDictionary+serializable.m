@@ -18,9 +18,7 @@
         if(![key isKindOfClass:[NSString class]] &&
            ![key isKindOfClass:[NSNumber class]]){
             if (!!error) {
-                NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                          @"Wrong type of dictionary key",
-                                          [key class], nil];
+                NSDictionary* userInfo = [NSDictionary dictionaryWithObject:[key class] forKey:@"WrongKey"];
                 (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
                                                code:serializeErrorWrongTypeOfKey
                                            userInfo:userInfo];
@@ -43,9 +41,7 @@
             [res appendString:@"\n"];
         } else {
             if (!!error) {
-                NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                          [obj class],
-                                          @"Object of class is not serializable", nil];
+                NSDictionary* userInfo = [NSDictionary dictionaryWithObject:[obj class] forKey:@"WrongObject"];
                 (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
                                                code:serializeErrorObjectIsNotSerializable
                                            userInfo:userInfo];

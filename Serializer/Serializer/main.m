@@ -20,7 +20,6 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        
         NSError* error = nil;
         NSNull* nul = [[NSNull alloc]init];
         NSNumber* num = [NSNumber numberWithInt:5];
@@ -39,10 +38,10 @@ int main(int argc, char * argv[])
         [dict2 setObject:array forKey:@"trololo"];
         
         
-        
         Serializer* serializer = [[Serializer alloc]init];
         NSLog(@"\n%@", [serializer serializeDictionary:dict2 error:&error]);
-        NSLog(@"serializerErrorCode %ld", (long)error.code);
+        NSLog(@"serializerErrorCode %ld", (long)error.code);        
+        
         
         
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

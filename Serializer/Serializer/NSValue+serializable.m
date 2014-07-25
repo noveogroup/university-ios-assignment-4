@@ -11,7 +11,8 @@
 @implementation NSValue(serializable)
 -(NSMutableString*)serializeWithError:(NSError* __autoreleasing *)error{
     NSMutableString *res = [[NSMutableString alloc]init];
-    if([(res=[[self description] mutableCopy]) rangeOfString:@"NSRect"].location == NSNotFound)
+    res = [[self description] mutableCopy];
+    if(([res rangeOfString:@"NSRect"].location) == NSNotFound)
         return nil;
     return res;
 }
