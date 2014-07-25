@@ -10,6 +10,8 @@
 
 @interface Serializer : NSObject
 
++ (NSString *)getIndentStringForDepth:(unsigned int)depth;
+
 - (NSString *)serialize:(id)dictionary
                   error:(NSError *__autoreleasing *)error;
 
