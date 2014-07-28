@@ -21,6 +21,11 @@
 		84A3467E197FAAC40039A39F /* SerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3467D197FAAC40039A39F /* SerializerTests.m */; };
 		84A34689197FABC90039A39F /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A34688197FABC90039A39F /* Serializer.m */; };
 		84A3468D19826B4B0039A39F /* NSDictionary+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */; };
+		84A3A86519864F3E003594C7 /* NSArray+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A86419864F3E003594C7 /* NSArray+Serializable.m */; };
+		84A3A8681986505A003594C7 /* NSNull+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A8671986505A003594C7 /* NSNull+Serializable.m */; };
+		84A3A86E19865157003594C7 /* NSSet+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A86D19865157003594C7 /* NSSet+Serializable.m */; };
+		84A3A871198651A7003594C7 /* NSNumber+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A870198651A7003594C7 /* NSNumber+Serializable.m */; };
+		84A3A87419865323003594C7 /* NSValue+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A87319865323003594C7 /* NSValue+Serializable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,16 @@
 		84A3468A19826AB80039A39F /* Serializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
 		84A3468B19826B4B0039A39F /* NSDictionary+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serializable.h"; sourceTree = "<group>"; };
 		84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86319864F3E003594C7 /* NSArray+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serializable.h"; sourceTree = "<group>"; };
+		84A3A86419864F3E003594C7 /* NSArray+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Serializable.m"; sourceTree = "<group>"; };
+		84A3A8661986505A003594C7 /* NSNull+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serializable.h"; sourceTree = "<group>"; };
+		84A3A8671986505A003594C7 /* NSNull+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86C19865157003594C7 /* NSSet+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Serializable.h"; sourceTree = "<group>"; };
+		84A3A86D19865157003594C7 /* NSSet+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86F198651A7003594C7 /* NSNumber+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Serializable.h"; sourceTree = "<group>"; };
+		84A3A870198651A7003594C7 /* NSNumber+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serializable.m"; sourceTree = "<group>"; };
+		84A3A87219865323003594C7 /* NSValue+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Serializable.h"; sourceTree = "<group>"; };
+		84A3A87319865323003594C7 /* NSValue+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Serializable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +137,16 @@
 				84A3468A19826AB80039A39F /* Serializable.h */,
 				84A3468B19826B4B0039A39F /* NSDictionary+Serializable.h */,
 				84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */,
+				84A3A86319864F3E003594C7 /* NSArray+Serializable.h */,
+				84A3A86419864F3E003594C7 /* NSArray+Serializable.m */,
+				84A3A8661986505A003594C7 /* NSNull+Serializable.h */,
+				84A3A8671986505A003594C7 /* NSNull+Serializable.m */,
+				84A3A86C19865157003594C7 /* NSSet+Serializable.h */,
+				84A3A86D19865157003594C7 /* NSSet+Serializable.m */,
+				84A3A86F198651A7003594C7 /* NSNumber+Serializable.h */,
+				84A3A870198651A7003594C7 /* NSNumber+Serializable.m */,
+				84A3A87219865323003594C7 /* NSValue+Serializable.h */,
+				84A3A87319865323003594C7 /* NSValue+Serializable.m */,
 				84A3465F197FAAC40039A39F /* Supporting Files */,
 			);
 			path = Serializer;
@@ -253,8 +278,13 @@
 			files = (
 				84A34689197FABC90039A39F /* Serializer.m in Sources */,
 				84A34669197FAAC40039A39F /* AppDelegate.m in Sources */,
+				84A3A8681986505A003594C7 /* NSNull+Serializable.m in Sources */,
 				84A34665197FAAC40039A39F /* main.m in Sources */,
+				84A3A87419865323003594C7 /* NSValue+Serializable.m in Sources */,
+				84A3A871198651A7003594C7 /* NSNumber+Serializable.m in Sources */,
 				84A3468D19826B4B0039A39F /* NSDictionary+Serializable.m in Sources */,
+				84A3A86E19865157003594C7 /* NSSet+Serializable.m in Sources */,
+				84A3A86519864F3E003594C7 /* NSArray+Serializable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
