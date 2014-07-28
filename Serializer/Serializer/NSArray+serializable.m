@@ -30,7 +30,7 @@
             [res appendString:@"\n"];
         } else {
             if (!!error) {
-                NSDictionary* userInfo = [NSDictionary dictionaryWithObject:[obj class] forKey:@"WrongObject"];
+                NSDictionary* userInfo = @{@"WrongObject" : [obj class]};
                 (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
                                                code:serializeErrorObjectIsNotSerializable
                                            userInfo:userInfo];

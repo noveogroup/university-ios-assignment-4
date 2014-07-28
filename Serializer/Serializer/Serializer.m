@@ -14,9 +14,7 @@
     if([dictionary isKindOfClass:[NSDictionary class]])
         return [[dictionary serializeWithError:error] copy];
     if (!!error) {
-        NSDictionary* userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                  @"Input Object is not dictionary",
-                                  [dictionary class], nil];
+        NSDictionary* userInfo = @{@"Input Object is not dictionary" : [dictionary class]};
         (*error) = [NSError errorWithDomain:@"serializerErrorDomain"
                                        code:serializeErrorInputObjectIsNotDictionary
                                    userInfo:userInfo];
