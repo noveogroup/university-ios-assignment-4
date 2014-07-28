@@ -19,21 +19,6 @@
     self.window.rootViewController = [[UITableViewController alloc]init];
     [self.window makeKeyAndVisible];
     
-    Serializer *serializer = [[Serializer alloc] init];
-    
-    NSDictionary *dictionary = [[NSDictionary alloc] init];
-    [dictionary setValue:[[NSDictionary alloc] init] forKey:@"NSDictionary"];
-    [dictionary setValue:[[NSArray alloc] init] forKey:@"NSArray"];
-    [dictionary setValue:[[NSSet alloc] init] forKey:@"NSSet"];
-    [dictionary setValue:[[NSNumber alloc] init] forKey:@"NSNumber"];
-    [dictionary setValue:[[NSNull alloc] init] forKey:@"NSNull"];
-    // TODO: add test element for NSValue
-    
-    NSLog(@"Serializer test:\n");
-    
-    NSError *error = nil;
-    NSLog(@"%@", [serializer serialize:dictionary error:&error]);
-    
     return YES;
 }
 
