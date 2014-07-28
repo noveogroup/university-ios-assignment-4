@@ -8,6 +8,7 @@
 
 #import "NSDictionary+Serializable.h"
 #import "Serializer.h"
+#import "SerializationError.h"
 
 
 @implementation NSDictionary (Serializable)
@@ -18,9 +19,39 @@
     [result appendString:[Serializer getIndentStringForDepth:depth]];
     [result appendString:@"NSDictionary:\n"];
     
-    [self enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
-        [result appendString:[self serialize:value atDepth:(depth+1) error:error]];
-    }];
+    for (id key in [self allKeys]) {
+        if (!([key isKindOfClass:[NSNumber class]] || [key isKindOfClass:[NSString class]]) ) {
+            if (error != NULL) {
+                *error = [SerializationError getWrongKeyTypeErrorForClassName:[[key class] description]];
+            }
+            
+            break;
+        }
+        
+        id value = [self objectForKey:key];
+        
+        if (![value respondsToSelector:@selector(serializeAtDepth:withError:)]) {
+            if (error != NULL) {
+                *error = [SerializationError getUnsupportedObjectErrorForClassName:[[value class] description]];
+            }
+            
+            break;
+        } else {
+            NSString *childSerialization = [[self objectForKey:key] serializeAtDepth:(depth+1) withError:error];
+            
+            if (childSerialization == nil) {
+                return nil;
+            }
+            
+            [result appendString:[Serializer getIndentStringForDepth:depth]];
+            [result appendFormat:@"\"%@\":\n", key];
+            [result appendString:childSerialization];
+        }
+    }
+    
+    if (*error != nil) {
+        return nil;
+    }
     
     return result;
 }
