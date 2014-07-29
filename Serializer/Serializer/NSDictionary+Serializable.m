@@ -22,7 +22,7 @@
     for (id key in [self allKeys]) {
         if (!([key isKindOfClass:[NSNumber class]] || [key isKindOfClass:[NSString class]]) ) {
             if (error != NULL) {
-                *error = [SerializationError getWrongKeyTypeErrorForClassName:[[key class] description]];
+                *error = [SerializationError getWrongKeyTypeErrorForClass:[key class]];
             }
             
             break;
@@ -32,7 +32,7 @@
         
         if (![value respondsToSelector:@selector(serializeAtDepth:withError:)]) {
             if (error != NULL) {
-                *error = [SerializationError getUnsupportedObjectErrorForClassName:[[value class] description]];
+                *error = [SerializationError getUnsupportedObjectErrorForClass:[value class]];
             }
             
             break;

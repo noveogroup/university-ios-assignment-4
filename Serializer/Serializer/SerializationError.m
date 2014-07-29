@@ -12,27 +12,27 @@
 
 NSString *domain = @"com.noveogroup.summerinternship2014.Serializer.SerializationError";
 
-+ (SerializationError *)getNotDictionaryErrorForClassName:(NSString *)className {
++ (SerializationError *)getNotDictionaryErrorForClass:(Class)classValue {
     
-    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"NSDictionary expected instead of %@", className] };
+    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"NSDictionary expected instead of %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
                                code:notDictionary
                            userInfo:userInfo];
 }
 
-+ (SerializationError *)getUnsupportedObjectErrorForClassName:(NSString *)className {
++ (SerializationError *)getUnsupportedObjectErrorForClass:(Class)classValue {
     
-    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Unsupported object type: %@", className] };
+    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Unsupported object type: %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
                                code:unsupportedObject
                            userInfo:userInfo];
 }
 
-+ (SerializationError *)getWrongKeyTypeErrorForClassName:(NSString *)className {
++ (SerializationError *)getWrongKeyTypeErrorForClass:(Class)classValue {
     
-    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Wrong type of NSDictionary key: %@", className] };
+    NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Wrong type of NSDictionary key: %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
                                code:wrongKeyType

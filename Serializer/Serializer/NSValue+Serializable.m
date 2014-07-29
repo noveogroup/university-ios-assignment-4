@@ -36,7 +36,7 @@
         return result;
     } else {
         if (error != NULL) {
-            *error = [SerializationError getUnsupportedObjectErrorForClassName:[NSString stringWithUTF8String:[self objCType]]];
+            *error = [SerializationError getUnsupportedObjectErrorForClass:[self class]];
         }
         
         return nil;

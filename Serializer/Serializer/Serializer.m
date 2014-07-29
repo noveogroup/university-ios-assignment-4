@@ -32,7 +32,7 @@
                   error:(NSError *__autoreleasing *)error {
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         if (error != NULL) {
-            *error = [SerializationError getNotDictionaryErrorForClassName:[[dictionary class] description]];
+            *error = [SerializationError getNotDictionaryErrorForClass:[dictionary class]];
         }
     
         return nil;

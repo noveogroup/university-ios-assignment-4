@@ -21,7 +21,7 @@
     for (id value in self) {
         if (![value respondsToSelector:@selector(serializeAtDepth:withError:)]) {
             if (error != NULL) {
-                *error = [SerializationError getUnsupportedObjectErrorForClassName:[[value class] description]];
+                *error = [SerializationError getUnsupportedObjectErrorForClass:[value class]];
             }
             
             break;
