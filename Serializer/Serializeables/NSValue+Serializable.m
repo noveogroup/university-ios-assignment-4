@@ -1,4 +1,5 @@
 #import "NSValue+Serializable.h"
+#import "Constants.h"
 
 @implementation NSValue(Serializable)
 
@@ -12,6 +13,11 @@
 	}
 	else
 	{
+		if (error != nil)
+		{
+			*error = [[NSError alloc] initWithDomain:myOwnDomain code:unsupportedParameterType userInfo:nil];
+		}
+
 		return nil;
 	}
 }
