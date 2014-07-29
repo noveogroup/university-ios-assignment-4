@@ -15,8 +15,7 @@
 - (NSString *)serializeAtDepth:(unsigned int)depth withError:(NSError *__autoreleasing *)error {
     NSMutableString *result = [[NSMutableString alloc] init];
     
-    [result appendString:[Serializer getIndentStringForDepth:depth]];
-    [result appendFormat:@"NSNumber: %@\n", [self description]];
+    [result appendFormat:@"%@", [self description]];
     
     return result;
 }

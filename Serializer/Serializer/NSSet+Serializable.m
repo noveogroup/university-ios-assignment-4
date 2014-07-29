@@ -15,8 +15,7 @@
 - (NSString *)serializeAtDepth:(unsigned int)depth withError:(NSError *__autoreleasing *)error {
     NSMutableString *result = [[NSMutableString alloc] init];
     
-    [result appendString:[Serializer getIndentStringForDepth:depth]];
-    [result appendString:@"NSSet:\n"];
+    [result appendString:@"{\n"];
     
     for (id value in self) {
         if (![value respondsToSelector:@selector(serializeAtDepth:withError:)]) {
@@ -32,9 +31,14 @@
                 return nil;
             }
             
+            [result appendString:[Serializer getIndentStringForDepth:depth+1]];
             [result appendString:childSerialization];
+            [result appendString:@",\n"];
         }
     }
+    
+    [result appendString:[Serializer getIndentStringForDepth:depth]];
+    [result appendString:@"}"];
     
     if (*error != nil) {
         return nil;

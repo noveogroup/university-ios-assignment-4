@@ -19,11 +19,9 @@
         return @"";
     }
     
-    for (unsigned int i = 0; i < depth - 1; i++) {
-        [result appendString:@"|  "];
+    for (unsigned int i = 0; i < depth; i++) {
+        [result appendString:@"    "];
     }
-    
-    [result appendString:@"|--"];
     
     return result;
 }

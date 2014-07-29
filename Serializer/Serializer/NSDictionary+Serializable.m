@@ -16,8 +16,8 @@
 - (NSString *)serializeAtDepth:(unsigned int)depth withError:(NSError *__autoreleasing *)error {
     NSMutableString *result = [[NSMutableString alloc] init];
     
-    [result appendString:[Serializer getIndentStringForDepth:depth]];
-    [result appendString:@"NSDictionary:\n"];
+    //[result appendString:[Serializer getIndentStringForDepth:depth]];
+    [result appendString:@"{\n"];
     
     for (id key in [self allKeys]) {
         if (!([key isKindOfClass:[NSNumber class]] || [key isKindOfClass:[NSString class]]) ) {
@@ -43,11 +43,15 @@
                 return nil;
             }
             
-            [result appendString:[Serializer getIndentStringForDepth:depth]];
-            [result appendFormat:@"\"%@\":\n", key];
+            [result appendString:[Serializer getIndentStringForDepth:depth+1]];
+            [result appendFormat:@"\"%@\": ", key];
             [result appendString:childSerialization];
+            [result appendString:@",\n"];
         }
     }
+    
+    [result appendString:[Serializer getIndentStringForDepth:depth]];
+    [result appendString:@"}"];
     
     if (*error != nil) {
         return nil;

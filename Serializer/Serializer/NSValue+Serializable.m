@@ -16,22 +16,25 @@
     if (strcmp([self objCType], @encode(CGRect)) == 0) {
         NSMutableString *result = [[NSMutableString alloc] init];
         
-        [result appendString:[Serializer getIndentStringForDepth:depth]];
-        [result appendString:@"CGRect:\n"];
+        [result appendString:@"CGRect : {\n"];
         
         CGRect value = [self CGRectValue];
         
         [result appendString:[Serializer getIndentStringForDepth:(depth+1)]];
-        [result appendFormat:@"x: %f\n", value.origin.x];
+        [result appendFormat:@"x: %f,\n", value.origin.x];
         
         [result appendString:[Serializer getIndentStringForDepth:(depth+1)]];
-        [result appendFormat:@"y: %f\n", value.origin.y];
+        [result appendFormat:@"y: %f,\n", value.origin.y];
         
         [result appendString:[Serializer getIndentStringForDepth:(depth+1)]];
-        [result appendFormat:@"width: %f\n", value.size.width];
+        [result appendFormat:@"width: %f,\n", value.size.width];
         
         [result appendString:[Serializer getIndentStringForDepth:(depth+1)]];
         [result appendFormat:@"height: %f\n", value.size.height];
+        
+        
+        [result appendString:[Serializer getIndentStringForDepth:(depth)]];
+        [result appendString:@"}"];
         
         return result;
     } else {
