@@ -9,7 +9,7 @@
 	{
 		CGRect rect = [self CGRectValue];
 
-		return [NSString stringWithFormat:@"CGRect: [(%f, %f), (%f, %f)]", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
+		return [NSString stringWithFormat:@"CGRect: [(%g, %g), (%g, %g)]", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
 	}
 	else
 	{
