@@ -88,7 +88,7 @@ Serializer *serializer;
     
     if (result == nil) {
         NSLog(@"%@", [error description]);
-        if (error.code != unsupportedObject) {
+        if (error.code != ErrorCodeForUnsupportedObject) {
             XCTFail(@"Wrong error passed: %i", error.code);
         }
     } else {
@@ -105,7 +105,7 @@ Serializer *serializer;
     
     if (result == nil) {
         NSLog(@"%@", [error description]);
-        if (error.code != unsupportedObject) {
+        if (error.code != ErrorCodeForUnsupportedObject) {
            XCTFail(@"Wrong error passed: %i", error.code);
         }
     } else {
@@ -126,7 +126,7 @@ Serializer *serializer;
     
     if (result == nil) {
         NSLog(@"%@", [error description]);
-        if (error.code != notDictionary) {
+        if (error.code != ErrorCodeForNotDictionary) {
             XCTFail(@"Wrong error passed: %i", error.code);
         }
     } else {
@@ -147,7 +147,7 @@ Serializer *serializer;
     
     if (result == nil) {
         NSLog(@"%@", [error description]);
-        if (error.code != wrongKeyType) {
+        if (error.code != ErrorCodeForWrongKeyType) {
             XCTFail(@"Wrong error passed: %i", error.code);
         }
     } else {

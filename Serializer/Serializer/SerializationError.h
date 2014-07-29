@@ -12,9 +12,9 @@
 
 typedef NS_ENUM(NSUInteger, SerializationErrorCode)
 {
-    unsupportedObject = 100,
-    notDictionary = 101,
-    wrongKeyType = 102
+    ErrorCodeForUnsupportedObject = 100,
+    ErrorCodeForNotDictionary = 101,
+    ErrorCodeForWrongKeyType = 102
 };
 
 + (SerializationError *) getUnsupportedObjectErrorForClass:(Class)classValue;

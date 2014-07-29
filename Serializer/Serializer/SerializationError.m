@@ -17,7 +17,7 @@ NSString *domain = @"com.noveogroup.summerinternship2014.Serializer.Serializatio
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"NSDictionary expected instead of %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
-                               code:notDictionary
+                               code:ErrorCodeForNotDictionary
                            userInfo:userInfo];
 }
 
@@ -26,7 +26,7 @@ NSString *domain = @"com.noveogroup.summerinternship2014.Serializer.Serializatio
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Unsupported object type: %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
-                               code:unsupportedObject
+                               code:ErrorCodeForUnsupportedObject
                            userInfo:userInfo];
 }
 
@@ -35,7 +35,7 @@ NSString *domain = @"com.noveogroup.summerinternship2014.Serializer.Serializatio
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Wrong type of NSDictionary key: %@", NSStringFromClass(classValue)] };
     
     return [NSError errorWithDomain:domain
-                               code:wrongKeyType
+                               code:ErrorCodeForWrongKeyType
                            userInfo:userInfo];
 }
 
