@@ -38,17 +38,19 @@ Serializer *serializer;
     
     [dictionary setValue:[[NSMutableDictionary alloc] init] forKey:@"Dictionary Key"];
     [dictionary setValue:[[NSMutableArray alloc]
-                          initWithArray:@[
-                                          [NSValue valueWithCGRect:CGRectMake(23, 30, 100, 50)],
-                                          [[NSNumber alloc] initWithInt:176],
-                                          [[NSSet alloc]
-                                           initWithArray:@[
-                                                           [[NSNumber alloc] initWithInt:-654176],
-                                                           [[NSNumber alloc] initWithInt:176546],
-                                                           [[NSNumber alloc] initWithInt:1534776]
-                                                           ]]
-                          ]]
-                  forKey:@"Array Key"];
+        initWithArray:@[
+            [NSValue valueWithCGRect:CGRectMake(23, 30, 100, 50)],
+            [[NSNumber alloc] initWithInt:176],
+            [[NSSet alloc]
+                initWithArray:@[
+                    [[NSNumber alloc] initWithInt:-654176],
+                    [[NSNumber alloc] initWithInt:176546],
+                    [[NSNumber alloc] initWithInt:1534776]
+                ]
+            ]
+        ]
+    ] forKey:@"Array Key"];
+    
     [dictionary setValue:[[NSSet alloc] init] forKey:@"Set Key"];
     [dictionary setValue:[[NSNumber alloc] initWithInt:(-44211)] forKey:[[NSNumber alloc] initWithInt:-44211]];
     [dictionary setValue:[[NSNull alloc] init] forKey:@"Null Key"];
