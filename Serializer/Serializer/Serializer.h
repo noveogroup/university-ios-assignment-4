@@ -12,7 +12,7 @@
 
 + (NSString *)getIndentStringForDepth:(unsigned int)depth;
 
-- (NSString *)serialize:(id)dictionary
+- (NSString *)serialize:(NSDictionary *)dictionary
                   error:(NSError *__autoreleasing *)error;
 
 @end

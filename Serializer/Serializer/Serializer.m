@@ -26,7 +26,7 @@
     return result;
 }
 
-- (NSString *)serialize:(id)dictionary
+- (NSString *)serialize:(NSDictionary *)dictionary
                   error:(NSError *__autoreleasing *)error {
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         if (error != NULL) {
