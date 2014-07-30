@@ -9,26 +9,38 @@
 #import "Serializer.h"
 
 @implementation Serializer
-+(NSString*)serialize: dictionary
++(NSString*)serialize:(id)dictionary error:(NSError **)error;
 {
+    NSDictionary *userInfo = @{
+                               NSLocalizedDescriptionKey: NSLocalizedString(@"Serialization was unsuccessful.", nil),
+                               NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Wrong input data", nil),
+                               NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Set an another type of an object", nil)
+                               };
+    
     if(![dictionary isKindOfClass:[NSDictionary class]])
-        return NO; //TODO: error
+    {
+        *error = [NSError errorWithDomain:@"wrong input type" code:5 userInfo: userInfo];
+        return nil;
+    }
     
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"\n"];
-    [reading appendString: [Serializer switching:dictionary]];
+    [reading appendString: [Serializer switching:dictionary error: error]];
     
-   
-
+    if(error)
+    {
+        return nil;
+    }
+    
     return reading;
 }
 
-+(NSString*)switching:(NSObject*)object
++(NSString*)switching:(NSObject*)object error:(NSError **)error
 {
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@" "];
     
     if([object isKindOfClass:[NSDictionary class]])
     {
-        [reading appendString:[Serializer serializeDictionary:(NSDictionary*)object]];
+        [reading appendString:[Serializer serializeDictionary:(NSDictionary*)object error:error]];
     }
     else if ([object isKindOfClass:[NSNull class]])
     {
@@ -40,29 +52,63 @@
     }
     else if([object isKindOfClass:[NSArray class]])
     {
-        [reading appendString:[Serializer serializeArray:(NSArray*)object]];
+        [reading appendString:[Serializer serializeArray:(NSArray*)object error:error]];
     }
     else if([object isKindOfClass:[NSSet class]])
     {
-        [reading appendString:[Serializer serializeSet:(NSSet*)object]];
+        [reading appendString:[Serializer serializeSet:(NSSet*)object error: error]];
     }
     else if([object isKindOfClass:[NSValue class]])
     {
-        [reading appendString:[Serializer serializeNSValue:(NSValue*)object]];
+        [reading appendString:[Serializer serializeNSValue:(NSValue*)object error:error]];
+    }
+    else
+    {
+        NSDictionary *userInfo = @{
+                                   NSLocalizedDescriptionKey: NSLocalizedString(@"Serialization was unsuccessful.", nil),
+                                   NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Wrong input data inside of dictionary", nil),
+                                   NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Set an another type of an object", nil)
+                                   };
+        
+        *error = [NSError errorWithDomain:@"forbidden type of an object" code:5 userInfo: userInfo];
+        return @"";
     }
     
     return reading;
 }
 
-+(NSString*)serializeDictionary:(NSDictionary*) dictionary
++(NSString*)serializeDictionary:(NSDictionary*) dictionary error:(NSError **)error
 {
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"\n{"];
     for (id key in dictionary)
     {
-        [reading appendString:@"\n    \""];
-        [reading appendString:key];
-        [reading appendString:@"\":"];
-        [reading appendString:[Serializer switching:[dictionary objectForKey:key]]];
+        if([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
+        {
+            
+            [reading appendString:@"\n    \""];
+            [reading appendString:key];
+            [reading appendString:@"\":"];
+            if(error)
+            {
+                [reading appendString:[Serializer switching:[dictionary objectForKey:key ] error: error]];
+            }
+            else
+            {
+                return nil;
+            }
+        }
+        
+        else
+        {
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Serialization was unsuccessful.", nil),
+                                       NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Wrong input type of a key id dictionary", nil),
+                                       NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Set an another type of an object", nil)
+                                       };
+            
+            *error = [NSError errorWithDomain:@"forbidden type of a key" code:5 userInfo: userInfo];
+            return @"";
+        }
     }
     
     NSRange range;
@@ -74,13 +120,13 @@
 
 }
 
-+(NSString*)serializeSet:(NSSet*) set
++(NSString*)serializeSet:(NSSet*) set error:(NSError **)error
 {
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"["];
     for (id item in set)
     {
         [reading appendString:@"\n"];
-        [reading appendString:[Serializer switching:item]];
+        [reading appendString:[Serializer switching:item error:error]];
         [reading appendString:@", "];
     }
     NSRange range;
@@ -92,13 +138,13 @@
     return reading;
 }
 
-+(NSString*)serializeArray:(NSArray*) array
++(NSString*)serializeArray:(NSArray*) array error:(NSError **)error
 {
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"["];
     for (id item in array)
     {
         [reading appendString:@"\n"];
-        [reading appendString:[Serializer switching:item]];
+        [reading appendString:[Serializer switching:item error: error]];
         [reading appendString:@", "];
     }
     
@@ -147,7 +193,7 @@
     return reading;
 }
 
-+(NSString*)serializeNSValue:(NSValue*) value
++(NSString*)serializeNSValue:(NSValue*) value error:(NSError **)error
 {
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"\n{\n"];
     CGRect rect;

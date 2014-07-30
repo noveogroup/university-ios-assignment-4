@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Serializer : NSObject
-+(NSString*)serialize:(NSDictionary*) dictionary;
++(NSString*)serialize:(id) dictionary error:(NSError **)errorPtr;
 @end
