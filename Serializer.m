@@ -20,15 +20,16 @@
     if(![dictionary isKindOfClass:[NSDictionary class]])
     {
         *error = [NSError errorWithDomain:@"wrong input type" code:5 userInfo: userInfo];
-        return nil;
+        return @"";
     }
     
     NSMutableString *reading = [[NSMutableString alloc] initWithString:@"\n"];
+    
     [reading appendString: [Serializer switching:dictionary error: error]];
     
-    if(error)
+    if(*error != nil)
     {
-        return nil;
+        return @"";
     }
     
     return reading;
@@ -84,17 +85,17 @@
     {
         if([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
         {
-            
             [reading appendString:@"\n    \""];
             [reading appendString:key];
             [reading appendString:@"\":"];
-            if(error)
+            if(*error == nil)
             {
                 [reading appendString:[Serializer switching:[dictionary objectForKey:key ] error: error]];
+                [reading appendString:@","];
             }
             else
             {
-                return nil;
+                return @"";
             }
         }
         
@@ -112,7 +113,7 @@
     }
     
     NSRange range;
-    range.location = reading.length - 2;
+    range.location = reading.length - 1;
     range.length = 1;
     [reading deleteCharactersInRange:range];
     [reading appendString:@"\n}"];
@@ -129,9 +130,10 @@
         [reading appendString:[Serializer switching:item error:error]];
         [reading appendString:@", "];
     }
+    
     NSRange range;
     range.location = reading.length - 2;
-    range.length = 1;
+    range.length = 2;
     [reading deleteCharactersInRange:range];
     
     [reading appendString:@"]"];
@@ -149,7 +151,7 @@
     }
     
     NSRange range;
-    range.location = reading.length - 3;
+    range.location = reading.length - 2;
     range.length = 2;
     [reading deleteCharactersInRange:range];
 
@@ -171,16 +173,12 @@
     {
         if([[number stringValue]  isEqual: @"1"])
         {
-            [reading appendString:@"\""];
-            [reading appendFormat: @"%@", @"YES"];
-            [reading appendString:@"\""];
+            [reading appendFormat: @"%@", @"true"];
             return reading;
         }
         else if ([[number stringValue]  isEqual: @"0"])
         {
-            [reading appendString:@"\""];
-            [reading appendFormat: @"%@", @"NO"];
-            [reading appendString:@"\""];
+            [reading appendFormat: @"%@", @"false"];
             return reading;
         }
         [reading appendString:@"\""];
@@ -201,15 +199,15 @@
     
     [reading appendString: @"\"origin.x\": \""];
     [reading appendFormat: @"%f", rect.origin.x];
-    [reading appendString: @"\"\n"];
+    [reading appendString: @"\",\n"];
     
     [reading appendString: @"\"origin.y\": \""];
     [reading appendFormat: @"%f", rect.origin.y];
-    [reading appendString: @"\"\n"];
+    [reading appendString: @"\",\n"];
     
     [reading appendString: @"\"size.height\": \""];
     [reading appendFormat: @"%f", rect.size.height];
-    [reading appendString: @"\"\n"];
+    [reading appendString: @"\",\n"];
     
     [reading appendString: @"\"size.width\": \""];
     [reading appendFormat: @"%f", rect.size.width];
