@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SerializatorProtocol.h"
 
 @interface Serializator : NSObject
 
-+(id<SerializatorProtocol>) initSerializatorByObject:(NSObject*) object
-                                    error:(NSError*) error;
-
--(NSString*) serializeDictinary:(NSDictionary*) dictinary
-                         error:(NSError*) error;
+-(NSString*) serializeByDictinary:(id) dictinary
+                          error:(NSError *__autoreleasing *) error;
 @end

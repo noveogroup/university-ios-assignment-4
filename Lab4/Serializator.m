@@ -1,51 +1,164 @@
-//
-//  Serializator.m
-//  Lab4
-//
-//  Created by Пользователь on 25/02/15.
-//  Copyright (c) 2015 Пользователь. All rights reserved.
-//
-
+#include <CoreGraphics/CGGeometry.h>
 #import "Serializator.h"
-#import "Serializator_NSDictinary.h"
-#import "Serializator_NSSet.h"
-#import "Serializator_NSArray.h"
-#import "Serializator_NSNull.h"
-#import "Serializator_NSNumber.h"
-#import "Serializator_NSValue.h"
 
-@class Serializator_NSDictinary;
+@interface Serializator()
+
+-(NSString*) serializeNSDictionary:(NSDictionary*) object error:(NSError *__autoreleasing *) error;
+-(NSString*) serializeNSSet:(NSSet*) object error:(NSError *__autoreleasing *) error;
+-(NSString*) serializeNSArray:(NSArray*) object error:(NSError *__autoreleasing *) error;
+-(NSString*) serializeNSNull:(NSNull*) object error:(NSError *__autoreleasing *) error;
+-(NSString*) serializeNSValue:(NSValue*) object error:(NSError *__autoreleasing *) error;
+-(NSString*) serializeNSNumber:(NSNumber*) object error:(NSError *__autoreleasing *) error;
+
+-(NSString*) launchSerialzerByObject:(id) object error:(NSError *__autoreleasing *) error;
+
+@end
 
 @implementation Serializator
 
-+(id<SerializatorProtocol>) initSerializatorByObject:(NSObject*) object
-                                   error:(NSError*) error
+-(NSString*) serializeByDictinary:(id)dictinary error:(NSError *__autoreleasing *)error
+{
+    NSString *resultStr;
+    
+    if (![dictinary isKindOfClass:[NSDictionary class]])
+    {
+        *error = [[NSError alloc] initWithDomain:@"Input parameters is not Dictinary"
+                                            code:666
+                                        userInfo:nil];
+    }
+    else
+    {
+        resultStr = [self serializeNSDictionary:dictinary error:error];
+        if (*error != nil)
+            return nil;
+    }
+    
+    return resultStr;
+}
+
+-(NSString*) launchSerialzerByObject:(id)object error:(NSError *__autoreleasing *)error
 {
     
     if ([object isKindOfClass:[NSDictionary class]])
-        return [[Serializator_NSDictinary alloc] init];
+        return [self serializeNSDictionary:object error:error];
     
     if ([object isKindOfClass:[NSSet class]])
-        return [[Serializator_NSSet alloc] init];
+        return [self serializeNSSet:object error:error];
     
     if ([object isKindOfClass:[NSArray class]])
-        return [[Serializator_NSArray alloc] init];
-    
-    if ([object isKindOfClass:[NSNull class]])
-        return [[Serializator_NSNull alloc] init];
-    
-    if ([object isKindOfClass:[NSValue class]])
-        return [[Serializator_NSValue alloc] init];
+        return [self serializeNSArray:object error:error];
     
     if ([object isKindOfClass:[NSNumber class]])
-        return [[Serializator_NSNumber alloc] init];
+        return [self serializeNSNumber:object error:error];
     
-    return nil;
+    if ([object isKindOfClass:[NSNull class]])
+        return [self serializeNSNull:object error:error];
+    
+    if ([object isKindOfClass:[NSValue class]])
+        return [self serializeNSValue:object error:error];
+    
+    *error = [[NSError alloc] initWithDomain:@"Object is not supported serialize"
+                                        code:1000
+                                    userInfo:nil];
+    
+    return [@"" mutableCopy];
 }
 
--(NSString*) serializeDictinary:(NSDictionary *)dictinary error:(NSError *)error
+-(NSString*) serializeNSDictionary:(NSDictionary *)object error:(NSError *__autoreleasing *)error
 {
-    return [[Serializator initSerializatorByObject:dictinary error:error] serializeByObject:dictinary error:error];
+    NSMutableString *resultStr = [@"\n{Dict" mutableCopy];
+    
+    // Empty check
+    if ([object count] == 0)
+        return [resultStr stringByAppendingString:@" - empty}"];
+    
+    // Go by Dict
+    for (id key in object)
+    {
+        if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])
+        {
+            [resultStr appendString:[self launchSerialzerByObject:object[key] error:error]];
+            [resultStr appendString:@" ; "];
+        }
+        else
+        {
+            *error = [[NSError alloc] initWithDomain:@"Dictinary Key not supported"
+                                                code:777
+                                            userInfo:nil];
+            return [@"" mutableCopy];
+        }
+    }
+    
+    return [resultStr stringByAppendingString:@"}"];;
+}
+
+-(NSString*) serializeNSArray:(NSArray *)object error:(NSError *__autoreleasing *)error
+{
+    NSMutableString* resultStr = [@"\n{NSArray " mutableCopy];
+    
+    // Empty check
+    if ([object count] == 0)
+        return [resultStr stringByAppendingString:@" - empty}\n"];
+    
+    // Go By Array
+    for (id element in object)
+    {
+        [resultStr appendString:[self launchSerialzerByObject:element error:error]];
+        [resultStr appendString:@" ; "];
+    }
+    
+    return [resultStr stringByAppendingString:@"}"];
+}
+
+-(NSString*) serializeNSSet:(NSSet *)object error:(NSError *__autoreleasing *)error
+{
+    NSMutableString *resultStr = [@"\n{NSSet" mutableCopy];
+    
+    // Empty check
+    if ([object count] == 0)
+        return [resultStr stringByAppendingString:@" - empty}\n"];
+    
+    // Go By Set
+    for (id element in object)
+    {
+        [resultStr appendString:[self launchSerialzerByObject:element error:error]];
+        [resultStr appendString:@" ; "];
+    }
+    
+    return [resultStr stringByAppendingString:@"}"];;
+}
+
+-(NSString*) serializeNSNumber:(NSNumber *)object error:(NSError *__autoreleasing *)error
+{
+    return [NSString stringWithFormat:@"%@",object];
+}
+
+-(NSString*) serializeNSNull:(NSNull *)object error:(NSError *__autoreleasing *)error
+{
+    return [NSString stringWithFormat:@"NSNull"];
+}
+
+-(NSString*) serializeNSValue:(NSValue *)object error:(NSError *__autoreleasing *)error
+{
+    NSString *resultStr;
+    
+    if (strcmp(@encode(CGRect),[object objCType]))
+    {
+        CGRect rect;
+        [object getValue:&rect];
+        
+        resultStr = [NSString stringWithFormat:@"X - %f ; Y - %f ; Height - %f, Width - %f",rect.origin.x, rect.origin.y,
+                     rect.size.height, rect.size.width];
+        
+    }
+    else
+    {
+        *error = [[NSError alloc] initWithDomain:@"NSValue is not CGRect"
+                                            code:888
+                                        userInfo:nil];
+    }
+    
+    return resultStr;
 }
 
 @end
