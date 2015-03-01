@@ -6,8 +6,8 @@ static NSString *const LINE_SEPARATOR = @"\n";
 static NSString *const LINE_INDENTATION = @"    ";
 static NSString *const CONFIG_LINE_INDENTATION_KEY = @"Line indentation key";
 static NSString *const CONFIG_LINE_SEPARATOR_KEY = @"Line separator key";
+static NSString *const CONFIG_DEPTH_KEY = @"Depth key";
 static NSString *const ERROR_DOMAIN = @"ru.kostya.Serializer";
-static NSInteger depth = 0;
 enum ErrorCode {
     UNSUPPORTED_PARAMETER = 1, // Passed object is not a dictionary
     OBJECT_OF_INVALID_TYPE = 2, // Passed dictionary contains an object of invalid type
@@ -51,6 +51,9 @@ enum ErrorCode {
 + (NSString *)serializeDictionary:(id)dictionary
                         byOneLine:(BOOL)isOneLined
                             error:(NSError *__autoreleasing *)error {
+    // Setup depth
+    [[self class] setDepth:0];
+ 
     // Configure one line or multiline output option
     [self configureOutputOption:isOneLined];
     
@@ -118,7 +121,7 @@ enum ErrorCode {
                         error:(NSError *__autoreleasing *)error {
     [*result appendString: @"{"];
     [*result appendString:[[self class] lineSeparator]];
-    depth++;
+    [[self class] incrementDepth];
     NSArray *dictionaryKeys = [dictionary allKeys];
     for (id key in dictionaryKeys) {
         // Check that key of dictionary has supported type and return error if not
@@ -159,7 +162,7 @@ enum ErrorCode {
             }
         }
     }
-    depth--;
+    [[self class] decrementDepth];
     [*result appendString:[[self class] lineSeparator]];
     [*result appendString: [[self class] buildLineIndentation]];
     [*result appendString: @"}"];
@@ -171,7 +174,7 @@ enum ErrorCode {
     [*result appendString: @"["];
     if ([array count] > 0) {
         [*result appendString:[[self class] lineSeparator]];
-        depth++;
+        [[self class] incrementDepth];
         for (id item in array) {
             [*result appendString: [[self class] buildLineIndentation]];
             [[self class] serializeObject:item result:&*result error:&*error];
@@ -185,7 +188,7 @@ enum ErrorCode {
                 [*result appendString:[[self class] lineSeparator]];
             }
         }
-        depth--;
+        [[self class] decrementDepth];
         [*result appendString:[[self class] lineSeparator]];
         [*result appendString: [[self class] buildLineIndentation]];
     }
@@ -232,6 +235,7 @@ enum ErrorCode {
 
 + (NSString *)buildLineIndentation {
     NSMutableString *indentation = [[NSMutableString alloc] init];
+    NSInteger depth = [[self class] depth];
     for (int i = 0; i < depth; i++) {
         [indentation appendString:[[self class] lineIndentation]];
     }
@@ -255,6 +259,22 @@ enum ErrorCode {
 
 + (NSString *)lineIndentation {
     return [[[NSThread currentThread] threadDictionary] valueForKey:CONFIG_LINE_INDENTATION_KEY];
+}
+
++ (NSInteger)depth {
+    return [[[[NSThread currentThread] threadDictionary] valueForKey:CONFIG_DEPTH_KEY] integerValue];
+}
+
++ (void)setDepth:(NSInteger)depthValue {
+    [[[NSThread currentThread] threadDictionary] setValue:[NSNumber numberWithInteger:depthValue] forKey:CONFIG_DEPTH_KEY];
+}
+
++ (void)incrementDepth {
+    [[self class] setDepth:[[self class] depth] + 1];
+}
+
++ (void)decrementDepth {
+    [[self class] setDepth:[[self class] depth] - 1];
 }
 
 @end
