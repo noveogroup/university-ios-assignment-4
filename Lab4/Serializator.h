@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    Input_parameters_is_not_Dictinary
+} SerializatorError;
+
 @interface Serializator : NSObject
 
--(NSString*) serializeByDictinary:(id) dictinary
++(NSString*) serializeByDictinary:(id) dictinary
                           error:(NSError *__autoreleasing *) error;
 @end

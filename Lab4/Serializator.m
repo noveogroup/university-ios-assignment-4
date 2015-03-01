@@ -1,5 +1,7 @@
 #include <CoreGraphics/CGGeometry.h>
+#import <UIKit/UIKit.h>
 #import "Serializator.h"
+#import "SerializationError.h"
 
 @interface Serializator()
 
@@ -16,19 +18,20 @@
 
 @implementation Serializator
 
--(NSString*) serializeByDictinary:(id)dictinary error:(NSError *__autoreleasing *)error
++(NSString*) serializeByDictinary:(id)dictinary error:(NSError *__autoreleasing *)error
 {
+    Serializator *serializator = [[Serializator alloc] init];
     NSString *resultStr;
     
     if (![dictinary isKindOfClass:[NSDictionary class]])
     {
-        *error = [[NSError alloc] initWithDomain:@"Input parameters is not Dictinary"
-                                            code:666
-                                        userInfo:nil];
+        NSStringFromClass(dictinary);
+        
+        *error = [SerializationError getErrorWrongInputParametersWithClass:[dictinary class]];
     }
     else
     {
-        resultStr = [self serializeNSDictionary:dictinary error:error];
+        resultStr = [serializator serializeNSDictionary:dictinary error:error];
         if (*error != nil)
             return nil;
     }
@@ -57,9 +60,7 @@
     if ([object isKindOfClass:[NSValue class]])
         return [self serializeNSValue:object error:error];
     
-    *error = [[NSError alloc] initWithDomain:@"Object is not supported serialize"
-                                        code:1000
-                                    userInfo:nil];
+    *error = [SerializationError getErrorNotSupportedObjectWithClass:[object class]];
     
     return [@"" mutableCopy];
 }
@@ -82,9 +83,7 @@
         }
         else
         {
-            *error = [[NSError alloc] initWithDomain:@"Dictinary Key not supported"
-                                                code:777
-                                            userInfo:nil];
+            *error = [SerializationError getErrorNotSupportedKeyWithClass:[key class]];
             return [@"" mutableCopy];
         }
     }
@@ -130,12 +129,12 @@
 
 -(NSString*) serializeNSNumber:(NSNumber *)object error:(NSError *__autoreleasing *)error
 {
-    return [NSString stringWithFormat:@"%@",object];
+    return [object stringValue];
 }
 
 -(NSString*) serializeNSNull:(NSNull *)object error:(NSError *__autoreleasing *)error
 {
-    return [NSString stringWithFormat:@"NSNull"];
+    return @"NSNull";
 }
 
 -(NSString*) serializeNSValue:(NSValue *)object error:(NSError *__autoreleasing *)error
@@ -147,15 +146,11 @@
         CGRect rect;
         [object getValue:&rect];
         
-        resultStr = [NSString stringWithFormat:@"X - %f ; Y - %f ; Height - %f, Width - %f",rect.origin.x, rect.origin.y,
-                     rect.size.height, rect.size.width];
-        
+        return NSStringFromCGRect(rect);
     }
     else
     {
-        *error = [[NSError alloc] initWithDomain:@"NSValue is not CGRect"
-                                            code:888
-                                        userInfo:nil];
+        *error = [SerializationError getErrorNotSupportedObjectWithClass:[object class]];
     }
     
     return resultStr;
