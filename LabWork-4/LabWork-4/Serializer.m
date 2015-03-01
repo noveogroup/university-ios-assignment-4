@@ -2,7 +2,12 @@
 
 static NSString *const KEY_WRAPPER_SYMBOL = @"\"";
 static NSString *const ELEMENTS_SEPARATOR_SYMBOL = @",";
+static NSString *const LINE_SEPARATOR = @"\n";
+static NSString *const LINE_INDENTATION = @"    ";
+static NSString *localLineSeparator; // The variable is not thread-safe. TODO make it thread local
+static NSString *localLineIndentation; // The variable is not thread-safe. TODO make it thread local
 static NSString *const ERROR_DOMAIN = @"ru.kostya.Serializer";
+static NSInteger depth = 0;
 enum ErrorCode {
     UNSUPPORTED_PARAMETER = 1, // Passed object is not a dictionary
     OBJECT_OF_INVALID_TYPE = 2, // Passed dictionary contains an object of invalid type
@@ -13,7 +18,23 @@ enum ErrorCode {
 
 @implementation Serializer
 
-// The only public method
+/*!
+ * Serializes an object to readable format like json. Handles only NSDictionary objects.
+ * Serializing dictionaries may include one of the following object types: NSDictionary, NSArray,
+ * NSSet, NSNumber, NSNull, CGRect (wrapped in NSValue) but their keys may only be strings or
+ * numbers.
+ * Serializing arrays and sets may include one of the following object types: NSDictionary, NSArray,
+ * NSSet, NSNumber, NSNull, CGRect (wrapped in NSValue).
+ * Nesting level of data structure is not limited.
+ * \param dictionary The NSDicionary object which will be serialixed.
+ * \param error Out parameter containing an NSError object with the error's descrioption.
+ * The error includes error code represented as one items of ErrorCode enum.
+ * \returns The string with the result of serialization.
+ */
++ (NSString *)serializeDictionary:(id)dictionary error:(NSError *__autoreleasing *)error {
+    return [[self class] serializeDictionary:dictionary byOneLine:NO error:&*error];
+}
+
 /*!
  * Serializes an object to readable format like json. Handles only NSDictionary objects. 
  * Serializing dictionaries may include one of the following object types: NSDictionary, NSArray, 
@@ -23,11 +44,24 @@ enum ErrorCode {
  * NSSet, NSNumber, NSNull, CGRect (wrapped in NSValue).
  * Nesting level of data structure is not limited.
  * \param dictionary The NSDicionary object which will be serialixed.
+ * \param byOneLine BOOL parameter. If YES then result will be in one line or multilined otherwise.
  * \param error Out parameter containing an NSError object with the error's descrioption. 
  * The error includes error code represented as one items of ErrorCode enum.
  * \returns The string with the result of serialization.
  */
-+ (NSString *)serializeDictionary:(id)dictionary error:(NSError *__autoreleasing *)error {
++ (NSString *)serializeDictionary:(id)dictionary
+                        byOneLine:(BOOL)isOneLined
+                            error:(NSError *__autoreleasing *)error {
+    // Configure one line or multiline output option
+    if (isOneLined) {
+        localLineSeparator = @"";
+        localLineIndentation = @"";
+    }
+    else {
+        localLineSeparator = LINE_SEPARATOR;
+        localLineIndentation = LINE_INDENTATION;
+    }
+    
     // Check that passed object is actually NSDictionary
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
         NSMutableString *result = [[NSMutableString alloc] init];
@@ -91,6 +125,8 @@ enum ErrorCode {
                        result:(NSMutableString **)result
                         error:(NSError *__autoreleasing *)error {
     [*result appendString: @"{"];
+    [*result appendString:localLineSeparator];
+    depth++;
     NSArray *dictionaryKeys = [dictionary allKeys];
     for (id key in dictionaryKeys) {
         // Check that key of dictionary has supported type and return error if not
@@ -109,6 +145,7 @@ enum ErrorCode {
             break;
         }
         else {
+            [*result appendString: [[self class] buildLineIndentation]];
             [*result appendFormat:@"%@%@%@: ", KEY_WRAPPER_SYMBOL, key, KEY_WRAPPER_SYMBOL];
             [[self class] serializeObject: dictionary[key] result:&*result error:&*error];
             // Check if serializeObject method was ended with error and handle it
@@ -126,9 +163,13 @@ enum ErrorCode {
             }
             if (key != [dictionaryKeys lastObject]) {
                 [*result appendFormat: @"%@ ", ELEMENTS_SEPARATOR_SYMBOL];
+                [*result appendString:localLineSeparator];
             }
         }
     }
+    depth--;
+    [*result appendString:localLineSeparator];
+    [*result appendString: [[self class] buildLineIndentation]];
     [*result appendString: @"}"];
 }
 
@@ -136,16 +177,25 @@ enum ErrorCode {
                   result:(NSMutableString **)result
                    error:(NSError *__autoreleasing *)error {
     [*result appendString: @"["];
-    for (id item in array) {
-        [[self class] serializeObject:item result:&*result error:&*error];
-        // Check if serializeObject method was ended with error and handle it
-        if (!!error && *error != nil) {
-            *result = nil;
-            break;
+    if ([array count] > 0) {
+        [*result appendString:localLineSeparator];
+        depth++;
+        for (id item in array) {
+            [*result appendString: [[self class] buildLineIndentation]];
+            [[self class] serializeObject:item result:&*result error:&*error];
+            // Check if serializeObject method was ended with error and handle it
+            if (!!error && *error != nil) {
+                *result = nil;
+                break;
+            }
+            if (item != [array lastObject]) {
+                [*result appendFormat: @"%@ ", ELEMENTS_SEPARATOR_SYMBOL];
+                [*result appendString:localLineSeparator];
+            }
         }
-        if (item != [array lastObject]) {
-            [*result appendFormat: @"%@ ", ELEMENTS_SEPARATOR_SYMBOL];
-        }
+        depth--;
+        [*result appendString:localLineSeparator];
+        [*result appendString: [[self class] buildLineIndentation]];
     }
     [*result appendString: @"]"];
 }
@@ -186,7 +236,14 @@ enum ErrorCode {
             *error = [NSError errorWithDomain:ERROR_DOMAIN code:INVALID_NSVALUE userInfo:userInfo];
         }
     }
-    
+}
+
++ (NSString *)buildLineIndentation {
+    NSMutableString *indentation = [[NSMutableString alloc] init];
+    for (int i = 0; i < depth; i++) {
+        [indentation appendString:localLineIndentation];
+    }
+    return indentation;
 }
 
 @end
