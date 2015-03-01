@@ -4,8 +4,8 @@ static NSString *const KEY_WRAPPER_SYMBOL = @"\"";
 static NSString *const ELEMENTS_SEPARATOR_SYMBOL = @",";
 static NSString *const LINE_SEPARATOR = @"\n";
 static NSString *const LINE_INDENTATION = @"    ";
-static NSString *localLineSeparator; // The variable is not thread-safe. TODO make it thread local
-static NSString *localLineIndentation; // The variable is not thread-safe. TODO make it thread local
+static NSString *const CONFIG_LINE_INDENTATION_KEY = @"Line indentation key";
+static NSString *const CONFIG_LINE_SEPARATOR_KEY = @"Line separator key";
 static NSString *const ERROR_DOMAIN = @"ru.kostya.Serializer";
 static NSInteger depth = 0;
 enum ErrorCode {
@@ -14,7 +14,6 @@ enum ErrorCode {
     INVALID_KEY_TYPE = 3, // One of the keys has invalid type
     INVALID_NSVALUE = 4 // NSValue doesn't contain CGRect struct
 };
-
 
 @implementation Serializer
 
@@ -53,14 +52,7 @@ enum ErrorCode {
                         byOneLine:(BOOL)isOneLined
                             error:(NSError *__autoreleasing *)error {
     // Configure one line or multiline output option
-    if (isOneLined) {
-        localLineSeparator = @"";
-        localLineIndentation = @"";
-    }
-    else {
-        localLineSeparator = LINE_SEPARATOR;
-        localLineIndentation = LINE_INDENTATION;
-    }
+    [self configureOutputOption:isOneLined];
     
     // Check that passed object is actually NSDictionary
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
@@ -125,7 +117,7 @@ enum ErrorCode {
                        result:(NSMutableString **)result
                         error:(NSError *__autoreleasing *)error {
     [*result appendString: @"{"];
-    [*result appendString:localLineSeparator];
+    [*result appendString:[[self class] lineSeparator]];
     depth++;
     NSArray *dictionaryKeys = [dictionary allKeys];
     for (id key in dictionaryKeys) {
@@ -163,12 +155,12 @@ enum ErrorCode {
             }
             if (key != [dictionaryKeys lastObject]) {
                 [*result appendFormat: @"%@ ", ELEMENTS_SEPARATOR_SYMBOL];
-                [*result appendString:localLineSeparator];
+                [*result appendString:[[self class] lineSeparator]];
             }
         }
     }
     depth--;
-    [*result appendString:localLineSeparator];
+    [*result appendString:[[self class] lineSeparator]];
     [*result appendString: [[self class] buildLineIndentation]];
     [*result appendString: @"}"];
 }
@@ -178,7 +170,7 @@ enum ErrorCode {
                    error:(NSError *__autoreleasing *)error {
     [*result appendString: @"["];
     if ([array count] > 0) {
-        [*result appendString:localLineSeparator];
+        [*result appendString:[[self class] lineSeparator]];
         depth++;
         for (id item in array) {
             [*result appendString: [[self class] buildLineIndentation]];
@@ -190,11 +182,11 @@ enum ErrorCode {
             }
             if (item != [array lastObject]) {
                 [*result appendFormat: @"%@ ", ELEMENTS_SEPARATOR_SYMBOL];
-                [*result appendString:localLineSeparator];
+                [*result appendString:[[self class] lineSeparator]];
             }
         }
         depth--;
-        [*result appendString:localLineSeparator];
+        [*result appendString:[[self class] lineSeparator]];
         [*result appendString: [[self class] buildLineIndentation]];
     }
     [*result appendString: @"]"];
@@ -241,9 +233,28 @@ enum ErrorCode {
 + (NSString *)buildLineIndentation {
     NSMutableString *indentation = [[NSMutableString alloc] init];
     for (int i = 0; i < depth; i++) {
-        [indentation appendString:localLineIndentation];
+        [indentation appendString:[[self class] lineIndentation]];
     }
     return indentation;
+}
+
++ (void)configureOutputOption:(BOOL)isOneLined {
+    if (isOneLined) {
+        [[[NSThread currentThread] threadDictionary] setValue:@"" forKey:CONFIG_LINE_SEPARATOR_KEY];
+        [[[NSThread currentThread] threadDictionary] setValue:@"" forKey:CONFIG_LINE_INDENTATION_KEY];
+    }
+    else {
+        [[[NSThread currentThread] threadDictionary] setValue:LINE_SEPARATOR forKey:CONFIG_LINE_SEPARATOR_KEY];
+        [[[NSThread currentThread] threadDictionary] setValue:LINE_INDENTATION forKey:CONFIG_LINE_INDENTATION_KEY];
+    }
+}
+
++ (NSString *)lineSeparator {
+    return [[[NSThread currentThread] threadDictionary] valueForKey:CONFIG_LINE_SEPARATOR_KEY];
+}
+
++ (NSString *)lineIndentation {
+    return [[[NSThread currentThread] threadDictionary] valueForKey:CONFIG_LINE_INDENTATION_KEY];
 }
 
 @end
