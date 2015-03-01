@@ -1,5 +1,7 @@
 #import "Serializer.h"
 
+static NSString *const KEY_WRAPPER_SYMBOL = @"\"";
+
 @implementation Serializer
 
 // The only public method
@@ -38,7 +40,7 @@
     [*result appendString: @"{"];
     NSArray *dictionaryKeys = [dictionary allKeys];
     for (id key in dictionaryKeys) {
-        [*result appendFormat:@"\"%@\": ", key];
+        [*result appendFormat:@"%@%@%@: ", KEY_WRAPPER_SYMBOL, key, KEY_WRAPPER_SYMBOL];
         [[self class] serializeObject: dictionary[key] result:*&result];
         if (key != [dictionaryKeys lastObject]) {
             [*result appendString: @", "];
