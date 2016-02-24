@@ -20,6 +20,10 @@
     self = [super init];
     if (self) {
         NSLog(@"VESerializer init");
+        
+        
+        NSJSONSerialization
+        
     }
     return self;
 }
