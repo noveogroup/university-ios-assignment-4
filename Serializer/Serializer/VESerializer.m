@@ -8,6 +8,7 @@
 
 #import "VESerializer.h"
 
+
 @interface VESerializer ()
 
 @end
@@ -20,16 +21,15 @@
     self = [super init];
     if (self) {
         NSLog(@"VESerializer init");
-        
-        
-        NSJSONSerialization
-        
     }
     return self;
 }
 
-- (void)start {
-    NSLog(@"start");
+- (NSString *)serializeDictionary:(id)dict withError:(NSError *__autoreleasing *)error {
+    
+    
+    
+    return nil;
 }
 
 

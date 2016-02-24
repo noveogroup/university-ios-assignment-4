@@ -13,6 +13,7 @@ int main(int argc, char * argv[]) {
     @autoreleasepool {
         
         VESerializer *serializer = [[VESerializer alloc] init];
+        NSError *error = nil;
         
         CGRect rect = CGRectMake(10, 10, 150, 200);
         NSValue *value = [NSValue valueWithCGRect:rect];
@@ -35,7 +36,7 @@ int main(int argc, char * argv[]) {
         
         
         
-        [serializer start];
+        
     }
     return 0;
 }

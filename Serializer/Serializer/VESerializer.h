@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface VESerializer : NSObject
 
-- (void)start;
+
+- (NSString *)serializeDictionary:(id)dict withError:(NSError *__autoreleasing *)error;
+
 
 @end
 

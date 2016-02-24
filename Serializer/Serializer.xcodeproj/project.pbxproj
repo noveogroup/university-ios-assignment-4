@@ -19,6 +19,7 @@
 		84D988AA1C7CB0FB008744BA /* VESerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VESerializer.m; sourceTree = "<group>"; };
 		84D988B41C7CB0FB008744BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D988BA1C7CB520008744BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84D988F91C7E1D02008744BA /* VEErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEErrors.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +54,7 @@
 		84D988A21C7CB0FB008744BA /* Serializer */ = {
 			isa = PBXGroup;
 			children = (
-				84D988A91C7CB0FB008744BA /* VESerializer.h */,
-				84D988AA1C7CB0FB008744BA /* VESerializer.m */,
+				84D988FA1C7E1D0D008744BA /* Classes */,
 				84D988B41C7CB0FB008744BA /* Info.plist */,
 				84D988A31C7CB0FB008744BA /* Supporting Files */,
 			);
@@ -75,6 +75,16 @@
 				84D988BA1C7CB520008744BA /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84D988FA1C7E1D0D008744BA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84D988F91C7E1D02008744BA /* VEErrors.h */,
+				84D988A91C7CB0FB008744BA /* VESerializer.h */,
+				84D988AA1C7CB0FB008744BA /* VESerializer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
