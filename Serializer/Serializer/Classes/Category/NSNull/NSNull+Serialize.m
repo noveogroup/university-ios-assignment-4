@@ -10,4 +10,9 @@
 
 @implementation NSNull (Serialize)
 
+- (NSString *)serializeWithError:(NSError **)error {
+    
+    return [NSString stringWithFormat:@"null"];
+}
+
 @end

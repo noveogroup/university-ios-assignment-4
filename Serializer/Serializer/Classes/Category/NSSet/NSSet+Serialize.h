@@ -10,4 +10,6 @@
 
 @interface NSSet (Serialize)
 
+- (NSString *)serializeWithError:(NSError **)error;
+
 @end

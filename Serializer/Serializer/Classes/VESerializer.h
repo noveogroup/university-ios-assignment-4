@@ -12,7 +12,8 @@
 @interface VESerializer : NSObject
 
 
-- (NSString *)serializeDictionary:(id)dict withError:(NSError *__autoreleasing *)error;
+- (NSString *)serializeDictionary:(id)dict withError:(NSError **)error;
+- (NSString *)serializeWithError:(NSError **)error;
 
 
 @end

@@ -10,4 +10,7 @@
 
 @interface NSDictionary (Serialize)
 
+
+- (NSString *)serializeWithError:(NSError **)error;
+
 @end

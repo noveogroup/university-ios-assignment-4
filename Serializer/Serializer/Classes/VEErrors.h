@@ -6,16 +6,15 @@
 //  Copyright © 2016 Viktor Erfilov. All rights reserved.
 //
 
-#ifndef VEErrors_h
-#define VEErrors_h
+
+#import <Foundation/Foundation.h>
+
+extern NSString *const VEErrorDomain;
 
 typedef enum {
     VEErrorNoErrors,
     VEErrorObjectNotDictionary,
-    VEErrorDictionaryContainsInvalidTypeOfObject,
+    VEErrorDictionaryContainsInvalidObjectType,
     VEErrorKeyIsObjectOfIncorrectType,
 } VEErrorCode;
 
-
-
-#endif /* VEErrors_h */

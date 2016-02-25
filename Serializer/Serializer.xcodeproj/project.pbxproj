@@ -16,6 +16,9 @@
 		84D989171C7E20E5008744BA /* NSNumber+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D989161C7E20E5008744BA /* NSNumber+Serialize.m */; };
 		84D9891B1C7E2111008744BA /* NSNull+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9891A1C7E2111008744BA /* NSNull+Serialize.m */; };
 		84D9891F1C7E2131008744BA /* NSValue+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9891E1C7E2131008744BA /* NSValue+Serialize.m */; };
+		84D989221C7E2B50008744BA /* VEErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D989211C7E2B50008744BA /* VEErrors.m */; };
+		84D989241C7F6691008744BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D989231C7F668F008744BA /* UIKit.framework */; };
+		84D989261C7F6A50008744BA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D989251C7F6A4F008744BA /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		84D9891A1C7E2111008744BA /* NSNull+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNull+Serialize.m"; path = "Classes/Category/NSNull/NSNull+Serialize.m"; sourceTree = "<group>"; };
 		84D9891D1C7E2131008744BA /* NSValue+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Serialize.h"; path = "Classes/Category/NSValue/NSValue+Serialize.h"; sourceTree = "<group>"; };
 		84D9891E1C7E2131008744BA /* NSValue+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Serialize.m"; path = "Classes/Category/NSValue/NSValue+Serialize.m"; sourceTree = "<group>"; };
+		84D989211C7E2B50008744BA /* VEErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VEErrors.m; path = Classes/VEErrors.m; sourceTree = "<group>"; };
+		84D989231C7F668F008744BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84D989251C7F6A4F008744BA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D989241C7F6691008744BA /* UIKit.framework in Frameworks */,
 				84D988BB1C7CB520008744BA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +62,7 @@
 		84D988971C7CB0FB008744BA = {
 			isa = PBXGroup;
 			children = (
+				84D989251C7F6A4F008744BA /* Default-568h@2x.png */,
 				84D988A21C7CB0FB008744BA /* Serializer */,
 				84D988A11C7CB0FB008744BA /* Products */,
 				84D988BC1C7CB530008744BA /* Frameworks */,
@@ -90,6 +98,7 @@
 		84D988BC1C7CB530008744BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D989231C7F668F008744BA /* UIKit.framework */,
 				84D988BA1C7CB520008744BA /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -100,6 +109,7 @@
 			children = (
 				84D988FE1C7E1FA7008744BA /* Category */,
 				84D989071C7E2041008744BA /* VEErrors.h */,
+				84D989211C7E2B50008744BA /* VEErrors.m */,
 				84D989081C7E2041008744BA /* VESerializer.h */,
 				84D989091C7E2041008744BA /* VESerializer.m */,
 			);
@@ -231,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D989261C7F6A50008744BA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +256,7 @@
 				84D989101C7E2057008744BA /* NSDictionary+Serialize.m in Sources */,
 				84D989171C7E20E5008744BA /* NSNumber+Serialize.m in Sources */,
 				84D989131C7E209B008744BA /* NSSet+Serialize.m in Sources */,
+				84D989221C7E2B50008744BA /* VEErrors.m in Sources */,
 				84D9890A1C7E2041008744BA /* VESerializer.m in Sources */,
 				84D9891B1C7E2111008744BA /* NSNull+Serialize.m in Sources */,
 				84D988A51C7CB0FB008744BA /* main.m in Sources */,
@@ -340,7 +352,6 @@
 		84D988B81C7CB0FB008744BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Serializer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -352,7 +363,6 @@
 		84D988B91C7CB0FB008744BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Serializer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
