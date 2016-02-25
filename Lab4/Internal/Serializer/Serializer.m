@@ -29,14 +29,25 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
         NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   [data class], @"input object class",
                                   @"переданный объект не является словарем", kSerializerErrorDescription, nil];
-        (*error) = [NSError errorWithDomain:SerializerErrorDomain
-                                       code:SerializerErrorCodeIncorectInputDataClass
-                                   userInfo:userinfo];
+        if (error) {
+            *error = [NSError errorWithDomain:SerializerErrorDomain
+                                         code:SerializerErrorCodeIncorectInputDataClass
+                                     userInfo:userinfo];
+        }
+        
         return nil;
     } else {
         //data is kind of NSDictionary class
-        NSString* string = [serializer getStringFromDictionary:data withLevel:0 error:error];
+        
+        NSError* localError = nil;
+        
+        NSString* string = [serializer getStringFromDictionary:data withLevel:0 error:&localError];
+
+        if (error) {
+            *error = localError;
+        }
         return string;
+        
     }
     
     return nil;
