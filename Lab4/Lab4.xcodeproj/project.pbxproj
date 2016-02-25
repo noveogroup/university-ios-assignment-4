@@ -14,7 +14,7 @@
 		314B85D11C7ED9D700D448A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 314B85CC1C7ED9D700D448A4 /* ViewController.m */; };
 		314B85D21C7ED9D700D448A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 314B85CD1C7ED9D700D448A4 /* AppDelegate.m */; };
 		314B85D31C7ED9D700D448A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 314B85D01C7ED9D700D448A4 /* main.m */; };
-		314B85D91C7EDAFB00D448A4 /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 314B85D81C7EDAFB00D448A4 /* Serializer.m */; };
+		31D18EC11C7F2BD80047A5E2 /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D18EBF1C7F2BD80047A5E2 /* Serializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		314B85CE1C7ED9D700D448A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Internal/ViewController.h; sourceTree = "<group>"; };
 		314B85CF1C7ED9D700D448A4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Internal/AppDelegate.h; sourceTree = "<group>"; };
 		314B85D01C7ED9D700D448A4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Internal/main.m; sourceTree = "<group>"; };
-		314B85D71C7EDAFB00D448A4 /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
-		314B85D81C7EDAFB00D448A4 /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializer.m; sourceTree = "<group>"; };
 		31B6D4571C7ED80200846A40 /* Lab4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D18EBF1C7F2BD80047A5E2 /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Serializer.m; path = Internal/Serializer/Serializer.m; sourceTree = "<group>"; };
+		31D18EC01C7F2BD80047A5E2 /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serializer.h; path = Internal/Serializer/Serializer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 		314B85D61C7EDAB800D448A4 /* Serializer */ = {
 			isa = PBXGroup;
 			children = (
-				314B85D71C7EDAFB00D448A4 /* Serializer.h */,
-				314B85D81C7EDAFB00D448A4 /* Serializer.m */,
+				31D18EBF1C7F2BD80047A5E2 /* Serializer.m */,
+				31D18EC01C7F2BD80047A5E2 /* Serializer.h */,
 			);
 			name = Serializer;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				314B85D11C7ED9D700D448A4 /* ViewController.m in Sources */,
-				314B85D91C7EDAFB00D448A4 /* Serializer.m in Sources */,
+				31D18EC11C7F2BD80047A5E2 /* Serializer.m in Sources */,
 				314B85D31C7ED9D700D448A4 /* main.m in Sources */,
 				314B85D21C7ED9D700D448A4 /* AppDelegate.m in Sources */,
 			);
