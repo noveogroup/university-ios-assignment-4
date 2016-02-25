@@ -11,7 +11,7 @@
 
 @implementation Serializer
 
-+ (NSString*) getStringFromData:(id)data withOptions:(SerializerOptions)options withError:(NSError**) error{
++ (NSString*) getStringFromData:(id)data withOptions:(SerializerOptions)options withError:(NSError*__autoreleasing*) error{
     Serializer* serializer = [[Serializer alloc] init];
     serializer.options = options;
     
@@ -31,7 +31,7 @@
 
 
 
-- (NSMutableString*) getStringForUnknownValue:(id) value withLevel:(NSInteger) level error:(NSError**) error{
+- (NSMutableString*) getStringForUnknownValue:(id) value withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     
     if ([value isKindOfClass:[NSArray class]]) {
         return [self getStringFromArray:value withLevel:level error:error];
@@ -56,7 +56,7 @@
 
 
 
-- (NSMutableString*) getStringFromArray:(NSArray*) array withLevel:(NSInteger) level error:(NSError**) error{
+- (NSMutableString*) getStringFromArray:(NSArray*) array withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
@@ -89,7 +89,7 @@
     return string;
 }
 
-- (NSMutableString*) getStringFromDictionary:(NSDictionary*) dictionary withLevel:(NSInteger) level error:(NSError**) error{
+- (NSMutableString*) getStringFromDictionary:(NSDictionary*) dictionary withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
@@ -136,7 +136,7 @@
     return string;
 }
 
-- (NSMutableString*) getStringFromSet:(NSSet*) set withLevel:(NSInteger) level error:(NSError**) error{
+- (NSMutableString*) getStringFromSet:(NSSet*) set withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
