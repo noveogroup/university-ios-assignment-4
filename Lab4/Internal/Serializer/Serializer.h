@@ -3,10 +3,9 @@
 
 @interface Serializer : NSObject
 
-typedef BOOL SerializerOptions;
-NS_ENUM(NSStringEncoding) {
-    SerializerWithClassNames = YES,
-    SerializerWithoutClassNames = NO,
+typedef NS_ENUM(NSInteger, SerializerOptions) {
+    SerializerWithClassNames = 1,
+    SerializerWithoutClassNames = 0,
 };
 
 

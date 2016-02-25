@@ -3,6 +3,15 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *const SerializerErrorDomain = @"SerializerErrorDomain";
+static NSString *const kSerializerErrorDescription = @"SerializerErrorDescription";
+
+static const NSInteger SerializerErrorCodeIncorectKeyClass = 100;
+static const NSInteger SerializerErrorCodeIncorectInputDataClass = 200;
+static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
+
+
+
 @interface Serializer ()
 
 @property (assign, nonatomic) SerializerOptions options;
@@ -17,13 +26,17 @@
     
     if (![data isKindOfClass:[NSDictionary class]]) {
         //Error: data isnt kind of NSDictionary class
-        NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:[data class], @"input object class", nil];
-        (*error) = [NSError errorWithDomain:@"переданный объект не является словарем" code:1 userInfo:userinfo];
+        NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  [data class], @"input object class",
+                                  @"переданный объект не является словарем", kSerializerErrorDescription, nil];
+        (*error) = [NSError errorWithDomain:SerializerErrorDomain
+                                       code:SerializerErrorCodeIncorectInputDataClass
+                                   userInfo:userinfo];
         return nil;
     } else {
         //data is kind of NSDictionary class
-        NSMutableString* string = [serializer getStringFromDictionary:data withLevel:0 error:error];
-        return [string copy];
+        NSString* string = [serializer getStringFromDictionary:data withLevel:0 error:error];
+        return string;
     }
     
     return nil;
@@ -31,7 +44,7 @@
 
 
 
-- (NSMutableString*) getStringForUnknownValue:(id) value withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
+- (NSString*) getStringForUnknownValue:(id) value withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     
     if ([value isKindOfClass:[NSArray class]]) {
         return [self getStringFromArray:value withLevel:level error:error];
@@ -42,21 +55,23 @@
     } else if ([value isKindOfClass:[NSNumber class]]){
         return [self getStringFromNumber:value];
     } else if ([value isKindOfClass:[NSValue class]]){
-        return [self getStringFromValue:value withLevel:level];
+        return [self getStringFromValue:value withLevel:level error:error];
     } else if ([value isKindOfClass:[NSNull class]]){
         return [@"null" mutableCopy];
     } else {
-        NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:[value class], @"bad object class", nil];
-        *error = [NSError errorWithDomain:@"переданный словарь содержит объект недопустимого типа"
-                                         code:2
-                                     userInfo:userinfo];
+        NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  [value class], @"bad object class",
+                                  @"переданный словарь содержит объект недопустимого типа", kSerializerErrorDescription, nil];
+        *error = [NSError errorWithDomain:SerializerErrorDomain
+                                     code:SerializerErrorCodeIncorectValueClass
+                                 userInfo:userinfo];
         return nil;
     }
 }
 
 
 
-- (NSMutableString*) getStringFromArray:(NSArray*) array withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
+- (NSString*) getStringFromArray:(NSArray*) array withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
@@ -76,7 +91,7 @@
         
         [string appendString:[self getVoidStringWithLevel:(level + 1)]];
         
-        NSMutableString* valueString = [self getStringForUnknownValue:object withLevel:(level + 1) error:error];
+        NSString* valueString = [self getStringForUnknownValue:object withLevel:(level + 1) error:error];
         if (*error) {
             return nil;
         }
@@ -89,13 +104,13 @@
     return string;
 }
 
-- (NSMutableString*) getStringFromDictionary:(NSDictionary*) dictionary withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
+- (NSString*) getStringFromDictionary:(NSDictionary*) dictionary withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
-        [string appendFormat:@"\n%@[  (dictionary)  \n", [self getVoidStringWithLevel:level]];
+        [string appendFormat:@"\n%@{  (dictionary)  \n", [self getVoidStringWithLevel:level]];
     } else {
-        [string appendFormat:@"\n%@[\n", [self getVoidStringWithLevel:level]];
+        [string appendFormat:@"\n%@{\n", [self getVoidStringWithLevel:level]];
     }
     
     NSArray* keys = [dictionary allKeys];
@@ -104,7 +119,7 @@
             
             [string appendString:[self getVoidStringWithLevel:(level + 1)]];
             
-            NSMutableString* valueString = [self getStringForUnknownValue:dictionary[key] withLevel:(level + 1) error:error];
+            NSString* valueString = [self getStringForUnknownValue:dictionary[key] withLevel:(level + 1) error:error];
             if (*error) {
                 return nil;
             }
@@ -115,7 +130,7 @@
             
             [string appendString:[self getVoidStringWithLevel:(level + 1)]];
             
-            NSMutableString* valueString = [self getStringForUnknownValue:dictionary[key] withLevel:(level + 1) error:error];
+            NSString* valueString = [self getStringForUnknownValue:dictionary[key] withLevel:(level + 1) error:error];
             if (*error) {
                 return nil;
             }
@@ -123,9 +138,11 @@
             [string appendFormat:@"%0.2f : %@,\n", [key floatValue], valueString];
             
         } else {
-            NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:[key class], @"bad key class", nil];
-            *error = [NSError errorWithDomain:@"один из ключей является объектом недопустимого типа"
-                                             code:2
+            NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                      [key class], @"bad key class",
+                                      @"один из ключей является объектом недопустимого типа", kSerializerErrorDescription, nil];
+            *error = [NSError errorWithDomain:SerializerErrorDomain
+                                             code:SerializerErrorCodeIncorectKeyClass
                                          userInfo:userinfo];
             return nil;
         }
@@ -136,13 +153,13 @@
     return string;
 }
 
-- (NSMutableString*) getStringFromSet:(NSSet*) set withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
+- (NSString*) getStringFromSet:(NSSet*) set withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{
     NSMutableString* string = [NSMutableString string];
     
     if (self.options) {
-        [string appendFormat:@"\n%@[  (set)  \n", [self getVoidStringWithLevel:level]];
+        [string appendFormat:@"\n%@(  (set)  \n", [self getVoidStringWithLevel:level]];
     } else {
-        [string appendFormat:@"\n%@[\n", [self getVoidStringWithLevel:level]];
+        [string appendFormat:@"\n%@(\n", [self getVoidStringWithLevel:level]];
     }
     
     for (id object in set) {
@@ -156,7 +173,7 @@
         
         [string appendString:[self getVoidStringWithLevel:(level + 1)]];
         
-        NSMutableString* valueString = [self getStringForUnknownValue:object withLevel:(level + 1) error:error];
+        NSString* valueString = [self getStringForUnknownValue:object withLevel:(level + 1) error:error];
         if (*error) {
             return nil;
         }
@@ -164,52 +181,59 @@
         [string appendFormat:@"%@,\n", valueString];
     }
     
-    [string appendFormat:@"%@]", [self getVoidStringWithLevel:level]];
+    [string appendFormat:@"%@)", [self getVoidStringWithLevel:level]];
     
     return string;
 }
 
-- (NSMutableString*) getStringFromNumber:(NSNumber*) number{
-    NSMutableString* string;
-    
-    float value = [number floatValue];
-    if (value - (int)value != 0) { // if value is realy float value
-        string = [NSMutableString stringWithFormat:@"%0.2f", value];
-    } else {
-        string = [NSMutableString stringWithFormat:@"%0.0f", value];
-    }
+- (NSString*) getStringFromNumber:(NSNumber*) number{
+    NSMutableString* string = [NSMutableString stringWithFormat:@"%@", number];
     return string;
 }
 
-- (NSMutableString*) getStringFromValue:(NSValue*) value withLevel:(NSInteger) level{ //for CGRect serializing
+- (NSString*) getStringFromValue:(NSValue*) value withLevel:(NSInteger) level error:(NSError*__autoreleasing*) error{ //for CGRect serializing
     CGRect rect = [value CGRectValue];
+    //CGRectZero
     
-    NSMutableString* string = [NSMutableString string];
-    
-    if (self.options) {
-        [string appendFormat:@"\n%@[  (CGRect)  \n", [self getVoidStringWithLevel:level]];
+    NSValue *rectValue = [NSValue valueWithCGRect:CGRectZero];
+    if (strcmp((const char *)value.objCType, (const char *)rectValue.objCType)==0){
+        NSMutableString* string = [NSMutableString string];
+        
+        if (self.options) {
+            [string appendFormat:@"\n%@[  (CGRect)  \n", [self getVoidStringWithLevel:level]];
+        } else {
+            [string appendFormat:@"\n%@[\n", [self getVoidStringWithLevel:level]];
+        }
+        
+        [string appendString:[self getVoidStringWithLevel:(level + 1)]];
+        [string appendFormat:@"x = %0.2f,\n", rect.origin.x];
+        
+        [string appendString:[self getVoidStringWithLevel:(level + 1)]];
+        [string appendFormat:@"y = %0.2f,\n", rect.origin.y];
+        
+        [string appendString:[self getVoidStringWithLevel:(level + 1)]];
+        [string appendFormat:@"width = %0.2f,\n", rect.size.width];
+        
+        [string appendString:[self getVoidStringWithLevel:(level + 1)]];
+        [string appendFormat:@"height = %0.2f,\n", rect.size.height];
+        
+        [string appendFormat:@"%@]", [self getVoidStringWithLevel:level]];
+        
+        return string;
     } else {
-        [string appendFormat:@"\n%@[\n", [self getVoidStringWithLevel:level]];
+        NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                  @"не корректный тип обернут в NSValue", kSerializerErrorDescription, nil];
+        *error = [NSError errorWithDomain:SerializerErrorDomain
+                                     code:SerializerErrorCodeIncorectValueClass
+                                 userInfo:userinfo];
+        
+        return nil;
     }
     
-    [string appendString:[self getVoidStringWithLevel:(level + 1)]];
-    [string appendFormat:@"x = %0.2f,\n", rect.origin.x];
     
-    [string appendString:[self getVoidStringWithLevel:(level + 1)]];
-    [string appendFormat:@"y = %0.2f,\n", rect.origin.y];
-
-    [string appendString:[self getVoidStringWithLevel:(level + 1)]];
-    [string appendFormat:@"width = %0.2f,\n", rect.size.width];
-    
-    [string appendString:[self getVoidStringWithLevel:(level + 1)]];
-    [string appendFormat:@"height = %0.2f,\n", rect.size.height];
-    
-    [string appendFormat:@"%@]", [self getVoidStringWithLevel:level]];
-    
-    return string;
 }
 
-- (NSMutableString*) getVoidStringWithLevel:(NSInteger) level{
+- (NSString*) getVoidStringWithLevel:(NSInteger) level{
     NSMutableString* string = [NSMutableString string];
     for (int i = 0; i < level; i++) {
         [string appendString:@"   "];
