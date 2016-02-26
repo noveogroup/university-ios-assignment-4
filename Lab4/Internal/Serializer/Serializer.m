@@ -91,7 +91,8 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
         [string appendFormat:@"\n%@[\n", [self getVoidStringWithLevel:level]];
     }
     
-    for (id object in array) {
+    for (int i = 0; i < [array count]; i++) {
+        id object = [array objectAtIndex:i];
         
         ////exception
         if ([object isKindOfClass:[NSArray class]] || [object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSSet class]]) { // I realy don't know a better way to do it
@@ -107,10 +108,17 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
             return nil;
         }
         
-        [string appendFormat:@"%@,\n", valueString];
+        if (i == array.count - 1) { //is last
+            [string appendFormat:@"%@\n", valueString];
+        } else {
+            [string appendFormat:@"%@,\n", valueString];
+        }
     }
     
-    [string appendFormat:@"%@]", [self getVoidStringWithLevel:level]];
+    NSInteger length = [string length];
+    [string deleteCharactersInRange:NSMakeRange(length - 1, 1)];
+    
+    [string appendFormat:@"\n%@]", [self getVoidStringWithLevel:level]];
     
     return string;
 }
@@ -125,7 +133,10 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
     }
     
     NSArray* keys = [dictionary allKeys];
-    for (id key in keys) {
+    
+    for (int i = 0; i < [keys count]; i++) {
+        id key = [keys objectAtIndex:i];
+        
         if ([key isKindOfClass:[NSString class]]) {
             
             [string appendString:[self getVoidStringWithLevel:(level + 1)]];
@@ -135,7 +146,13 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
                 return nil;
             }
             
-            [string appendFormat:@"%@ : %@,\n", key, valueString];
+            //[string appendFormat:@"%@ : %@,\n", key, valueString];
+            
+            if (i == keys.count - 1) { //is last
+                [string appendFormat:@"%@ : %@\n", key, valueString];
+            } else {
+                [string appendFormat:@"%@ : %@,\n", key, valueString];
+            }
             
         } else if ([key isKindOfClass:[NSNumber class]]){
             
@@ -146,7 +163,13 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
                 return nil;
             }
             
-            [string appendFormat:@"%0.2f : %@,\n", [key floatValue], valueString];
+            //[string appendFormat:@"%0.2f : %@,\n", [key floatValue], valueString];
+            
+            if (i == keys.count - 1) { //is last
+                [string appendFormat:@"%0.2f : %@\n", [key floatValue], valueString];
+            } else {
+                [string appendFormat:@"%0.2f : %@,\n", [key floatValue], valueString];
+            }
             
         } else {
             NSDictionary* userinfo = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -173,7 +196,10 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
         [string appendFormat:@"\n%@(\n", [self getVoidStringWithLevel:level]];
     }
     
-    for (id object in set) {
+    
+    NSArray* array = [set allObjects];
+    for (int i = 0; i < [array count]; i++) {
+        id object = [array objectAtIndex:i];
         
         ////exception
         if ([object isKindOfClass:[NSArray class]] || [object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSSet class]]) { // I realy don't know a better way to do it
@@ -189,7 +215,11 @@ static const NSInteger SerializerErrorCodeIncorectValueClass = 300;
             return nil;
         }
         
-        [string appendFormat:@"%@,\n", valueString];
+        if (i == array.count - 1) { //is last
+            [string appendFormat:@"%@\n", valueString];
+        } else {
+            [string appendFormat:@"%@,\n", valueString];
+        }
     }
     
     [string appendFormat:@"%@)", [self getVoidStringWithLevel:level]];
