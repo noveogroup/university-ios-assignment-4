@@ -12,20 +12,29 @@
 
 @implementation NSValue (Serialize)
 
+
 - (NSString *)serializeWithError:(NSError **)error {
     
-    CGRect rect = [self CGRectValue];
-    NSNumber *originX = [NSNumber numberWithFloat:rect.origin.x];
-    NSNumber *originY = [NSNumber numberWithFloat:rect.origin.y];
-    NSNumber *width = [NSNumber numberWithFloat:rect.size.width];
-    NSNumber *height = [NSNumber numberWithFloat:rect.size.height];
+    if(strcmp([self objCType], @encode(CGRect)) == 0) {
+        
+        CGRect rect = [self CGRectValue];
+        NSNumber *originX = @(rect.origin.x);
+        NSNumber *originY = @(rect.origin.y);
+        NSNumber *width = @(rect.size.width);
+        NSNumber *height = @(rect.size.height);
+        
+        NSDictionary *dict = @{@"rect" : @{@"originX" : originX,
+                                           @"originY" : originY,
+                                           @"width" : width,
+                                           @"height" : height}};
+        
+        return [dict serializeWithError:error];
 
-    NSDictionary *dict = @{@"rect" : @{@"originX" : originX,
-                                       @"originY" : originY,
-                                       @"width" : width,
-                                       @"height" : height}};
+    }
     
-    return [dict serializeWithError:error];
+    return nil;
 }
 
 @end
+
+

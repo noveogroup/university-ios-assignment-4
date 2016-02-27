@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VESerializationProtocol.h"
 
-@interface NSArray (Serialize)
+@interface NSArray (Serialize) <VESerializationProtocol>
 
-- (NSString *)serializeWithError:(NSError **)error;
 
 @end

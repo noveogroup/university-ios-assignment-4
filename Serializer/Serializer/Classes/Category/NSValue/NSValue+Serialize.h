@@ -6,10 +6,11 @@
 //  Copyright © 2016 Viktor Erfilov. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
+#import "VESerializationProtocol.h"
 
-@interface NSValue (Serialize)
+@interface NSValue (Serialize) <VESerializationProtocol>
 
-- (NSString *)serializeWithError:(NSError **)error;
 
 @end

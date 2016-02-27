@@ -8,6 +8,7 @@
 
 #import "VESerializer.h"
 #import "VEErrors.h"
+#import "NSError+Serialize.h"
 
 
 @interface VESerializer ()
@@ -20,17 +21,14 @@
     
     if ([dict isKindOfClass:[NSDictionary class]]) {
                 
-        return [NSString stringWithFormat:@"%@", [dict serializeWithError:error]];
+        return [dict serializeWithError:error];
     
     } else {
         
         if (error) {
+                        
+            (*error) = [NSError errorObjectNotDictionary:dict];
             
-            NSDictionary *userInfo = @{@"ObjectNotDictionary" : [dict class]};
-            
-            (*error) = [NSError errorWithDomain:VEErrorDomain
-                                           code:VEErrorObjectNotDictionary
-                                       userInfo:userInfo];
             return nil;
         }
     
@@ -38,6 +36,7 @@
     
     return nil;
 }
+
 
 
 

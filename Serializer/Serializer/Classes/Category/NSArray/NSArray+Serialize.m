@@ -8,6 +8,7 @@
 
 #import "VEErrors.h"
 #import "NSArray+Serialize.h"
+#import "NSError+Serialize.h"
 
 @implementation NSArray (Serialize)
 
@@ -15,51 +16,29 @@
     
     NSMutableString *string = [NSMutableString stringWithString:@"["];
     
-    if ([self isKindOfClass:[NSArray class]]) {
+    for (id obj in self) {
         
-        for (id obj in self) {
+        if ([obj respondsToSelector:@selector(serializeWithError:)]) {
             
-            if ([obj respondsToSelector:@selector(serializeWithError:)]) {
+            NSString *str = [obj serializeWithError:error] ? : @"nill";
+            
+            [string appendString:str];
+            
+            [string appendString:@", "];
+            
+        } else {
+            
+            if (error) {
                 
-                NSString *str = [obj serializeWithError:error] ? [obj serializeWithError:error] : @"nill";
-                [string appendString:str];
+                (*error) = [NSError errorInvalidObjectType:obj];
                 
-                if (![obj isEqual:[self lastObject]]) {
-                    [string appendString:@", "];
-                }
-                
-            } else {
-                
-                if (error) {
-                    
-                    NSDictionary *userInfo = @{@"DictionaryContainsInvalidObjectType" : [obj class]};
-                    
-                    (*error) = [NSError errorWithDomain:VEErrorDomain
-                                                   code:VEErrorDictionaryContainsInvalidObjectType
-                                               userInfo:userInfo];
-                    
-                    return nil;
-                }
+                return nil;
             }
-            
-        }
-        
-
-        
-    } else if ([self isKindOfClass:[NSDictionary class]]    ||
-               [self isKindOfClass:[NSSet class]]           ||
-               [self isKindOfClass:[NSNumber class]]        ||
-               [self isKindOfClass:[NSNull class]]          ||
-               [self isKindOfClass:[NSValue class]]) {
-        
-        return [self serializeWithError:error];
-    
-    } else {
-        if (error) {
-            return nil;
         }
         
     }
+    
+    string = [[string substringToIndex:[string length] - 2] mutableCopy];
     
     [string appendString:@"]"];
     

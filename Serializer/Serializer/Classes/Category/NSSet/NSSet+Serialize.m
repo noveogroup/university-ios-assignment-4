@@ -8,23 +8,16 @@
 
 #import "VEErrors.h"
 #import "NSSet+Serialize.h"
+#import "NSArray+Serialize.h"
 
 @implementation NSSet (Serialize)
 
 - (NSString *)serializeWithError:(NSError **)error {
     
-    if ([self isKindOfClass:[NSSet class]]) {
-        
-        NSMutableArray *tempArray = [NSMutableArray array];
-        
-        [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-            [tempArray addObject:obj];
-        }];
-        
-        return [[tempArray copy] serializeWithError:error];
-    }
+    NSArray *tempArray = [self allObjects];
     
-    return nil;
+    return [tempArray serializeWithError:error];
+
 }
 
 @end

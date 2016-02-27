@@ -8,6 +8,7 @@
 
 #import "VEErrors.h"
 #import "NSDictionary+Serialize.h"
+#import "NSError+Serialize.h"
 
 @implementation NSDictionary (Serialize)
 
@@ -35,11 +36,7 @@
             } else {
                 if (error) {
                     
-                    NSDictionary *userInfo = @{@"DictionaryContainsInvalidObjectType" : [object class]};
-                    
-                    (*error) = [NSError errorWithDomain:VEErrorDomain
-                                                   code:VEErrorDictionaryContainsInvalidObjectType
-                                               userInfo:userInfo];
+                    (*error) = [NSError errorInvalidObjectType:self];
                     
                     return nil;
                 }
@@ -49,13 +46,10 @@
             
             if (error) {
                 
-                NSDictionary *userInfo = @{@"KeyIsObjectOfIncorrectType" : [key class]};
-                
-                (*error) = [NSError errorWithDomain:VEErrorDomain
-                                               code:VEErrorKeyIsObjectOfIncorrectType
-                                           userInfo:userInfo];
+                (*error) = [NSError errorInvalidKeyType:key];
                 
                 return nil;
+                
             }
             
         }

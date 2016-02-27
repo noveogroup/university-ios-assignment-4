@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VESerializer.h"
+#import "VEErrors.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
@@ -42,17 +43,17 @@ int main(int argc, char * argv[]) {
         
         //1
         NSLog(@"%@", [serializer serializeDictionary:string withError:&error]);
-        NSLog(@"%@\n\n", error);
+        NSLog(@"%@\n\n", [error localizedDescription]);
 
         //2
         error = nil;
         NSLog(@"%@", [serializer serializeDictionary:dirtyDict1 withError:&error]);
-        NSLog(@"%@\n\n", error);
+        NSLog(@"%@\n\n", [error localizedDescription]);
 
         //3
         error = nil;
         NSLog(@"%@", [serializer serializeDictionary:dirtyDict2 withError:&error]);
-        NSLog(@"%@\n\n", error);
+        NSLog(@"%@\n\n", [error localizedDescription]);
         
         
         //testing with correct data

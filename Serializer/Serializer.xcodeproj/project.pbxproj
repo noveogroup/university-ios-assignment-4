@@ -19,6 +19,7 @@
 		84D989221C7E2B50008744BA /* VEErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D989211C7E2B50008744BA /* VEErrors.m */; };
 		84D989241C7F6691008744BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D989231C7F668F008744BA /* UIKit.framework */; };
 		84D989261C7F6A50008744BA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D989251C7F6A4F008744BA /* Default-568h@2x.png */; };
+		84D9892C1C821B03008744BA /* NSError+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9892B1C821B03008744BA /* NSError+Serialize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,9 @@
 		84D989211C7E2B50008744BA /* VEErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VEErrors.m; path = Classes/VEErrors.m; sourceTree = "<group>"; };
 		84D989231C7F668F008744BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84D989251C7F6A4F008744BA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		84D989291C8162FC008744BA /* VESerializationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VESerializationProtocol.h; path = Classes/Protocol/VESerializationProtocol.h; sourceTree = "<group>"; };
+		84D9892A1C821B03008744BA /* NSError+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+Serialize.h"; path = "Classes/Category/NSError/NSError+Serialize.h"; sourceTree = "<group>"; };
+		84D9892B1C821B03008744BA /* NSError+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+Serialize.m"; path = "Classes/Category/NSError/NSError+Serialize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				84D989181C7E20E7008744BA /* NSNumber */,
 				84D9891C1C7E2114008744BA /* NSNull */,
 				84D989201C7E2135008744BA /* NSValue */,
+				84D989281C8162B5008744BA /* Protocol */,
+				84D9892D1C821B07008744BA /* NSError */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -181,6 +187,23 @@
 				84D9891E1C7E2131008744BA /* NSValue+Serialize.m */,
 			);
 			name = NSValue;
+			sourceTree = "<group>";
+		};
+		84D989281C8162B5008744BA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				84D989291C8162FC008744BA /* VESerializationProtocol.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		84D9892D1C821B07008744BA /* NSError */ = {
+			isa = PBXGroup;
+			children = (
+				84D9892A1C821B03008744BA /* NSError+Serialize.h */,
+				84D9892B1C821B03008744BA /* NSError+Serialize.m */,
+			);
+			name = NSError;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +277,7 @@
 			files = (
 				84D9890D1C7E204F008744BA /* NSArray+Serialize.m in Sources */,
 				84D989101C7E2057008744BA /* NSDictionary+Serialize.m in Sources */,
+				84D9892C1C821B03008744BA /* NSError+Serialize.m in Sources */,
 				84D989171C7E20E5008744BA /* NSNumber+Serialize.m in Sources */,
 				84D989131C7E209B008744BA /* NSSet+Serialize.m in Sources */,
 				84D989221C7E2B50008744BA /* VEErrors.m in Sources */,

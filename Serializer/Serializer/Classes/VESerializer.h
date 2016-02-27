@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VESerializationProtocol.h"
 
 
-@interface VESerializer : NSObject
+@interface VESerializer : NSObject <VESerializationProtocol>
 
 
 - (NSString *)serializeDictionary:(id)dict withError:(NSError **)error;
-- (NSString *)serializeWithError:(NSError **)error;
 
 
 @end
