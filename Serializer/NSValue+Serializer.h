@@ -1,5 +1,5 @@
 //
-//  main.m
+//  NSValue+Serializer.h
 //  Serializer
 //
 //  Created by admin on 11/07/16.
@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Serializable.h"
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-    }
-    return 0;
-}
+@interface NSValue (Serializer) <Serializable>
+
+@end
