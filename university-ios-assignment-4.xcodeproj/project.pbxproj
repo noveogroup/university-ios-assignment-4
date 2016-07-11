@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A813C91D34087500700852 /* NSArray+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813C01D34087500700852 /* NSArray+Serialize.m */; };
+		84A813CA1D34087500700852 /* NSDictionary+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813C21D34087500700852 /* NSDictionary+Serialize.m */; };
+		84A813CB1D34087500700852 /* NSNull+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813C41D34087500700852 /* NSNull+Serialize.m */; };
+		84A813CC1D34087500700852 /* NSNumber+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813C61D34087500700852 /* NSNumber+Serialize.m */; };
+		84A813CD1D34087500700852 /* NSSet+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813C81D34087500700852 /* NSSet+Serialize.m */; };
+		84A813D01D34095500700852 /* NSValue+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A813CF1D34095500700852 /* NSValue+Serialize.m */; };
 		84F98D3E1D32AFD2007D0F02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F98D3D1D32AFD2007D0F02 /* main.m */; };
 		84F98D461D32B0A9007D0F02 /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F98D451D32B0A9007D0F02 /* Serializer.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +30,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84A813BE1D34084B00700852 /* Serilisable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serilisable.h; sourceTree = "<group>"; };
+		84A813BF1D34087500700852 /* NSArray+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serialize.h"; sourceTree = "<group>"; };
+		84A813C01D34087500700852 /* NSArray+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Serialize.m"; sourceTree = "<group>"; };
+		84A813C11D34087500700852 /* NSDictionary+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serialize.h"; sourceTree = "<group>"; };
+		84A813C21D34087500700852 /* NSDictionary+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serialize.m"; sourceTree = "<group>"; };
+		84A813C31D34087500700852 /* NSNull+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serialize.h"; sourceTree = "<group>"; };
+		84A813C41D34087500700852 /* NSNull+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Serialize.m"; sourceTree = "<group>"; };
+		84A813C51D34087500700852 /* NSNumber+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Serialize.h"; sourceTree = "<group>"; };
+		84A813C61D34087500700852 /* NSNumber+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serialize.m"; sourceTree = "<group>"; };
+		84A813C71D34087500700852 /* NSSet+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Serialize.h"; sourceTree = "<group>"; };
+		84A813C81D34087500700852 /* NSSet+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serialize.m"; sourceTree = "<group>"; };
+		84A813CE1D34095500700852 /* NSValue+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Serialize.h"; sourceTree = "<group>"; };
+		84A813CF1D34095500700852 /* NSValue+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Serialize.m"; sourceTree = "<group>"; };
 		84F98D3A1D32AFD2007D0F02 /* university-ios-assignment-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "university-ios-assignment-4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F98D3D1D32AFD2007D0F02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F98D441D32B0A9007D0F02 /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
@@ -60,9 +79,22 @@
 		84F98D3C1D32AFD2007D0F02 /* university-ios-assignment-4 */ = {
 			isa = PBXGroup;
 			children = (
+				84A813BF1D34087500700852 /* NSArray+Serialize.h */,
+				84A813C01D34087500700852 /* NSArray+Serialize.m */,
+				84A813C11D34087500700852 /* NSDictionary+Serialize.h */,
+				84A813C21D34087500700852 /* NSDictionary+Serialize.m */,
+				84A813C31D34087500700852 /* NSNull+Serialize.h */,
+				84A813C41D34087500700852 /* NSNull+Serialize.m */,
+				84A813C51D34087500700852 /* NSNumber+Serialize.h */,
+				84A813C61D34087500700852 /* NSNumber+Serialize.m */,
+				84A813C71D34087500700852 /* NSSet+Serialize.h */,
+				84A813C81D34087500700852 /* NSSet+Serialize.m */,
+				84A813BE1D34084B00700852 /* Serilisable.h */,
 				84F98D3D1D32AFD2007D0F02 /* main.m */,
 				84F98D441D32B0A9007D0F02 /* Serializer.h */,
 				84F98D451D32B0A9007D0F02 /* Serializer.m */,
+				84A813CE1D34095500700852 /* NSValue+Serialize.h */,
+				84A813CF1D34095500700852 /* NSValue+Serialize.m */,
 			);
 			path = "university-ios-assignment-4";
 			sourceTree = "<group>";
@@ -124,6 +156,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F98D3E1D32AFD2007D0F02 /* main.m in Sources */,
+				84A813CB1D34087500700852 /* NSNull+Serialize.m in Sources */,
+				84A813D01D34095500700852 /* NSValue+Serialize.m in Sources */,
+				84A813CC1D34087500700852 /* NSNumber+Serialize.m in Sources */,
+				84A813CD1D34087500700852 /* NSSet+Serialize.m in Sources */,
+				84A813CA1D34087500700852 /* NSDictionary+Serialize.m in Sources */,
+				84A813C91D34087500700852 /* NSArray+Serialize.m in Sources */,
 				84F98D461D32B0A9007D0F02 /* Serializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

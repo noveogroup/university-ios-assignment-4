@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
         NSArray *array = @[@5, @4, @3];
         NSSet *set = [[NSSet alloc] initWithArray:array];
         CGRect rect = CGRectMake(0,0,100,100);
-        CGPoint point = CGPointMake(0,0);
+//        CGPoint point = CGPointMake(0,0);
         NSDictionary *dictionary = @{
                 @"test": @"dfg",
                 @1: @{
