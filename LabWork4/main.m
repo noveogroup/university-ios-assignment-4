@@ -23,7 +23,6 @@ int main(int argc, const char * argv[]) {
             else NSLog(@"%@", result);
             NSLog(@"---------------");
         }
-        
     }
     return 0;
 }

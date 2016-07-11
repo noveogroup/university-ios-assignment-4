@@ -7,6 +7,8 @@ typedef NS_ENUM(NSUInteger, SerialisationErrorCode) {
     SerialisationErrorInvalidKeyObject
 };
 
+extern NSString *const SerialisationErrorDomain;
+
 @interface Serialisation : NSObject
 
 + (NSString *)stringFromDictionary:(id)dict error:(NSError **)error;

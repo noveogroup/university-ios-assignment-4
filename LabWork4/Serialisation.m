@@ -23,7 +23,9 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
             [string appendString:[NSString stringWithFormat:@"%@: ", key]];
             [self appendObject:dict[key] toString:string error:error];
             
-            if (*error) return;
+            if (*error) {
+                return;
+            }
             
             [string appendString:@", "];
             
@@ -46,7 +48,9 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
         
         [self appendObject:elem toString:string error:error];
         
-        if (*error) return;
+        if (*error) {
+            return;
+        }
         
         [string appendString:@", "];
     }
@@ -63,7 +67,9 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
         
         [self appendObject:elem toString:string error:error];
         
-        if (*error) return;
+        if (*error) {
+            return;
+        }
         
         [string appendString:@", "];
     }
@@ -74,7 +80,9 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
 
 + (void)appendObject:(id)object toString:(NSMutableString *)string error:(NSError **)error
 {
-    if (*error) return;
+    if (*error) {
+        return;
+    }
     
     if ([object isKindOfClass:[NSDictionary class]]) {
         
@@ -112,7 +120,9 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
 
 + (NSString *)stringFromDictionary:(id)dict error:(NSError **)error
 {
-    if (*error) return nil;
+    if (*error) {
+        return nil;
+    }
     
     if ([dict isKindOfClass:[NSDictionary class]]) {
         
@@ -120,8 +130,10 @@ NSString *const SerialisationErrorDomain = @"SerialisationErrorDomain";
         
         [self appendObject:dict toString:string error:error];
         
-        if (*error) return nil;
-        
+        if (*error) {
+            return nil;
+        }
+    
         return [NSString stringWithString:string];
         
     } else {
