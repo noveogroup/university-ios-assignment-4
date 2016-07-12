@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F58DF71A1D35336D00CFF530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7191D35336D00CFF530 /* main.m */; };
+		F58DF71D1D35336D00CFF530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF71C1D35336D00CFF530 /* AppDelegate.m */; };
+		F58DF7201D35336D00CFF530 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF71F1D35336D00CFF530 /* ViewController.m */; };
+		F58DF7231D35336D00CFF530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58DF7211D35336D00CFF530 /* Main.storyboard */; };
+		F58DF7251D35336D00CFF530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58DF7241D35336D00CFF530 /* Assets.xcassets */; };
+		F58DF7281D35336D00CFF530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58DF7261D35336D00CFF530 /* LaunchScreen.storyboard */; };
+		F58DF7331D35336D00CFF530 /* SerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7321D35336D00CFF530 /* SerializationTests.m */; };
+		F58DF74E1D35341400CFF530 /* NSArray+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF73F1D35341400CFF530 /* NSArray+Serialization.m */; };
+		F58DF74F1D35341400CFF530 /* NSDictionary+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7411D35341400CFF530 /* NSDictionary+Serialization.m */; };
+		F58DF7501D35341400CFF530 /* NSNull+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7431D35341400CFF530 /* NSNull+Serialization.m */; };
+		F58DF7511D35341400CFF530 /* NSNumber+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7451D35341400CFF530 /* NSNumber+Serialization.m */; };
+		F58DF7521D35341400CFF530 /* NSSet+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7471D35341400CFF530 /* NSSet+Serialization.m */; };
+		F58DF7531D35341400CFF530 /* NSValue+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7491D35341400CFF530 /* NSValue+Serialization.m */; };
+		F58DF7541D35341400CFF530 /* Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF74B1D35341400CFF530 /* Serialization.m */; };
+		F58DF7551D35341400CFF530 /* Serializing.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF74D1D35341400CFF530 /* Serializing.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F58DF72F1D35336D00CFF530 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F58DF70D1D35336D00CFF530 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F58DF7141D35336D00CFF530;
+			remoteInfo = Serialization;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F58DF7151D35336D00CFF530 /* Serialization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serialization.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F58DF7191D35336D00CFF530 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F58DF71B1D35336D00CFF530 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F58DF71C1D35336D00CFF530 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F58DF71E1D35336D00CFF530 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F58DF71F1D35336D00CFF530 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F58DF7221D35336D00CFF530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F58DF7241D35336D00CFF530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F58DF7271D35336D00CFF530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F58DF7291D35336D00CFF530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F58DF72E1D35336D00CFF530 /* SerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F58DF7321D35336D00CFF530 /* SerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SerializationTests.m; sourceTree = "<group>"; };
+		F58DF7341D35336D00CFF530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F58DF73E1D35341400CFF530 /* NSArray+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Serialization.h"; path = "Serialization/NSArray+Serialization.h"; sourceTree = "<group>"; };
+		F58DF73F1D35341400CFF530 /* NSArray+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Serialization.m"; path = "Serialization/NSArray+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7401D35341400CFF530 /* NSDictionary+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Serialization.h"; path = "Serialization/NSDictionary+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7411D35341400CFF530 /* NSDictionary+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Serialization.m"; path = "Serialization/NSDictionary+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7421D35341400CFF530 /* NSNull+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNull+Serialization.h"; path = "Serialization/NSNull+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7431D35341400CFF530 /* NSNull+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNull+Serialization.m"; path = "Serialization/NSNull+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7441D35341400CFF530 /* NSNumber+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+Serialization.h"; path = "Serialization/NSNumber+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7451D35341400CFF530 /* NSNumber+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+Serialization.m"; path = "Serialization/NSNumber+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7461D35341400CFF530 /* NSSet+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+Serialization.h"; path = "Serialization/NSSet+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7471D35341400CFF530 /* NSSet+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Serialization.m"; path = "Serialization/NSSet+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7481D35341400CFF530 /* NSValue+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+Serialization.h"; path = "Serialization/NSValue+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7491D35341400CFF530 /* NSValue+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+Serialization.m"; path = "Serialization/NSValue+Serialization.m"; sourceTree = "<group>"; };
+		F58DF74A1D35341400CFF530 /* Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serialization.h; path = Serialization/Serialization.h; sourceTree = "<group>"; };
+		F58DF74B1D35341400CFF530 /* Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Serialization.m; path = Serialization/Serialization.m; sourceTree = "<group>"; };
+		F58DF74C1D35341400CFF530 /* Serializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serializing.h; path = Serialization/Serializing.h; sourceTree = "<group>"; };
+		F58DF74D1D35341400CFF530 /* Serializing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Serializing.m; path = Serialization/Serializing.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F58DF7121D35336D00CFF530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58DF72B1D35336D00CFF530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F58DF70C1D35336D00CFF530 = {
+			isa = PBXGroup;
+			children = (
+				F58DF7171D35336D00CFF530 /* Serialization */,
+				F58DF7311D35336D00CFF530 /* SerializationTests */,
+				F58DF7161D35336D00CFF530 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F58DF7161D35336D00CFF530 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF7151D35336D00CFF530 /* Serialization.app */,
+				F58DF72E1D35336D00CFF530 /* SerializationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F58DF7171D35336D00CFF530 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF73D1D35338600CFF530 /* Serialization */,
+				F58DF71B1D35336D00CFF530 /* AppDelegate.h */,
+				F58DF71C1D35336D00CFF530 /* AppDelegate.m */,
+				F58DF71E1D35336D00CFF530 /* ViewController.h */,
+				F58DF71F1D35336D00CFF530 /* ViewController.m */,
+				F58DF7211D35336D00CFF530 /* Main.storyboard */,
+				F58DF7241D35336D00CFF530 /* Assets.xcassets */,
+				F58DF7261D35336D00CFF530 /* LaunchScreen.storyboard */,
+				F58DF7291D35336D00CFF530 /* Info.plist */,
+				F58DF7181D35336D00CFF530 /* Supporting Files */,
+			);
+			path = Serialization;
+			sourceTree = "<group>";
+		};
+		F58DF7181D35336D00CFF530 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF7191D35336D00CFF530 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F58DF7311D35336D00CFF530 /* SerializationTests */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF7321D35336D00CFF530 /* SerializationTests.m */,
+				F58DF7341D35336D00CFF530 /* Info.plist */,
+			);
+			path = SerializationTests;
+			sourceTree = "<group>";
+		};
+		F58DF73D1D35338600CFF530 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				F58DF73E1D35341400CFF530 /* NSArray+Serialization.h */,
+				F58DF73F1D35341400CFF530 /* NSArray+Serialization.m */,
+				F58DF7401D35341400CFF530 /* NSDictionary+Serialization.h */,
+				F58DF7411D35341400CFF530 /* NSDictionary+Serialization.m */,
+				F58DF7421D35341400CFF530 /* NSNull+Serialization.h */,
+				F58DF7431D35341400CFF530 /* NSNull+Serialization.m */,
+				F58DF7441D35341400CFF530 /* NSNumber+Serialization.h */,
+				F58DF7451D35341400CFF530 /* NSNumber+Serialization.m */,
+				F58DF7461D35341400CFF530 /* NSSet+Serialization.h */,
+				F58DF7471D35341400CFF530 /* NSSet+Serialization.m */,
+				F58DF7481D35341400CFF530 /* NSValue+Serialization.h */,
+				F58DF7491D35341400CFF530 /* NSValue+Serialization.m */,
+				F58DF74A1D35341400CFF530 /* Serialization.h */,
+				F58DF74B1D35341400CFF530 /* Serialization.m */,
+				F58DF74C1D35341400CFF530 /* Serializing.h */,
+				F58DF74D1D35341400CFF530 /* Serializing.m */,
+			);
+			name = Serialization;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F58DF7141D35336D00CFF530 /* Serialization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F58DF7371D35336D00CFF530 /* Build configuration list for PBXNativeTarget "Serialization" */;
+			buildPhases = (
+				F58DF7111D35336D00CFF530 /* Sources */,
+				F58DF7121D35336D00CFF530 /* Frameworks */,
+				F58DF7131D35336D00CFF530 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Serialization;
+			productName = Serialization;
+			productReference = F58DF7151D35336D00CFF530 /* Serialization.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F58DF72D1D35336D00CFF530 /* SerializationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F58DF73A1D35336D00CFF530 /* Build configuration list for PBXNativeTarget "SerializationTests" */;
+			buildPhases = (
+				F58DF72A1D35336D00CFF530 /* Sources */,
+				F58DF72B1D35336D00CFF530 /* Frameworks */,
+				F58DF72C1D35336D00CFF530 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F58DF7301D35336D00CFF530 /* PBXTargetDependency */,
+			);
+			name = SerializationTests;
+			productName = SerializationTests;
+			productReference = F58DF72E1D35336D00CFF530 /* SerializationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F58DF70D1D35336D00CFF530 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Vladislav Librecht";
+				TargetAttributes = {
+					F58DF7141D35336D00CFF530 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					F58DF72D1D35336D00CFF530 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = F58DF7141D35336D00CFF530;
+					};
+				};
+			};
+			buildConfigurationList = F58DF7101D35336D00CFF530 /* Build configuration list for PBXProject "Serialization" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F58DF70C1D35336D00CFF530;
+			productRefGroup = F58DF7161D35336D00CFF530 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F58DF7141D35336D00CFF530 /* Serialization */,
+				F58DF72D1D35336D00CFF530 /* SerializationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F58DF7131D35336D00CFF530 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DF7281D35336D00CFF530 /* LaunchScreen.storyboard in Resources */,
+				F58DF7251D35336D00CFF530 /* Assets.xcassets in Resources */,
+				F58DF7231D35336D00CFF530 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58DF72C1D35336D00CFF530 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F58DF7111D35336D00CFF530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DF7201D35336D00CFF530 /* ViewController.m in Sources */,
+				F58DF7511D35341400CFF530 /* NSNumber+Serialization.m in Sources */,
+				F58DF71D1D35336D00CFF530 /* AppDelegate.m in Sources */,
+				F58DF7551D35341400CFF530 /* Serializing.m in Sources */,
+				F58DF71A1D35336D00CFF530 /* main.m in Sources */,
+				F58DF74E1D35341400CFF530 /* NSArray+Serialization.m in Sources */,
+				F58DF7501D35341400CFF530 /* NSNull+Serialization.m in Sources */,
+				F58DF7531D35341400CFF530 /* NSValue+Serialization.m in Sources */,
+				F58DF7521D35341400CFF530 /* NSSet+Serialization.m in Sources */,
+				F58DF74F1D35341400CFF530 /* NSDictionary+Serialization.m in Sources */,
+				F58DF7541D35341400CFF530 /* Serialization.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F58DF72A1D35336D00CFF530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F58DF7331D35336D00CFF530 /* SerializationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F58DF7301D35336D00CFF530 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F58DF7141D35336D00CFF530 /* Serialization */;
+			targetProxy = F58DF72F1D35336D00CFF530 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F58DF7211D35336D00CFF530 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F58DF7221D35336D00CFF530 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F58DF7261D35336D00CFF530 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F58DF7271D35336D00CFF530 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F58DF7351D35336D00CFF530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F58DF7361D35336D00CFF530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F58DF7381D35336D00CFF530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Serialization/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.librecht.Serialization;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F58DF7391D35336D00CFF530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Serialization/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.librecht.Serialization;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F58DF73B1D35336D00CFF530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SerializationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.librecht.SerializationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serialization.app/Serialization";
+			};
+			name = Debug;
+		};
+		F58DF73C1D35336D00CFF530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SerializationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.librecht.SerializationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Serialization.app/Serialization";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F58DF7101D35336D00CFF530 /* Build configuration list for PBXProject "Serialization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F58DF7351D35336D00CFF530 /* Debug */,
+				F58DF7361D35336D00CFF530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F58DF7371D35336D00CFF530 /* Build configuration list for PBXNativeTarget "Serialization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F58DF7381D35336D00CFF530 /* Debug */,
+				F58DF7391D35336D00CFF530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F58DF73A1D35336D00CFF530 /* Build configuration list for PBXNativeTarget "SerializationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F58DF73B1D35336D00CFF530 /* Debug */,
+				F58DF73C1D35336D00CFF530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F58DF70D1D35336D00CFF530 /* Project object */;
+}

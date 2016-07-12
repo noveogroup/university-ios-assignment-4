@@ -1,8 +1,8 @@
 
-#import "Serialisation.h"
+#import "Serialization.h"
 #import "NSDictionary+Serialization.h"
 
-@implementation Serialisation
+@implementation Serialization
 
 + (NSString *)stringFromDictionary:(id)dict error:(NSError **)error
 {

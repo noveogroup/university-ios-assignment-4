@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F56A8C6B1D32695700760912"
-               BuildableName = "LabWork4"
-               BlueprintName = "LabWork4"
-               ReferencedContainer = "container:LabWork4.xcodeproj">
+               BlueprintIdentifier = "F58DF7141D35336D00CFF530"
+               BuildableName = "Serialization.app"
+               BlueprintName = "Serialization"
+               ReferencedContainer = "container:Serialization.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F58DF72D1D35336D00CFF530"
+               BuildableName = "SerializationTests.xctest"
+               BlueprintName = "SerializationTests"
+               ReferencedContainer = "container:Serialization.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F56A8C6B1D32695700760912"
-            BuildableName = "LabWork4"
-            BlueprintName = "LabWork4"
-            ReferencedContainer = "container:LabWork4.xcodeproj">
+            BlueprintIdentifier = "F58DF7141D35336D00CFF530"
+            BuildableName = "Serialization.app"
+            BlueprintName = "Serialization"
+            ReferencedContainer = "container:Serialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F56A8C6B1D32695700760912"
-            BuildableName = "LabWork4"
-            BlueprintName = "LabWork4"
-            ReferencedContainer = "container:LabWork4.xcodeproj">
+            BlueprintIdentifier = "F58DF7141D35336D00CFF530"
+            BuildableName = "Serialization.app"
+            BlueprintName = "Serialization"
+            ReferencedContainer = "container:Serialization.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F56A8C6B1D32695700760912"
-            BuildableName = "LabWork4"
-            BlueprintName = "LabWork4"
-            ReferencedContainer = "container:LabWork4.xcodeproj">
+            BlueprintIdentifier = "F58DF7141D35336D00CFF530"
+            BuildableName = "Serialization.app"
+            BlueprintName = "Serialization"
+            ReferencedContainer = "container:Serialization.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

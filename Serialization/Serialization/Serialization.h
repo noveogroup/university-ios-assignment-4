@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "Serializing.h"
 
-@interface Serialisation : NSObject
+@interface Serialization : NSObject
 
 + (NSString *)stringFromDictionary:(id)dict error:(NSError **)error;
 

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>LabWork4.xcscheme</key>
+		<key>Serialization.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F56A8C6B1D32695700760912</key>
+		<key>F58DF7141D35336D00CFF530</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F58DF72D1D35336D00CFF530</key>
 		<dict>
 			<key>primary</key>
 			<true/>
