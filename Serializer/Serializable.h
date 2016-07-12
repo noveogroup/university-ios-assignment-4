@@ -11,6 +11,6 @@
 
 @protocol Serializable <NSObject>
 
-- (NSMutableString *)serializeError:(NSError *__autoreleasing*)error;
+- (NSString *)serializeWithError:(NSError *__autoreleasing*)error;
 
 @end

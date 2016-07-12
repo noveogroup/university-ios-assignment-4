@@ -8,11 +8,23 @@
 
 #import "NSValue+Serializer.h"
 
+static NSInteger const kObjectErrorCode = 1;
+static NSString *const kObjectErrorDomain = @"Wrong type of object in dictionary";
+
 @implementation NSValue (Serializer)
 
-- (NSMutableString *)serializeError:(NSError *__autoreleasing *)error
+- (NSMutableString *)serializeWithError:(NSError *__autoreleasing *)error
 {
-    return nil;
+    *error = nil;
+    NSMutableString *result = nil;
+    if (strcmp(self.objCType, @encode(CGRect)) != 0) {
+        *error = [[NSError alloc] initWithDomain:kObjectErrorDomain code:kObjectErrorCode userInfo:nil];
+        return nil;
+    }
+    else {
+        result = [NSMutableString stringWithFormat:@"%@", self];
+    }
+    return result;
 }
 
 @end

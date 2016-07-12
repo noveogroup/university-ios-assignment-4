@@ -10,7 +10,7 @@
 
 @implementation NSNull (Serializer)
 
--(NSMutableString *)serializeError:(NSError *__autoreleasing *)error
+- (NSMutableString *)serializeWithError:(NSError *__autoreleasing *)error
 {
     *error = nil;
     return [NSMutableString stringWithString:@"null"];

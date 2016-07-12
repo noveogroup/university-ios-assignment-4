@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Serializable.h"
 
-@interface NSSet (Serializer) <Serializable>
+@interface NSSet (Serializer)<Serializable>
 
 @end
