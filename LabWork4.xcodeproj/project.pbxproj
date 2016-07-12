@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		F56A8C701D32695700760912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A8C6F1D32695700760912 /* main.m */; };
 		F56A8C781D326AFA00760912 /* Serialisation.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A8C771D326AFA00760912 /* Serialisation.m */; };
+		F58DF6F91D351E3000CFF530 /* NSDictionary+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF6F81D351E3000CFF530 /* NSDictionary+Serialization.m */; };
+		F58DF6FC1D35258A00CFF530 /* Serializing.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF6FB1D35258A00CFF530 /* Serializing.m */; };
+		F58DF6FF1D3525EE00CFF530 /* NSNumber+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF6FE1D3525EE00CFF530 /* NSNumber+Serialization.m */; };
+		F58DF7021D35279C00CFF530 /* NSArray+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7011D35279C00CFF530 /* NSArray+Serialization.m */; };
+		F58DF7051D352BC600CFF530 /* NSSet+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7041D352BC600CFF530 /* NSSet+Serialization.m */; };
+		F58DF7081D352D1700CFF530 /* NSNull+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF7071D352D1700CFF530 /* NSNull+Serialization.m */; };
+		F58DF70B1D352D8000CFF530 /* NSValue+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F58DF70A1D352D8000CFF530 /* NSValue+Serialization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +35,20 @@
 		F56A8C6F1D32695700760912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F56A8C761D326AFA00760912 /* Serialisation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serialisation.h; sourceTree = "<group>"; };
 		F56A8C771D326AFA00760912 /* Serialisation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serialisation.m; sourceTree = "<group>"; };
+		F58DF6F71D351E3000CFF530 /* NSDictionary+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serialization.h"; sourceTree = "<group>"; };
+		F58DF6F81D351E3000CFF530 /* NSDictionary+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serialization.m"; sourceTree = "<group>"; };
+		F58DF6FA1D35258A00CFF530 /* Serializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializing.h; sourceTree = "<group>"; };
+		F58DF6FB1D35258A00CFF530 /* Serializing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializing.m; sourceTree = "<group>"; };
+		F58DF6FD1D3525EE00CFF530 /* NSNumber+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Serialization.h"; sourceTree = "<group>"; };
+		F58DF6FE1D3525EE00CFF530 /* NSNumber+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7001D35279C00CFF530 /* NSArray+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7011D35279C00CFF530 /* NSArray+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7031D352BC600CFF530 /* NSSet+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7041D352BC600CFF530 /* NSSet+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7061D352D1700CFF530 /* NSNull+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serialization.h"; sourceTree = "<group>"; };
+		F58DF7071D352D1700CFF530 /* NSNull+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Serialization.m"; sourceTree = "<group>"; };
+		F58DF7091D352D8000CFF530 /* NSValue+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Serialization.h"; sourceTree = "<group>"; };
+		F58DF70A1D352D8000CFF530 /* NSValue+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Serialization.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +83,20 @@
 			children = (
 				F56A8C761D326AFA00760912 /* Serialisation.h */,
 				F56A8C771D326AFA00760912 /* Serialisation.m */,
+				F58DF6FA1D35258A00CFF530 /* Serializing.h */,
+				F58DF6FB1D35258A00CFF530 /* Serializing.m */,
+				F58DF6F71D351E3000CFF530 /* NSDictionary+Serialization.h */,
+				F58DF6F81D351E3000CFF530 /* NSDictionary+Serialization.m */,
+				F58DF6FD1D3525EE00CFF530 /* NSNumber+Serialization.h */,
+				F58DF6FE1D3525EE00CFF530 /* NSNumber+Serialization.m */,
+				F58DF7001D35279C00CFF530 /* NSArray+Serialization.h */,
+				F58DF7011D35279C00CFF530 /* NSArray+Serialization.m */,
+				F58DF7031D352BC600CFF530 /* NSSet+Serialization.h */,
+				F58DF7041D352BC600CFF530 /* NSSet+Serialization.m */,
+				F58DF7061D352D1700CFF530 /* NSNull+Serialization.h */,
+				F58DF7071D352D1700CFF530 /* NSNull+Serialization.m */,
+				F58DF7091D352D8000CFF530 /* NSValue+Serialization.h */,
+				F58DF70A1D352D8000CFF530 /* NSValue+Serialization.m */,
 				F56A8C6F1D32695700760912 /* main.m */,
 			);
 			path = LabWork4;
@@ -124,7 +159,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F56A8C701D32695700760912 /* main.m in Sources */,
+				F58DF6FC1D35258A00CFF530 /* Serializing.m in Sources */,
+				F58DF6FF1D3525EE00CFF530 /* NSNumber+Serialization.m in Sources */,
 				F56A8C781D326AFA00760912 /* Serialisation.m in Sources */,
+				F58DF6F91D351E3000CFF530 /* NSDictionary+Serialization.m in Sources */,
+				F58DF7021D35279C00CFF530 /* NSArray+Serialization.m in Sources */,
+				F58DF70B1D352D8000CFF530 /* NSValue+Serialization.m in Sources */,
+				F58DF7081D352D1700CFF530 /* NSNull+Serialization.m in Sources */,
+				F58DF7051D352BC600CFF530 /* NSSet+Serialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +287,7 @@
 				F56A8C751D32695700760912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
