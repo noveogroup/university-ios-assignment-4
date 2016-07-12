@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+Serialize.h"
+#import "NSError+Serialize.h"
 
 @implementation NSArray (Serialize)
 
@@ -21,6 +22,9 @@
                 return nil;
             }
             [string appendFormat:@"%@, ", tmpString];
+        } else {
+            *error = [NSError errorIncorrectType:self];
+            return nil;
         }
     }
     string = [[string substringToIndex:[string length] - 2] mutableCopy];

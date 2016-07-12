@@ -13,10 +13,10 @@
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         NSArray *array = @[@5, @4, @3];
-        NSArray *stringArray = @[@"a", @"b"];
+        NSArray *stringArray = @[@"a", @"b", @"c"];
         NSSet *set = [[NSSet alloc] initWithArray:array];
         CGRect rect = CGRectMake(0,0,100,100);
-                CGPoint point = CGPointMake(0,0);
+//                CGPoint point = CGPointMake(0,0);
         NSDictionary *dictionary = @{
                 @"test": @"dfg",
                 @1: @{
@@ -28,7 +28,7 @@ int main(int argc, char * argv[]) {
                 @"set": set,
                 @4: [NSNull null],
                 @"rect": [NSValue valueWithCGRect:rect],
-                @"point": [NSValue valueWithCGPoint:point],
+//                @"point": [NSValue valueWithCGPoint:point],
                 @5: stringArray
         };
         

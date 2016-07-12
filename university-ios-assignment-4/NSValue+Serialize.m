@@ -8,8 +8,7 @@
 
 #import "NSValue+Serialize.h"
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
-#import "Serializer.h"
+#import "NSError+Serialize.h"
 
 @implementation NSValue (Serialize)
 
@@ -21,10 +20,7 @@
         string = [NSString stringWithFormat:@"NSRect:{{%lf, %lf}, {%lf, %lf}}", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
 
     } else{
-        NSDictionary *userInfo = @{
-                NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Incorrect type in object %@. Not CGRect", [NSString stringWithUTF8String:[self objCType]]]
-        };
-        *error = [[NSError alloc]initWithDomain:SerializerErrorDomain code:SerializerErrorIncorrectType userInfo:userInfo];
+        *error = [NSError errorIncorrectType:self];
         return nil;
     }
 

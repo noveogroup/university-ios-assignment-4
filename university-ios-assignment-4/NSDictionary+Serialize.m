@@ -7,6 +7,8 @@
 //
 
 #import "NSDictionary+Serialize.h"
+#import "NSError+Serialize.h"
+
 
 @implementation NSDictionary (Serialize)
 
@@ -27,17 +29,15 @@
                     return nil;
                 }
                 [string appendFormat:@"%@\n", tmpString];
+            } else{
+                *error = [NSError errorIncorrectType:self];
+                return nil;
             }
         } else {
-            NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Invalid key in key %@", key]
-                                       };
-            *error = [[NSError alloc]initWithDomain:SerializerErrorDomain code:SerializerErrorInvalidKey userInfo:userInfo];
+            *error = [NSError errorInvalidKey:key];
             return nil;
         }
-        
     }
-    
     [string appendString:@"\n}\n"];
     return [string copy];
 }

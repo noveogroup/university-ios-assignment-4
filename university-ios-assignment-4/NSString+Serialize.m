@@ -7,6 +7,7 @@
 
 
 @implementation NSString (Serialize)
+
 - (NSString *)serialiseWithError:(NSError **)error {
     return self;
 }

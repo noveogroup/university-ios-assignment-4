@@ -8,6 +8,7 @@
 
 #import "Serializer.h"
 #import "NSDictionary+Serialize.h"
+#import "NSError+Serialize.h"
 
 @implementation Serializer
 
@@ -21,10 +22,7 @@
         }
         return string;
     } else{
-        NSDictionary *userInfo = @{
-                                   NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Not dictionary - %@", [dictionary class]]
-                                   };
-        *error = [[NSError alloc]initWithDomain:SerializerErrorDomain code:SerializerErrorNotDictionary userInfo:userInfo];
+        *error = [NSError errorNotDictionary:dictionary];
         return nil;
     }
     return nil;

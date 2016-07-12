@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		586031E45E6CB1BF233066AD /* NSError+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 586038185F09407547E62DDD /* NSError+Serialize.m */; };
 		5860386EF94645262C12813A /* NSString+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 58603E2A94C7B951944CEF64 /* NSString+Serialize.m */; };
 		841558291D34B20100785EFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841558281D34B20100785EFA /* main.m */; };
 		8415582C1D34B20100785EFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8415582B1D34B20100785EFA /* AppDelegate.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		586030EBA4AD6F63399A99F2 /* NSError+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Serialize.h"; sourceTree = "<group>"; };
+		586038185F09407547E62DDD /* NSError+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Serialize.m"; sourceTree = "<group>"; };
 		58603A3F46BE72E69F2F4A60 /* NSString+Serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Serialize.h"; sourceTree = "<group>"; };
 		58603E2A94C7B951944CEF64 /* NSString+Serialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Serialize.m"; sourceTree = "<group>"; };
 		841558241D34B20100785EFA /* university-ios-assignment-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "university-ios-assignment-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +155,8 @@
 				841558271D34B20100785EFA /* Supporting Files */,
 				58603E2A94C7B951944CEF64 /* NSString+Serialize.m */,
 				58603A3F46BE72E69F2F4A60 /* NSString+Serialize.h */,
+				586038185F09407547E62DDD /* NSError+Serialize.m */,
+				586030EBA4AD6F63399A99F2 /* NSError+Serialize.h */,
 			);
 			path = "university-ios-assignment-4";
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				8415586B1D34B23300785EFA /* NSNull+Serialize.m in Sources */,
 				841558291D34B20100785EFA /* main.m in Sources */,
 				5860386EF94645262C12813A /* NSString+Serialize.m in Sources */,
+				586031E45E6CB1BF233066AD /* NSError+Serialize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
