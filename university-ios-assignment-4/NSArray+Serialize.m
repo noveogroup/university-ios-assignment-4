@@ -23,6 +23,7 @@
             [string appendFormat:@"%@, ", tmpString];
         }
     }
+    string = [[string substringToIndex:[string length] - 2] mutableCopy];
     [string appendString:@"]"];
     return [string copy];
 }
