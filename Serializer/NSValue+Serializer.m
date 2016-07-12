@@ -13,7 +13,7 @@ static NSString *const kObjectErrorDomain = @"Wrong type of object in dictionary
 
 @implementation NSValue (Serializer)
 
-- (NSMutableString *)serializeWithError:(NSError *__autoreleasing *)error
+- (NSString *)serializeWithError:(NSError *__autoreleasing *)error
 {
     *error = nil;
     NSMutableString *result = nil;
@@ -24,7 +24,7 @@ static NSString *const kObjectErrorDomain = @"Wrong type of object in dictionary
     else {
         result = [NSMutableString stringWithFormat:@"%@", self];
     }
-    return result;
+    return [result copy];
 }
 
 @end

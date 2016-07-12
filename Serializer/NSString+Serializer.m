@@ -1,19 +1,19 @@
 //
-//  NSNull+Serializer.m
+//  NSString+Serializer.m
 //  Serializer
 //
-//  Created by admin on 11/07/16.
+//  Created by admin on 12/07/16.
 //  Copyright © 2016 Saveliy. All rights reserved.
 //
 
-#import "NSNull+Serializer.h"
+#import "NSString+Serializer.h"
 
-@implementation NSNull (Serializer)
+@implementation NSString (Serializer)
 
 - (NSString *)serializeWithError:(NSError *__autoreleasing *)error
 {
     *error = nil;
-    return @"null";
+    return self;
 }
 
 @end

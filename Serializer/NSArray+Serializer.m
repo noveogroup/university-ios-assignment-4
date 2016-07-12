@@ -13,11 +13,11 @@ static NSString *const kObjectErrorDomain = @"Wrong type of object in dictionary
 
 @implementation NSArray (Serializer)
 
-- (NSMutableString *)serializeWithError:(NSError *__autoreleasing *)error
+- (NSString *)serializeWithError:(NSError *__autoreleasing *)error
 {
     *error = nil;
     NSMutableString *result = [NSMutableString stringWithString:@"\n[\n"];
-    NSMutableString *objString;
+    NSString *objString;
     for (id obj in self) {
         if ([obj conformsToProtocol:@protocol(Serializable)]) {
             objString = [obj serializeWithError:error];
@@ -34,7 +34,7 @@ static NSString *const kObjectErrorDomain = @"Wrong type of object in dictionary
         }
     }
     [result appendString:@"]"];
-    return result;
+    return [result copy];
 }
 
 @end

@@ -10,10 +10,10 @@
 
 @implementation NSNumber (Serializer)
 
-- (NSMutableString *)serializeWithError:(NSError *__autoreleasing*)error
+- (NSString *)serializeWithError:(NSError *__autoreleasing*)error
 {
     *error = nil;
-    NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self];
+    NSString *result = [NSString stringWithFormat:@"%@", self];
     return result;
 }
 

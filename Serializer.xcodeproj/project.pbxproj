@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8424C62D1D34FEF800E723F9 /* NSString+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */; };
 		8432E5721D3383D60069920E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5711D3383D60069920E /* main.m */; };
 		8432E5851D33C1160069920E /* NSNumber+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5841D33C1160069920E /* NSNumber+Serializer.m */; };
 		8432E5881D33C54F0069920E /* NSNull+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5871D33C54F0069920E /* NSNull+Serializer.m */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8424C62B1D34FEF800E723F9 /* NSString+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Serializer.h"; sourceTree = "<group>"; };
+		8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Serializer.m"; sourceTree = "<group>"; };
 		8432E56E1D3383D60069920E /* Serializer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Serializer; sourceTree = BUILT_PRODUCTS_DIR; };
 		8432E5711D3383D60069920E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8432E57B1D33BCDB0069920E /* Serializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				8432E5901D33CC8E0069920E /* NSSet+Serializer.m */,
 				8432E5921D33CCD50069920E /* NSValue+Serializer.h */,
 				8432E5931D33CCD50069920E /* NSValue+Serializer.m */,
+				8424C62B1D34FEF800E723F9 /* NSString+Serializer.h */,
+				8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */,
 			);
 			path = Serializer;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				8432E5721D3383D60069920E /* main.m in Sources */,
 				8432E5911D33CC8E0069920E /* NSSet+Serializer.m in Sources */,
 				8432E5851D33C1160069920E /* NSNumber+Serializer.m in Sources */,
+				8424C62D1D34FEF800E723F9 /* NSString+Serializer.m in Sources */,
 				8432E58E1D33CC3D0069920E /* NSArray+Serializer.m in Sources */,
 				8432E5941D33CCD50069920E /* NSValue+Serializer.m in Sources */,
 			);

@@ -20,8 +20,8 @@ static NSString *const kKeyErrorDomain = @"Wrong type of key";
     *error = nil;
     NSMutableString *result = [NSMutableString stringWithString:@"\n{\n"];
     for (id key in self) {
-        NSMutableString *keyString;
-        NSMutableString *objectString;
+        NSString *keyString;
+        NSString *objectString;
         if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]]) {
             keyString = [key serializeWithError:error];
         }
