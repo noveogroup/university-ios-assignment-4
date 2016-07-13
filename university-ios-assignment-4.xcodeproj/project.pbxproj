@@ -24,6 +24,7 @@
 		8415586D1D34B23300785EFA /* NSSet+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 841558631D34B23300785EFA /* NSSet+Serialize.m */; };
 		8415586E1D34B23300785EFA /* NSValue+Serialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 841558651D34B23300785EFA /* NSValue+Serialize.m */; };
 		8415586F1D34B23300785EFA /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 841558671D34B23300785EFA /* Serializer.m */; };
+		84416AC41D364F7800F0B06B /* NSArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84416AC31D364F7800F0B06B /* NSArrayTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		841558661D34B23300785EFA /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
 		841558671D34B23300785EFA /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializer.m; sourceTree = "<group>"; };
 		841558681D34B23300785EFA /* Serilisable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serilisable.h; sourceTree = "<group>"; };
+		84416AC31D364F7800F0B06B /* NSArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				841558411D34B20100785EFA /* university_ios_assignment_4Tests.m */,
 				841558431D34B20100785EFA /* Info.plist */,
+				84416AC31D364F7800F0B06B /* NSArrayTests.m */,
 			);
 			path = "university-ios-assignment-4Tests";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84416AC41D364F7800F0B06B /* NSArrayTests.m in Sources */,
 				841558421D34B20100785EFA /* university_ios_assignment_4Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +558,7 @@
 				841558531D34B20100785EFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		841558541D34B20100785EFA /* Build configuration list for PBXNativeTarget "university-ios-assignment-4Tests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +567,7 @@
 				841558561D34B20100785EFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		841558571D34B20100785EFA /* Build configuration list for PBXNativeTarget "university-ios-assignment-4UITests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +576,7 @@
 				841558591D34B20100785EFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

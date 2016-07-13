@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841558231D34B20100785EFA"
-               BuildableName = "university-ios-assignment-4.app"
-               BlueprintName = "university-ios-assignment-4"
+               BlueprintIdentifier = "841558471D34B20100785EFA"
+               BuildableName = "university-ios-assignment-4UITests.xctest"
+               BlueprintName = "university-ios-assignment-4UITests"
                ReferencedContainer = "container:university-ios-assignment-4.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
