@@ -46,7 +46,6 @@ int main(int argc, const char * argv[]) {
             NSLog(@"Domain: %@", error.domain);
             NSLog(@"UserInfo: %@", error.userInfo);
         }
-        
     }
     return 0;
 }
