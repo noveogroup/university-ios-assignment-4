@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8424C62D1D34FEF800E723F9 /* NSString+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */; };
+		8424C6301D3504B600E723F9 /* NSError+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424C62F1D3504B600E723F9 /* NSError+Serializer.m */; };
+		8432E5721D3383D60069920E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5711D3383D60069920E /* main.m */; };
+		8432E5851D33C1160069920E /* NSNumber+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5841D33C1160069920E /* NSNumber+Serializer.m */; };
+		8432E5881D33C54F0069920E /* NSNull+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5871D33C54F0069920E /* NSNull+Serializer.m */; };
+		8432E58B1D33CAB30069920E /* NSDictionary+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E58A1D33CAB30069920E /* NSDictionary+Serializer.m */; };
+		8432E58E1D33CC3D0069920E /* NSArray+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E58D1D33CC3D0069920E /* NSArray+Serializer.m */; };
+		8432E5911D33CC8E0069920E /* NSSet+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5901D33CC8E0069920E /* NSSet+Serializer.m */; };
+		8432E5941D33CCD50069920E /* NSValue+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5931D33CCD50069920E /* NSValue+Serializer.m */; };
+		845F69931D36124B00DE20AD /* ProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845F694D1D35F8B900DE20AD /* ProgramTest.m */; };
+		845F69951D36129200DE20AD /* NSDictionary+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E58A1D33CAB30069920E /* NSDictionary+Serializer.m */; };
+		845F69981D3649E200DE20AD /* NSNumber+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5841D33C1160069920E /* NSNumber+Serializer.m */; };
+		845F69991D3649E200DE20AD /* NSNull+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5871D33C54F0069920E /* NSNull+Serializer.m */; };
+		845F699A1D3649E200DE20AD /* NSArray+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E58D1D33CC3D0069920E /* NSArray+Serializer.m */; };
+		845F699B1D3649E200DE20AD /* NSSet+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5901D33CC8E0069920E /* NSSet+Serializer.m */; };
+		845F699C1D3649E200DE20AD /* NSValue+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8432E5931D33CCD50069920E /* NSValue+Serializer.m */; };
+		845F699D1D3649E200DE20AD /* NSString+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */; };
+		845F699E1D3649E200DE20AD /* NSError+Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424C62F1D3504B600E723F9 /* NSError+Serializer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8432E56C1D3383D60069920E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8424C62B1D34FEF800E723F9 /* NSString+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Serializer.h"; sourceTree = "<group>"; };
+		8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Serializer.m"; sourceTree = "<group>"; };
+		8424C62E1D3504B600E723F9 /* NSError+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Serializer.h"; sourceTree = "<group>"; };
+		8424C62F1D3504B600E723F9 /* NSError+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Serializer.m"; sourceTree = "<group>"; };
+		8432E56E1D3383D60069920E /* Serializer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Serializer; sourceTree = BUILT_PRODUCTS_DIR; };
+		8432E5711D3383D60069920E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8432E57B1D33BCDB0069920E /* Serializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
+		8432E5831D33C1160069920E /* NSNumber+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Serializer.h"; sourceTree = "<group>"; };
+		8432E5841D33C1160069920E /* NSNumber+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serializer.m"; sourceTree = "<group>"; };
+		8432E5861D33C54F0069920E /* NSNull+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serializer.h"; sourceTree = "<group>"; };
+		8432E5871D33C54F0069920E /* NSNull+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Serializer.m"; sourceTree = "<group>"; };
+		8432E5891D33CAB30069920E /* NSDictionary+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serializer.h"; sourceTree = "<group>"; };
+		8432E58A1D33CAB30069920E /* NSDictionary+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serializer.m"; sourceTree = "<group>"; };
+		8432E58C1D33CC3D0069920E /* NSArray+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serializer.h"; sourceTree = "<group>"; };
+		8432E58D1D33CC3D0069920E /* NSArray+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Serializer.m"; sourceTree = "<group>"; };
+		8432E58F1D33CC8E0069920E /* NSSet+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Serializer.h"; sourceTree = "<group>"; };
+		8432E5901D33CC8E0069920E /* NSSet+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serializer.m"; sourceTree = "<group>"; };
+		8432E5921D33CCD50069920E /* NSValue+Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Serializer.h"; sourceTree = "<group>"; };
+		8432E5931D33CCD50069920E /* NSValue+Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Serializer.m"; sourceTree = "<group>"; };
+		845F694B1D35F8B900DE20AD /* ProgramTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProgramTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		845F694D1D35F8B900DE20AD /* ProgramTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgramTest.m; sourceTree = "<group>"; };
+		845F694F1D35F8B900DE20AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8432E56B1D3383D60069920E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845F69481D35F8B900DE20AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8432E5651D3383D60069920E = {
+			isa = PBXGroup;
+			children = (
+				8432E5701D3383D60069920E /* Serializer */,
+				845F694C1D35F8B900DE20AD /* ProgramTest */,
+				8432E56F1D3383D60069920E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8432E56F1D3383D60069920E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8432E56E1D3383D60069920E /* Serializer */,
+				845F694B1D35F8B900DE20AD /* ProgramTest.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8432E5701D3383D60069920E /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				8432E57B1D33BCDB0069920E /* Serializable.h */,
+				8432E5711D3383D60069920E /* main.m */,
+				8432E5831D33C1160069920E /* NSNumber+Serializer.h */,
+				8432E5841D33C1160069920E /* NSNumber+Serializer.m */,
+				8432E5861D33C54F0069920E /* NSNull+Serializer.h */,
+				8432E5871D33C54F0069920E /* NSNull+Serializer.m */,
+				8432E5891D33CAB30069920E /* NSDictionary+Serializer.h */,
+				8432E58A1D33CAB30069920E /* NSDictionary+Serializer.m */,
+				8432E58C1D33CC3D0069920E /* NSArray+Serializer.h */,
+				8432E58D1D33CC3D0069920E /* NSArray+Serializer.m */,
+				8432E58F1D33CC8E0069920E /* NSSet+Serializer.h */,
+				8432E5901D33CC8E0069920E /* NSSet+Serializer.m */,
+				8432E5921D33CCD50069920E /* NSValue+Serializer.h */,
+				8432E5931D33CCD50069920E /* NSValue+Serializer.m */,
+				8424C62B1D34FEF800E723F9 /* NSString+Serializer.h */,
+				8424C62C1D34FEF800E723F9 /* NSString+Serializer.m */,
+				8424C62E1D3504B600E723F9 /* NSError+Serializer.h */,
+				8424C62F1D3504B600E723F9 /* NSError+Serializer.m */,
+			);
+			path = Serializer;
+			sourceTree = "<group>";
+		};
+		845F694C1D35F8B900DE20AD /* ProgramTest */ = {
+			isa = PBXGroup;
+			children = (
+				845F694D1D35F8B900DE20AD /* ProgramTest.m */,
+				845F694F1D35F8B900DE20AD /* Info.plist */,
+			);
+			path = ProgramTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8432E56D1D3383D60069920E /* Serializer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8432E5751D3383D60069920E /* Build configuration list for PBXNativeTarget "Serializer" */;
+			buildPhases = (
+				8432E56A1D3383D60069920E /* Sources */,
+				8432E56B1D3383D60069920E /* Frameworks */,
+				8432E56C1D3383D60069920E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Serializer;
+			productName = Serializer;
+			productReference = 8432E56E1D3383D60069920E /* Serializer */;
+			productType = "com.apple.product-type.tool";
+		};
+		845F694A1D35F8B900DE20AD /* ProgramTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845F69521D35F8B900DE20AD /* Build configuration list for PBXNativeTarget "ProgramTest" */;
+			buildPhases = (
+				845F69471D35F8B900DE20AD /* Sources */,
+				845F69481D35F8B900DE20AD /* Frameworks */,
+				845F69491D35F8B900DE20AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProgramTest;
+			productName = ProgramTest;
+			productReference = 845F694B1D35F8B900DE20AD /* ProgramTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8432E5661D3383D60069920E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Saveliy;
+				TargetAttributes = {
+					8432E56D1D3383D60069920E = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					845F694A1D35F8B900DE20AD = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 8432E5691D3383D60069920E /* Build configuration list for PBXProject "Serializer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8432E5651D3383D60069920E;
+			productRefGroup = 8432E56F1D3383D60069920E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8432E56D1D3383D60069920E /* Serializer */,
+				845F694A1D35F8B900DE20AD /* ProgramTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		845F69491D35F8B900DE20AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8432E56A1D3383D60069920E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8432E58B1D33CAB30069920E /* NSDictionary+Serializer.m in Sources */,
+				8424C6301D3504B600E723F9 /* NSError+Serializer.m in Sources */,
+				8432E5881D33C54F0069920E /* NSNull+Serializer.m in Sources */,
+				8432E5721D3383D60069920E /* main.m in Sources */,
+				8432E5911D33CC8E0069920E /* NSSet+Serializer.m in Sources */,
+				8432E5851D33C1160069920E /* NSNumber+Serializer.m in Sources */,
+				8424C62D1D34FEF800E723F9 /* NSString+Serializer.m in Sources */,
+				8432E58E1D33CC3D0069920E /* NSArray+Serializer.m in Sources */,
+				8432E5941D33CCD50069920E /* NSValue+Serializer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845F69471D35F8B900DE20AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845F69981D3649E200DE20AD /* NSNumber+Serializer.m in Sources */,
+				845F69991D3649E200DE20AD /* NSNull+Serializer.m in Sources */,
+				845F699A1D3649E200DE20AD /* NSArray+Serializer.m in Sources */,
+				845F699B1D3649E200DE20AD /* NSSet+Serializer.m in Sources */,
+				845F699C1D3649E200DE20AD /* NSValue+Serializer.m in Sources */,
+				845F699D1D3649E200DE20AD /* NSString+Serializer.m in Sources */,
+				845F699E1D3649E200DE20AD /* NSError+Serializer.m in Sources */,
+				845F69951D36129200DE20AD /* NSDictionary+Serializer.m in Sources */,
+				845F69931D36124B00DE20AD /* ProgramTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8432E5731D3383D60069920E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8432E5741D3383D60069920E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8432E5761D3383D60069920E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8432E5771D3383D60069920E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		845F69501D35F8B900DE20AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ProgramTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.ProgramTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		845F69511D35F8B900DE20AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ProgramTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.ProgramTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8432E5691D3383D60069920E /* Build configuration list for PBXProject "Serializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8432E5731D3383D60069920E /* Debug */,
+				8432E5741D3383D60069920E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8432E5751D3383D60069920E /* Build configuration list for PBXNativeTarget "Serializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8432E5761D3383D60069920E /* Debug */,
+				8432E5771D3383D60069920E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		845F69521D35F8B900DE20AD /* Build configuration list for PBXNativeTarget "ProgramTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845F69501D35F8B900DE20AD /* Debug */,
+				845F69511D35F8B900DE20AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8432E5661D3383D60069920E /* Project object */;
+}
