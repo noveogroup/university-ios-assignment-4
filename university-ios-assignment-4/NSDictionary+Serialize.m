@@ -14,21 +14,16 @@
 
 - (NSString *)serialiseWithError:(NSError **)error
 {
-    NSMutableString *string = [NSMutableString string];
-    [string appendString:@"{\n"];
-    
+    NSMutableArray *array = [NSMutableArray array];
     for (id key in self) {
         if ([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]]) {
-            [string appendFormat:@"\t%@: ", key];
-            
             id object = self[key];
-            
             if ([object respondsToSelector:@selector(serialiseWithError:)]){
                 NSString *tmpString = [object serialiseWithError:error];
                 if(*error){
                     return nil;
                 }
-                [string appendFormat:@"%@\n", tmpString];
+                [array addObject:[NSString stringWithFormat:@"\t%@: %@", key, tmpString]];
             } else{
                 *error = [NSError serializerErrorIncorrectType:self];
                 return nil;
@@ -38,8 +33,7 @@
             return nil;
         }
     }
-    [string appendString:@"\n}\n"];
-    return [string copy];
+    return [NSString stringWithFormat:@"{\n%@\n}",[array componentsJoinedByString:@",\n"]];
 }
 
 @end

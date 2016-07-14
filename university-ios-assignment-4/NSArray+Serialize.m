@@ -13,23 +13,20 @@
 
 - (NSString *)serialiseWithError:(NSError *__autoreleasing *)error
 {
-    NSMutableString *string = [NSMutableString string];
-    [string appendString:@"["];
+    NSMutableArray *array = [NSMutableArray array];
     for (id object in self) {
         if ([object respondsToSelector:@selector(serialiseWithError:)]){
             NSString *tmpString = [object serialiseWithError:error];
             if(*error){
                 return nil;
             }
-            [string appendFormat:@"%@, ", tmpString];
+            [array addObject:tmpString];
         } else {
             *error = [NSError serializerErrorIncorrectType:self];
             return nil;
         }
     }
-    string = [[string substringToIndex:[string length] - 2] mutableCopy];
-    [string appendString:@"]"];
-    return [string copy];
+    return [NSString stringWithFormat:@"[%@]",[array componentsJoinedByString:@", "]];
 }
 
 @end
