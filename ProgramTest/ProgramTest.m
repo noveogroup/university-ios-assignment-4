@@ -5,6 +5,7 @@
 
 #import <XCTest/XCTest.h>
 #import "NSDictionary+Serializer.h"
+#import "NSError+Serializer.h"
 
 @interface ProgramTest : XCTestCase
 
@@ -56,8 +57,8 @@
     NSDictionary *dict = @{_array:_num};
     NSError *error = nil;
     [dict serializeWithError:&error];
-    XCTAssertEqual(error.code, 2);
-    XCTAssertEqualObjects(error.domain, @"Wrong key");
+    XCTAssertEqual(error.code, SerializerErrorCodeWrongKey);
+    XCTAssertEqualObjects(error.domain, kSerializerErrorDomain);
 }
 
 - (void)testErrorWithObject
@@ -65,8 +66,8 @@
     NSDictionary *dict = @{@1:[[NSDate alloc] init]};
     NSError *error = nil;
     [dict serializeWithError:&error];
-    XCTAssertEqual(error.code, 1);
-    XCTAssertEqualObjects(error.domain, @"Wrong object");
+    XCTAssertEqual(error.code, SerializerErrorCodeWrongObject);
+    XCTAssertEqualObjects(error.domain, kSerializerErrorDomain);
 }
 
 - (void)testErrorWithValue
@@ -74,8 +75,8 @@
     NSDictionary *dict = @{@1:_set};
     NSError *error = nil;
     [dict serializeWithError:&error];
-    XCTAssertEqual(error.code, 3);
-    XCTAssertEqualObjects(error.domain, @"Wrong value");
+    XCTAssertEqual(error.code, SerializerErrorCodeWrongValue);
+    XCTAssertEqualObjects(error.domain, kSerializerErrorDomain);
 }
 
 @end

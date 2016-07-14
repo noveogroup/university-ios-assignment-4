@@ -3,8 +3,6 @@
 //  Serializer
 //
 
-@class NSMutableString;
-@class NSError;
 
 @protocol Serializable <NSObject>
 

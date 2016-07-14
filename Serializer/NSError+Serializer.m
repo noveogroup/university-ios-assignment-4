@@ -5,12 +5,9 @@
 
 #import "NSError+Serializer.h"
 
-static NSInteger const kObjectErrorCode = 1;
-static NSInteger const kKeyErrorCode = 2;
-static NSInteger const kValueErrorCode = 3;
-static NSString *const kObjectErrorDomain = @"Wrong object";
-static NSString *const kKeyErrorDomain = @"Wrong key";
-static NSString *const kValueErrorDomain = @"Wrong value";
+
+
+NSString *const kSerializerErrorDomain = @"Serializer domain";
 
 @implementation NSError (Serializer)
 
@@ -18,21 +15,27 @@ static NSString *const kValueErrorDomain = @"Wrong value";
 {
     NSDictionary *userInfo = @{@"description":@"Unexpected type of key in dictionary",
                                @"keyType":[key class]};
-    return [[NSError alloc] initWithDomain:kKeyErrorDomain code:kKeyErrorCode userInfo:userInfo];
+    return [[NSError alloc] initWithDomain:kSerializerErrorDomain
+                                      code:SerializerErrorCodeWrongKey
+                                  userInfo:userInfo];
 }
 
 + (NSError *)errorWithObject:(id)object
 {
     NSDictionary *userInfo = @{@"description":@"Unexpected type of object during sirialization",
                                @"objectType":[object class]};
-    return [[NSError alloc] initWithDomain:kObjectErrorDomain code:kObjectErrorCode userInfo:userInfo];
+    return [[NSError alloc] initWithDomain:kSerializerErrorDomain
+                                      code:SerializerErrorCodeWrongObject
+                                  userInfo:userInfo];
 }
 
 + (NSError *)errorWithValue:(NSValue *)val
 {
     NSDictionary *userInfo = @{@"description":@"Only CGRect is allowed in NSValue",
                                @"objCType":[NSString stringWithFormat:@"%s",val.objCType]};
-    return [[NSError alloc] initWithDomain:kValueErrorDomain code:kValueErrorCode userInfo:userInfo];
+    return [[NSError alloc] initWithDomain:kSerializerErrorDomain
+                                      code:SerializerErrorCodeWrongValue
+                                  userInfo:userInfo];
 }
 
 @end
