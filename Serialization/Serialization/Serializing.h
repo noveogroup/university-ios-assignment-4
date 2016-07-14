@@ -11,6 +11,6 @@ extern NSString *const SerialisationErrorDomain;
 
 @protocol Serializing <NSObject>
 
-- (void)serializeToString:(NSMutableString *)string error:(NSError *__autoreleasing *)error;
+- (NSString *)serializeWithError:(NSError *__autoreleasing *)error;
 
 @end

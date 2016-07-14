@@ -3,35 +3,29 @@
 
 @implementation NSSet (Serialization)
 
-- (void)serializeToString:(NSMutableString *)string error:(NSError *__autoreleasing *)error
+- (NSString *)serializeWithError:(NSError *__autoreleasing *)error
 {
-    [string appendString:@"Set{ "];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[self count]];
     
     for (id elem in self) {
         
         if ([elem conformsToProtocol:@protocol(Serializing)]) {
             
-            [elem serializeToString:string error:error];
+            [array addObject:[elem serializeWithError:error]];
             
             if (*error) {
-                return;
+                return nil;
             }
         }
         else {
             
             NSString *description = [NSString stringWithFormat:@"Found object of class %@, which does not conform Serializing protocol", [elem class]];
             *error = [[NSError alloc] initWithDomain:SerialisationErrorDomain code:SerialisationErrorInvalidValueObject userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(description, nil)}];
-            return;
+            return nil;
         }
-        
-        [string appendString:@", "];
     }
     
-    if ([[string substringFromIndex:[string length]-2] isEqualToString:@", "]) {
-        [string deleteCharactersInRange:NSMakeRange([string length]-2, 2)];
-    }
-    
-    [string appendString:@" }"];
+    return [NSString stringWithFormat:@"<%@>", [array componentsJoinedByString:@", "]];
 }
 
 @end

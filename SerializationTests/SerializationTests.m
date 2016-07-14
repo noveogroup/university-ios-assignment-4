@@ -33,7 +33,7 @@
     NSString *result = [Serialization stringFromDictionary:@{} error:&error];
     
     XCTAssertNil(error);
-    XCTAssertEqualObjects(result, @"{  }");
+    XCTAssertEqualObjects(result, @"{}");
 }
 
 - (void)testEmptyArrayInDictionary
@@ -42,7 +42,7 @@
     NSString *result = [Serialization stringFromDictionary:@{@"a": @1, @"b": [NSSet set], @"c": @[]} error:&error];
     
     XCTAssertNil(error);
-    XCTAssertEqualObjects(result, @"{ a: 1, b: Set{  }, c: [  ] }");
+    XCTAssertEqualObjects(result, @"{a: 1, b: <>, c: []}");
 }
 
 - (void)testComplexGoodDictionary
@@ -51,13 +51,15 @@
     NSString *result = [Serialization stringFromDictionary:@{@"hello": @2, @"world": @8, @1: @[@1, @2, @{@"a": @1, @"b": @2}, [NSSet setWithObjects:@1, @{@"c": @2, @"d": @3}, @7, nil], [NSNull null]], @10: [NSValue valueWithCGRect:CGRectMake(0, 2, 4, 6)]} error:&error];
     
     XCTAssertNil(error);
-    XCTAssertEqualObjects(result, @"{ 10: CGRect(0, 2, 4, 6), hello: 2, 1: [ 1, 2, { a: 1, b: 2 }, Set{ 7, 1, { c: 2, d: 3 } }, (null) ], world: 8 }");
+    XCTAssertEqualObjects(result, @"{10: CGRect(0, 2, 4, 6), hello: 2, 1: [1, 2, {a: 1, b: 2}, <7, 1, {c: 2, d: 3}>, (null)], world: 8}");
 }
 
 - (void)testInvalidRootObject
 {
     NSError *error = nil;
     NSString *result = [Serialization stringFromDictionary:@"string" error:&error];
+    
+    
     
     XCTAssertNotNil(error);
     XCTAssertNil(result);
@@ -89,12 +91,5 @@
     XCTAssertNotNil(error);
     XCTAssertNil(result);
 }
-
-//- (void)testPerformanceExample {
-//    // This is an example of a performance test case.
-//    [self measureBlock:^{
-//        // Put the code you want to measure the time of here.
-//    }];
-//}
 
 @end

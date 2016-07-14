@@ -139,16 +139,16 @@
 		F58DF73D1D35338600CFF530 /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
-				F58DF73E1D35341400CFF530 /* NSArray+Serialization.h */,
-				F58DF73F1D35341400CFF530 /* NSArray+Serialization.m */,
 				F58DF7401D35341400CFF530 /* NSDictionary+Serialization.h */,
 				F58DF7411D35341400CFF530 /* NSDictionary+Serialization.m */,
-				F58DF7421D35341400CFF530 /* NSNull+Serialization.h */,
-				F58DF7431D35341400CFF530 /* NSNull+Serialization.m */,
-				F58DF7441D35341400CFF530 /* NSNumber+Serialization.h */,
-				F58DF7451D35341400CFF530 /* NSNumber+Serialization.m */,
+				F58DF73E1D35341400CFF530 /* NSArray+Serialization.h */,
+				F58DF73F1D35341400CFF530 /* NSArray+Serialization.m */,
 				F58DF7461D35341400CFF530 /* NSSet+Serialization.h */,
 				F58DF7471D35341400CFF530 /* NSSet+Serialization.m */,
+				F58DF7441D35341400CFF530 /* NSNumber+Serialization.h */,
+				F58DF7451D35341400CFF530 /* NSNumber+Serialization.m */,
+				F58DF7421D35341400CFF530 /* NSNull+Serialization.h */,
+				F58DF7431D35341400CFF530 /* NSNull+Serialization.m */,
 				F58DF7481D35341400CFF530 /* NSValue+Serialization.h */,
 				F58DF7491D35341400CFF530 /* NSValue+Serialization.m */,
 				F58DF74A1D35341400CFF530 /* Serialization.h */,

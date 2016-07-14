@@ -3,9 +3,9 @@
 
 @implementation NSNumber (Serialization)
 
-- (void)serializeToString:(NSMutableString *)string error:(NSError *__autoreleasing *)error
+- (NSString *)serializeWithError:(NSError *__autoreleasing *)error
 {
-    [string appendString:[NSString stringWithFormat:@"%@", self]];
+    return [NSString stringWithFormat:@"%@", self];
 }
 
 @end
