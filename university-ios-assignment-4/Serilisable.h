@@ -8,15 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *SerializerErrorDomain = @"SerializerErrorDomain";
-
-typedef NS_ENUM(NSUInteger, SerializerErrorCode) {
-    SerializerErrorNotDictionary,
-    SerializerErrorIncorrectType,
-    SerializerErrorInvalidKey
-};
-
-
 @protocol Serilisable <NSObject>
 
 - (NSString *)serialiseWithError:(NSError **)error;

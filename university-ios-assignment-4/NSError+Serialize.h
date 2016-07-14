@@ -5,9 +5,17 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *SerializerErrorDomain;
+
+typedef NS_ENUM(NSUInteger, SerializerErrorCode) {
+    SerializerErrorNotDictionary,
+    SerializerErrorIncorrectType,
+    SerializerErrorInvalidKey
+};
+
 @interface NSError (Serialize)
 
-+ (instancetype)errorNotDictionary:(id)object;
-+ (instancetype)errorIncorrectType:(id)object;
-+ (instancetype)errorInvalidKey:(id)object;
++ (instancetype)serializerErrorNotDictionary:(id)object;
++ (instancetype)serializerErrorIncorrectType:(id)object;
++ (instancetype)serializerErrorInvalidKey:(id)object;
 @end

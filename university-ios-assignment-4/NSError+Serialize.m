@@ -6,20 +6,22 @@
 #import "NSError+Serialize.h"
 #import "Serilisable.h"
 
+NSString *SerializerErrorDomain = @"SerializerErrorDomain";
+
 static NSString *kInvalidKeyErrorFormat = @"Invalid key in key %@";
 static NSString *kIncorrectTypeErrorFormat = @"Incorrect type in object %@.";
 static NSString *kIncorrectTypeNotRectErrorFormat = @"Incorrect type in object %@. Not CGRect";
 static NSString *kNotDictionaryErrorFormat = @"Not dictionary - %@";
 
 @implementation NSError (Serialize)
-+ (instancetype)errorNotDictionary:(id)object {
++ (instancetype)serializerErrorNotDictionary:(id)object {
     NSDictionary *userInfo = @{
             NSLocalizedDescriptionKey: [NSString stringWithFormat:kNotDictionaryErrorFormat, [object class]]
     };
     return [[NSError alloc]initWithDomain:SerializerErrorDomain code:SerializerErrorNotDictionary userInfo:userInfo];
 }
 
-+ (instancetype)errorIncorrectType:(id)object {
++ (instancetype)serializerErrorIncorrectType:(id)object {
     NSDictionary *userInfo;
     if([object isKindOfClass:[NSValue class]]){
         userInfo = @{
@@ -34,7 +36,7 @@ static NSString *kNotDictionaryErrorFormat = @"Not dictionary - %@";
     return [[NSError alloc]initWithDomain:SerializerErrorDomain code:SerializerErrorIncorrectType userInfo:userInfo];
 }
 
-+ (instancetype)errorInvalidKey:(id)object {
++ (instancetype)serializerErrorInvalidKey:(id)object {
     NSDictionary *userInfo = @{
             NSLocalizedDescriptionKey: [NSString stringWithFormat:kInvalidKeyErrorFormat, object]
     };

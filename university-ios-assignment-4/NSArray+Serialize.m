@@ -23,7 +23,7 @@
             }
             [string appendFormat:@"%@, ", tmpString];
         } else {
-            *error = [NSError errorIncorrectType:self];
+            *error = [NSError serializerErrorIncorrectType:self];
             return nil;
         }
     }

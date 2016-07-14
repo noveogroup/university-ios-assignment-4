@@ -20,7 +20,7 @@
         string = [NSString stringWithFormat:@"NSRect:{{%lf, %lf}, {%lf, %lf}}", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
 
     } else{
-        *error = [NSError errorIncorrectType:self];
+        *error = [NSError serializerErrorIncorrectType:self];
         return nil;
     }
 

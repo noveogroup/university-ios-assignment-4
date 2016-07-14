@@ -30,11 +30,11 @@
                 }
                 [string appendFormat:@"%@\n", tmpString];
             } else{
-                *error = [NSError errorIncorrectType:self];
+                *error = [NSError serializerErrorIncorrectType:self];
                 return nil;
             }
         } else {
-            *error = [NSError errorInvalidKey:key];
+            *error = [NSError serializerErrorInvalidKey:key];
             return nil;
         }
     }

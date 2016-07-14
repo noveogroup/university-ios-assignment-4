@@ -16,7 +16,7 @@ int main(int argc, char * argv[]) {
         NSArray *stringArray = @[@"a", @"b", @"c"];
         NSSet *set = [[NSSet alloc] initWithArray:array];
         CGRect rect = CGRectMake(0,0,100,100);
-                CGPoint point = CGPointMake(0,0);
+//                CGPoint point = CGPointMake(0,0);
         NSDictionary *dictionary = @{
                 @"test": @"dfg",
                 @1: @{
@@ -29,8 +29,7 @@ int main(int argc, char * argv[]) {
                 @4: [NSNull null],
                 @"rect": [NSValue valueWithCGRect:rect],
 //                @"point": [NSValue valueWithCGPoint:point],
-                @5: stringArray,
-                array: @"DFG"
+                @5: stringArray
         };
         
         NSError *error;

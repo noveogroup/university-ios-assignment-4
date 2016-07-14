@@ -22,7 +22,7 @@
         }
         return string;
     } else{
-        *error = [NSError errorNotDictionary:dictionary];
+        *error = [NSError serializerErrorNotDictionary:dictionary];
         return nil;
     }
     return nil;
