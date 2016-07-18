@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *const kSerializationErrorDomain;
+
 @protocol Serializable <NSObject>
 
 typedef NS_ENUM (NSInteger, SerializationErrorCode) {
-    SerializationErrorCodeNoError = 0,
     SerializationErrorCodeContainerIsNotDictionary = 1,
     SerializationErrorCodeInvalidKeyType = 2,
     SerializationErrorCodeObjectCanNotBeSerialized = 3

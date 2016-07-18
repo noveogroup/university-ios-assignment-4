@@ -18,10 +18,10 @@
     
     for (id key in self) {
         if (!([key isKindOfClass:[NSString class]] || [key isKindOfClass:[NSNumber class]])) {
-            *error = [NSError errorWithDomain:@"ru.nsu.plotnikov.NSDictionary+Serializable"
+            *error = [NSError errorWithDomain:kSerializationErrorDomain
                                         code:SerializationErrorCodeInvalidKeyType
                                     userInfo:nil];
-            return serializationString;
+            return nil;
         }
         
         if ([[self objectForKey:key] conformsToProtocol:@protocol(Serializable)]) {
@@ -30,17 +30,15 @@
                 [serializationString appendString:tmpString];
             }
             else if (error) {
-                *error = [NSError errorWithDomain:@"ru.nsu.plotnikov.NSDictionary+Serializable"
+                *error = [NSError errorWithDomain:kSerializationErrorDomain
                                              code:SerializationErrorCodeObjectCanNotBeSerialized
                                          userInfo:nil];
-                serializationString = nil;
-                return serializationString;
+                return nil;
             }
         }
     }
 
-    return serializationString;
+    return [serializationString copy];
 }
-
 
 @end

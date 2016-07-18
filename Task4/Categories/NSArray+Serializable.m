@@ -22,14 +22,14 @@
             }
             [mutableArray addObject:tmpString];
         } else {
-            *error = [NSError errorWithDomain:@"ru.nsu.plotnikov.NSArray+Serializable"
+            *error = [NSError errorWithDomain:kSerializationErrorDomain
                                          code:SerializationErrorCodeObjectCanNotBeSerialized
                                      userInfo:nil];
             return nil;
         }
     }
     NSString *result = [mutableArray componentsJoinedByString:@", "];
-    return [NSString stringWithFormat:@"{%@}", result];
+    return [NSString stringWithFormat:@"[%@]", result];
 }
 
 

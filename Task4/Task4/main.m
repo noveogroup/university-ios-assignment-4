@@ -19,12 +19,7 @@ int main(int argc, const char * argv[]) {
         NSArray *array = @[mutableArray, value, set, [NSNull null], @(1)];
         NSArray *keys = @[@"Key MutableArray", @"Key Value", @"Key Set", @"Key Null", @"Key 1"];
         NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:array forKeys:keys];
-        
         NSLog(@"%@", [Serializer serializeContainer:dictionary error:&error]);
-        
-        if (error) {
-            NSLog(@"\nDomain: %@\nSerializationErrorCode: %ld\nUserInfo: %@\n", error.domain, (long)error.code, error.userInfo);
-        }
     }
     return 0;
 }

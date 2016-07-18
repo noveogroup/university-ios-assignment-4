@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53359911D3CF81A00898AD4 /* Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = A53359901D3CF81A00898AD4 /* Serializable.m */; };
+		A53359921D3CF81A00898AD4 /* Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = A53359901D3CF81A00898AD4 /* Serializable.m */; };
 		A54915A21D3B9C64005B0727 /* Task4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A54915A11D3B9C64005B0727 /* Task4Tests.m */; };
 		A54915AA1D3BDB0D005B0727 /* NSString+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = A54915A91D3BDB0D005B0727 /* NSString+Serializable.m */; };
 		A54915AB1D3BF47C005B0727 /* NSArray+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C85AFD1D36045B005B19BF /* NSArray+Serializable.m */; };
@@ -41,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A53359901D3CF81A00898AD4 /* Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializable.m; sourceTree = "<group>"; };
 		A549159F1D3B9C64005B0727 /* Task4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Task4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54915A11D3B9C64005B0727 /* Task4Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task4Tests.m; sourceTree = "<group>"; };
 		A54915A31D3B9C64005B0727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A5958ACE1D37CE3200D30D16 /* Serializable.h */,
+				A53359901D3CF81A00898AD4 /* Serializable.m */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 				A54915A21D3B9C64005B0727 /* Task4Tests.m in Sources */,
 				A54915B21D3BF496005B0727 /* Serializer.m in Sources */,
 				A54915AB1D3BF47C005B0727 /* NSArray+Serializable.m in Sources */,
+				A53359921D3CF81A00898AD4 /* Serializable.m in Sources */,
 				A54915AD1D3BF486005B0727 /* NSDictionary+Serializable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53359911D3CF81A00898AD4 /* Serializable.m in Sources */,
 				A5958AD41D38203800D30D16 /* NSNumber+Serializable.m in Sources */,
 				A54915AA1D3BDB0D005B0727 /* NSString+Serializable.m in Sources */,
 				A5C85B0E1D3615A6005B19BF /* main.m in Sources */,
@@ -466,6 +472,7 @@
 				A54915A61D3B9C64005B0727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5C85AF81D360415005B19BF /* Build configuration list for PBXProject "Task4" */ = {
 			isa = XCConfigurationList;

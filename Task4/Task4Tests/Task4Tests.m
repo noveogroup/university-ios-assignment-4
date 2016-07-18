@@ -45,7 +45,7 @@
 - (void)testWithWrongObject
 {
     NSError *error = nil;
-    [Serializer serializeContainer:_array error:&error];
+    XCTAssertEqualObjects([Serializer serializeContainer:_array error:&error], nil);
     if (error) {
         NSLog(@"\nDomain: %@\nSerializationErrorCode: %ld\nUserInfo: %@\n", error.domain, (long)error.code, error.userInfo);
     }
@@ -56,8 +56,7 @@
     _keys = @[@"Key MutableArray", _value, @"Key Set", @"Key Null", @"Key 1"];
     _dictionary = [NSDictionary dictionaryWithObjects:_array forKeys:_keys];
     NSError *error = nil;
-    [Serializer serializeContainer:_dictionary error:&error];
-    
+    XCTAssertEqualObjects([Serializer serializeContainer:_dictionary error:&error], nil);
     if (error) {
         NSLog(@"\nDomain: %@\nSerializationErrorCode: %ld\nUserInfo: %@\n", error.domain, (long)error.code, error.userInfo);
     }
@@ -70,8 +69,7 @@
     _keys = @[@"Key MutableArray", @"Key Value", @"Key Set", @"Key Null", @"Key 1"];
     _dictionary = [NSDictionary dictionaryWithObjects:_array forKeys:_keys];
     NSError *error = nil;
-    [Serializer serializeContainer:_dictionary error:&error];
-    
+    XCTAssertEqualObjects([Serializer serializeContainer:_dictionary error:&error], nil);
     if (error) {
         NSLog(@"\nDomain: %@\nSerializationErrorCode: %ld\nUserInfo: %@\n", error.domain, (long)error.code, error.userInfo);
     }

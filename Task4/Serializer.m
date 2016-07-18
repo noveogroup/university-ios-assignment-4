@@ -18,7 +18,7 @@
     if ([container isKindOfClass: NSDictionary.class]) {
         serializationString = [container serialize:error];
     } else {
-        *error = [NSError errorWithDomain:@"ru.nsu.plotnikov.Serializer"
+        *error = [NSError errorWithDomain:kSerializationErrorDomain
                                     code:SerializationErrorCodeContainerIsNotDictionary
                                 userInfo:nil];
         return nil;

@@ -18,18 +18,19 @@
 
 - (NSString *)serialize:(NSError *__autoreleasing *)error
 {
-    NSString *tmpString = [self description];
-    NSRange range = [tmpString rangeOfString:@"NSRect: "];
-    if (range.location == NSNotFound) {
+    if (strcmp(self.objCType, @encode(NSRect))) {
+        
         if (error) {
-            *error = [NSError errorWithDomain:@"ru.nsu.plotnikov.NSValue+Serializable"
+            *error = [NSError errorWithDomain:kSerializationErrorDomain
                                          code:SerializationErrorCodeObjectCanNotBeSerialized
                                      userInfo:nil];
+            return nil;
         }
-        return nil;
+        
     }
+    NSString *tmpString = [self description];
     return [NSString stringWithFormat:@"%@",
-        [tmpString substringFromIndex:[@"NSRect: " length]]];
+            [tmpString substringFromIndex:[@"NSRect: " length]]];
 }
 
 @end
