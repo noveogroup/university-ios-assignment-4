@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84A34659197FAAC40039A39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A34658197FAAC40039A39F /* Foundation.framework */; };
+		84A3465B197FAAC40039A39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A3465A197FAAC40039A39F /* CoreGraphics.framework */; };
+		84A3465D197FAAC40039A39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A3465C197FAAC40039A39F /* UIKit.framework */; };
+		84A34663197FAAC40039A39F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A34661197FAAC40039A39F /* InfoPlist.strings */; };
+		84A34665197FAAC40039A39F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A34664197FAAC40039A39F /* main.m */; };
+		84A34669197FAAC40039A39F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A34668197FAAC40039A39F /* AppDelegate.m */; };
+		84A3466B197FAAC40039A39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A3466A197FAAC40039A39F /* Images.xcassets */; };
+		84A34672197FAAC40039A39F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A34671197FAAC40039A39F /* XCTest.framework */; };
+		84A34673197FAAC40039A39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A34658197FAAC40039A39F /* Foundation.framework */; };
+		84A34674197FAAC40039A39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A3465C197FAAC40039A39F /* UIKit.framework */; };
+		84A3467C197FAAC40039A39F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A3467A197FAAC40039A39F /* InfoPlist.strings */; };
+		84A3467E197FAAC40039A39F /* SerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3467D197FAAC40039A39F /* SerializerTests.m */; };
+		84A34689197FABC90039A39F /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A34688197FABC90039A39F /* Serializer.m */; };
+		84A3468D19826B4B0039A39F /* NSDictionary+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */; };
+		84A3A86219863617003594C7 /* SerializationError.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A86119863617003594C7 /* SerializationError.m */; };
+		84A3A86519864F3E003594C7 /* NSArray+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A86419864F3E003594C7 /* NSArray+Serializable.m */; };
+		84A3A8681986505A003594C7 /* NSNull+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A8671986505A003594C7 /* NSNull+Serializable.m */; };
+		84A3A86E19865157003594C7 /* NSSet+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A86D19865157003594C7 /* NSSet+Serializable.m */; };
+		84A3A871198651A7003594C7 /* NSNumber+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A870198651A7003594C7 /* NSNumber+Serializable.m */; };
+		84A3A87419865323003594C7 /* NSValue+Serializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3A87319865323003594C7 /* NSValue+Serializable.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84A34675197FAAC40039A39F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A3464D197FAAC40039A39F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84A34654197FAAC40039A39F;
+			remoteInfo = Serializer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84A34655197FAAC40039A39F /* Serializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A34658197FAAC40039A39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84A3465A197FAAC40039A39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84A3465C197FAAC40039A39F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84A34660197FAAC40039A39F /* Serializer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Serializer-Info.plist"; sourceTree = "<group>"; };
+		84A34662197FAAC40039A39F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A34664197FAAC40039A39F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84A34666197FAAC40039A39F /* Serializer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Serializer-Prefix.pch"; sourceTree = "<group>"; };
+		84A34667197FAAC40039A39F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84A34668197FAAC40039A39F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84A3466A197FAAC40039A39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84A34670197FAAC40039A39F /* SerializerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SerializerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A34671197FAAC40039A39F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		84A34679197FAAC40039A39F /* SerializerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SerializerTests-Info.plist"; sourceTree = "<group>"; };
+		84A3467B197FAAC40039A39F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A3467D197FAAC40039A39F /* SerializerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SerializerTests.m; sourceTree = "<group>"; };
+		84A34687197FABC90039A39F /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
+		84A34688197FABC90039A39F /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serializer.m; sourceTree = "<group>"; };
+		84A3468A19826AB80039A39F /* Serializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
+		84A3468B19826B4B0039A39F /* NSDictionary+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Serializable.h"; sourceTree = "<group>"; };
+		84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86019863617003594C7 /* SerializationError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializationError.h; sourceTree = "<group>"; };
+		84A3A86119863617003594C7 /* SerializationError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerializationError.m; sourceTree = "<group>"; };
+		84A3A86319864F3E003594C7 /* NSArray+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Serializable.h"; sourceTree = "<group>"; };
+		84A3A86419864F3E003594C7 /* NSArray+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Serializable.m"; sourceTree = "<group>"; };
+		84A3A8661986505A003594C7 /* NSNull+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Serializable.h"; sourceTree = "<group>"; };
+		84A3A8671986505A003594C7 /* NSNull+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86C19865157003594C7 /* NSSet+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Serializable.h"; sourceTree = "<group>"; };
+		84A3A86D19865157003594C7 /* NSSet+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Serializable.m"; sourceTree = "<group>"; };
+		84A3A86F198651A7003594C7 /* NSNumber+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Serializable.h"; sourceTree = "<group>"; };
+		84A3A870198651A7003594C7 /* NSNumber+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Serializable.m"; sourceTree = "<group>"; };
+		84A3A87219865323003594C7 /* NSValue+Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Serializable.h"; sourceTree = "<group>"; };
+		84A3A87319865323003594C7 /* NSValue+Serializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Serializable.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84A34652197FAAC40039A39F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A3465B197FAAC40039A39F /* CoreGraphics.framework in Frameworks */,
+				84A3465D197FAAC40039A39F /* UIKit.framework in Frameworks */,
+				84A34659197FAAC40039A39F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A3466D197FAAC40039A39F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A34672197FAAC40039A39F /* XCTest.framework in Frameworks */,
+				84A34674197FAAC40039A39F /* UIKit.framework in Frameworks */,
+				84A34673197FAAC40039A39F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84A3464C197FAAC40039A39F = {
+			isa = PBXGroup;
+			children = (
+				84A3465E197FAAC40039A39F /* Serializer */,
+				84A34677197FAAC40039A39F /* SerializerTests */,
+				84A34657197FAAC40039A39F /* Frameworks */,
+				84A34656197FAAC40039A39F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84A34656197FAAC40039A39F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84A34655197FAAC40039A39F /* Serializer.app */,
+				84A34670197FAAC40039A39F /* SerializerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84A34657197FAAC40039A39F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A34658197FAAC40039A39F /* Foundation.framework */,
+				84A3465A197FAAC40039A39F /* CoreGraphics.framework */,
+				84A3465C197FAAC40039A39F /* UIKit.framework */,
+				84A34671197FAAC40039A39F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84A3465E197FAAC40039A39F /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				84A34667197FAAC40039A39F /* AppDelegate.h */,
+				84A34668197FAAC40039A39F /* AppDelegate.m */,
+				84A3466A197FAAC40039A39F /* Images.xcassets */,
+				84A34687197FABC90039A39F /* Serializer.h */,
+				84A34688197FABC90039A39F /* Serializer.m */,
+				84A3468A19826AB80039A39F /* Serializable.h */,
+				84A3468B19826B4B0039A39F /* NSDictionary+Serializable.h */,
+				84A3468C19826B4B0039A39F /* NSDictionary+Serializable.m */,
+				84A3A86319864F3E003594C7 /* NSArray+Serializable.h */,
+				84A3A86419864F3E003594C7 /* NSArray+Serializable.m */,
+				84A3A8661986505A003594C7 /* NSNull+Serializable.h */,
+				84A3A8671986505A003594C7 /* NSNull+Serializable.m */,
+				84A3A86C19865157003594C7 /* NSSet+Serializable.h */,
+				84A3A86D19865157003594C7 /* NSSet+Serializable.m */,
+				84A3A86F198651A7003594C7 /* NSNumber+Serializable.h */,
+				84A3A870198651A7003594C7 /* NSNumber+Serializable.m */,
+				84A3A87219865323003594C7 /* NSValue+Serializable.h */,
+				84A3A87319865323003594C7 /* NSValue+Serializable.m */,
+				84A3465F197FAAC40039A39F /* Supporting Files */,
+				84A3A86019863617003594C7 /* SerializationError.h */,
+				84A3A86119863617003594C7 /* SerializationError.m */,
+			);
+			path = Serializer;
+			sourceTree = "<group>";
+		};
+		84A3465F197FAAC40039A39F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A34660197FAAC40039A39F /* Serializer-Info.plist */,
+				84A34661197FAAC40039A39F /* InfoPlist.strings */,
+				84A34664197FAAC40039A39F /* main.m */,
+				84A34666197FAAC40039A39F /* Serializer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A34677197FAAC40039A39F /* SerializerTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A3467D197FAAC40039A39F /* SerializerTests.m */,
+				84A34678197FAAC40039A39F /* Supporting Files */,
+			);
+			path = SerializerTests;
+			sourceTree = "<group>";
+		};
+		84A34678197FAAC40039A39F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A34679197FAAC40039A39F /* SerializerTests-Info.plist */,
+				84A3467A197FAAC40039A39F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84A34654197FAAC40039A39F /* Serializer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A34681197FAAC40039A39F /* Build configuration list for PBXNativeTarget "Serializer" */;
+			buildPhases = (
+				84A34651197FAAC40039A39F /* Sources */,
+				84A34652197FAAC40039A39F /* Frameworks */,
+				84A34653197FAAC40039A39F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Serializer;
+			productName = Serializer;
+			productReference = 84A34655197FAAC40039A39F /* Serializer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84A3466F197FAAC40039A39F /* SerializerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A34684197FAAC40039A39F /* Build configuration list for PBXNativeTarget "SerializerTests" */;
+			buildPhases = (
+				84A3466C197FAAC40039A39F /* Sources */,
+				84A3466D197FAAC40039A39F /* Frameworks */,
+				84A3466E197FAAC40039A39F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84A34676197FAAC40039A39F /* PBXTargetDependency */,
+			);
+			name = SerializerTests;
+			productName = SerializerTests;
+			productReference = 84A34670197FAAC40039A39F /* SerializerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84A3464D197FAAC40039A39F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Noveo Summer Internship";
+				TargetAttributes = {
+					84A3466F197FAAC40039A39F = {
+						TestTargetID = 84A34654197FAAC40039A39F;
+					};
+				};
+			};
+			buildConfigurationList = 84A34650197FAAC40039A39F /* Build configuration list for PBXProject "Serializer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84A3464C197FAAC40039A39F;
+			productRefGroup = 84A34656197FAAC40039A39F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84A34654197FAAC40039A39F /* Serializer */,
+				84A3466F197FAAC40039A39F /* SerializerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84A34653197FAAC40039A39F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A34663197FAAC40039A39F /* InfoPlist.strings in Resources */,
+				84A3466B197FAAC40039A39F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A3466E197FAAC40039A39F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A3467C197FAAC40039A39F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84A34651197FAAC40039A39F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A34689197FABC90039A39F /* Serializer.m in Sources */,
+				84A34669197FAAC40039A39F /* AppDelegate.m in Sources */,
+				84A3A8681986505A003594C7 /* NSNull+Serializable.m in Sources */,
+				84A34665197FAAC40039A39F /* main.m in Sources */,
+				84A3A86219863617003594C7 /* SerializationError.m in Sources */,
+				84A3A87419865323003594C7 /* NSValue+Serializable.m in Sources */,
+				84A3A871198651A7003594C7 /* NSNumber+Serializable.m in Sources */,
+				84A3468D19826B4B0039A39F /* NSDictionary+Serializable.m in Sources */,
+				84A3A86E19865157003594C7 /* NSSet+Serializable.m in Sources */,
+				84A3A86519864F3E003594C7 /* NSArray+Serializable.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A3466C197FAAC40039A39F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A3467E197FAAC40039A39F /* SerializerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84A34676197FAAC40039A39F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84A34654197FAAC40039A39F /* Serializer */;
+			targetProxy = 84A34675197FAAC40039A39F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84A34661197FAAC40039A39F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A34662197FAAC40039A39F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84A3467A197FAAC40039A39F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A3467B197FAAC40039A39F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84A3467F197FAAC40039A39F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84A34680197FAAC40039A39F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84A34682197FAAC40039A39F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Serializer/Serializer-Prefix.pch";
+				INFOPLIST_FILE = "Serializer/Serializer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84A34683197FAAC40039A39F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Serializer/Serializer-Prefix.pch";
+				INFOPLIST_FILE = "Serializer/Serializer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		84A34685197FAAC40039A39F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Serializer.app/Serializer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Serializer/Serializer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SerializerTests/SerializerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		84A34686197FAAC40039A39F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Serializer.app/Serializer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Serializer/Serializer-Prefix.pch";
+				INFOPLIST_FILE = "SerializerTests/SerializerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84A34650197FAAC40039A39F /* Build configuration list for PBXProject "Serializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A3467F197FAAC40039A39F /* Debug */,
+				84A34680197FAAC40039A39F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84A34681197FAAC40039A39F /* Build configuration list for PBXNativeTarget "Serializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A34682197FAAC40039A39F /* Debug */,
+				84A34683197FAAC40039A39F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84A34684197FAAC40039A39F /* Build configuration list for PBXNativeTarget "SerializerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A34685197FAAC40039A39F /* Debug */,
+				84A34686197FAAC40039A39F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84A3464D197FAAC40039A39F /* Project object */;
+}
